@@ -44,6 +44,10 @@ import models.ModelProductosDefectuosos;
 import views.ViewProductosDefectuosos;
 import controllers.ControllerProductosDefectuosos;
 
+import models.ModelPromocionesDescuentos;
+import views.ViewPromocionesDescuentos;
+import controllers.ControllerPromocionesDescuentos;
+
 import models.ModelProveedores;
 import views.ViewProveedores;
 import controllers.ControllerProveedores;
@@ -111,6 +115,10 @@ public class Main {
         ViewProductosDefectuosos viewProductosDefectuosos = new ViewProductosDefectuosos();
         ControllerProductosDefectuosos controllerProductosDefectuosos = new ControllerProductosDefectuosos(modelProductosDefectuosos, viewProductosDefectuosos);
         
+        ModelPromocionesDescuentos modelPromocionesDescuentos = new ModelPromocionesDescuentos();
+        ViewPromocionesDescuentos viewPromocionesDescuentos = new ViewPromocionesDescuentos();
+        ControllerPromocionesDescuentos controllerPromocionesDescuentos = new ControllerPromocionesDescuentos(modelPromocionesDescuentos, viewPromocionesDescuentos);
+        
         ModelProveedores modelProveedores = new ModelProveedores();
         ViewProveedores viewProveedores = new ViewProveedores();
         ControllerProveedores controllerProveedores = new ControllerProveedores(modelProveedores, viewProveedores);
@@ -139,10 +147,11 @@ public class Main {
         controllers[7] = controllerInicioSesion;
         controllers[8] = controllerProductos;
         controllers[9] = controllerProductosDefectuosos;
-        controllers[10] = controllerProveedores;
-        controllers[11] = controllerReportes;
-        controllers[12] = controllerSucursales;
-        controllers[13] = controllerVentas;
+        controllers[10] = controllerPromocionesDescuentos;
+        controllers[11] = controllerProveedores;
+        controllers[12] = controllerReportes;
+        controllers[13] = controllerSucursales;
+        controllers[14] = controllerVentas;
         
         ModelMain modelMain = new ModelMain();
         ViewMain viewMain = new ViewMain();
