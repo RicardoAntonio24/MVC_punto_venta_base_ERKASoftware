@@ -183,7 +183,6 @@ public class ModelClientes {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/ferreteria_acme", "root", "");
             st = conexion.createStatement();
             String sql = "SELECT * FROM clientes;";
-            System.out.println(sql); // Prueba...
             rs = st.executeQuery(sql);
             rs.next();
             setValues();

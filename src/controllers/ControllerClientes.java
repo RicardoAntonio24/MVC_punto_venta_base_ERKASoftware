@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
  */
 public class ControllerClientes {
 
-    public ModelClientes modelClientes;
-    public ViewClientes viewClientes;
+    ModelClientes modelClientes;
+    ViewClientes viewClientes;
 
     /**
      * Objeto de tipo ActionListener para atrapar los eventos actionPerformed y
@@ -59,6 +59,7 @@ public class ControllerClientes {
         this.viewClientes = viewClientes;
         setActionListener();
         initDB();
+        initComponents();
     }
     
     /**
@@ -87,6 +88,15 @@ public class ControllerClientes {
         viewClientes.jtf_apellidopatrepresentante.setText(modelClientes.getAp_pat_representante());
         viewClientes.jtf_apellidomatrepresentante.setText(modelClientes.getAp_mat_representante());
         viewClientes.jtf_telefonorepresentante.setText(modelClientes.getTelefono_representante());
+    }
+    
+    /**
+     * Metodo para inicializar la ViewClientes
+     */
+    public void initComponents() {
+        viewClientes.setLocationRelativeTo(null);
+        viewClientes.setTitle("Clientes ACME");
+        viewClientes.setVisible(true);
     }
     
     /**
@@ -136,7 +146,6 @@ public class ControllerClientes {
      * Método para ver el primer registro de la tabla clientes
      */
     private void jb_primero_actionPerformed() {
-        System.out.print("Botón Primer Registro"); // Prueba...
         modelClientes.moverPrimerRegistro();
         setValues();
     }
@@ -145,7 +154,6 @@ public class ControllerClientes {
      * Método para ver el registro anterior de la tabla clientes.
      */
     private void jb_anterior_actionPerformed() {
-        System.out.print("Botón Anterior Registro"); // Prueba...
         modelClientes.moverAnteriorRegistro();
         setValues();
     }
@@ -154,7 +162,6 @@ public class ControllerClientes {
      * Método para ver el siguiente registro de la tabla clientes.
      */
     private void jb_siguiente_actionPerformed() {
-        System.out.print("Botón Siguiente Registro"); // Prueba...
         modelClientes.moverSiguienteRegistro();
         setValues();
     }
@@ -163,7 +170,6 @@ public class ControllerClientes {
      * Método para ver el último registro de la tabla clientes.
      */
     private void jb_ultimo_actionPerformed() {
-        System.out.print("Botón Último Registro"); // Prueba...
         modelClientes.moverUltimoRegistro();
         setValues();
     }
