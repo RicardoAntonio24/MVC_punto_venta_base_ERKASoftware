@@ -30,22 +30,25 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jb_eliminar" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jb_eliminar" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jb_eliminar">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -70,8 +73,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jtf_apellidopateno" max="32767" attributes="0"/>
-                      <Component id="jtf_idusuario" max="32767" attributes="0"/>
+                      <Component id="jtf_apellidopaterno" max="32767" attributes="0"/>
+                      <Component id="jtf_idcliente" max="32767" attributes="0"/>
                       <Component id="jcb_tipocliente" pref="161" max="32767" attributes="0"/>
                       <Component id="jtf_rfc" max="32767" attributes="0"/>
                       <Component id="jtf_nombre" max="32767" attributes="0"/>
@@ -82,50 +85,55 @@
                       <Component id="jtf_colonia" max="32767" attributes="0"/>
                       <Component id="jtf_codigopostal" max="32767" attributes="0"/>
                       <Component id="jtf_ciudad" max="32767" attributes="0"/>
-                      <Component id="jtf_estado" max="32767" attributes="0"/>
+                      <Component id="jtf_estado" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jl_nombrerepresentante" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jl_apellidopatrepresentante" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jl_apellidomatrepresentante" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jtf_apellidopatrepresentante" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtf_apellidomatrepresentante" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtf_nombrerepresentante" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jb_insertar" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jb_primero" min="-2" pref="64" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jb_anterior" min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jb_nuevo" min="-2" pref="76" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="jb_siguiente" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jb_modificar" alignment="1" pref="75" max="32767" attributes="0"/>
+                                      <Component id="jb_eliminar" alignment="1" pref="75" max="32767" attributes="0"/>
+                                      <Component id="jb_ultimo" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jl_telefonorepresentante" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jtf_telefonorepresentante" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jl_nombrerepresentante" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jl_apellidopatrepresentante" min="-2" max="-2" attributes="0"/>
-                              <Component id="jl_apellidomatrepresentante" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jtf_apellidopatrepresentante" alignment="0" max="32767" attributes="0"/>
-                              <Component id="apellidomatrepresentante" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jtf_nombrerepresentante" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jb_insertar" min="-2" pref="76" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jb_primero" min="-2" pref="64" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jb_anterior" min="-2" pref="62" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jb_nuevo" min="-2" pref="76" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jb_siguiente" min="-2" pref="64" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jb_modificar" alignment="1" pref="75" max="32767" attributes="0"/>
-                              <Component id="jButton5" alignment="1" pref="75" max="32767" attributes="0"/>
-                              <Component id="jb_ultimo" alignment="1" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -136,7 +144,7 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_idcliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtf_idusuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtf_idcliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -161,7 +169,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtf_apellidopateno" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_apellidopaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jl_apellidopaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -193,7 +201,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="apellidomatrepresentante" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_apellidomatrepresentante" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jl_apellidomatrepresentante" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -208,7 +216,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="jb_eliminar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jb_insertar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -230,7 +238,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jl_estado" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtf_estado" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtf_estado" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
               </Group>
@@ -302,10 +310,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ID_cliente:"/>
+            <Property name="text" type="java.lang.String" value="ID del cliente:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtf_idusuario">
+        <Component class="javax.swing.JTextField" name="jtf_idcliente">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_tipocliente">
           <Properties>
@@ -443,39 +454,65 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="PersonaFisica"/>
-                <StringItem index="1" value="PesonaMoral"/>
+                <StringItem index="0" value="Persona Fisica"/>
+                <StringItem index="1" value="Pesona Moral"/>
               </StringArray>
             </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_rfc">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_nombre">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtf_apellidopateno">
+        <Component class="javax.swing.JTextField" name="jtf_apellidopaterno">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_apellidomaterno">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_telefono">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_correoelectronico">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_calle">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_colonia">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_codigopostal">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_ciudad">
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtf_estado">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_estadoActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_nombrerepresentante">
           <Properties>
@@ -489,6 +526,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_nombrerepresentante">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_apellidopatrepresentante">
           <Properties>
@@ -513,8 +553,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_apellidopatrepresentante">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="apellidomatrepresentante">
+        <Component class="javax.swing.JTextField" name="jtf_apellidomatrepresentante">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_telefonorepresentante">
           <Properties>
@@ -526,11 +572,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Telefono Representante:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtf_telefonorepresentante">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telefonorepresentanteActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jb_nuevo">
           <Properties>
@@ -552,6 +593,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_modificar">
           <Properties>
@@ -573,6 +617,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_insertar">
           <Properties>
@@ -594,8 +641,11 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="jb_eliminar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
@@ -615,6 +665,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_primero">
           <Properties>
@@ -629,6 +682,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="|&lt;"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_anterior">
           <Properties>
@@ -643,6 +699,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_siguiente">
           <Properties>
@@ -657,6 +716,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_ultimo">
           <Properties>
@@ -671,6 +733,19 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&gt;|"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtf_telefonorepresentante">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtf_estado">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

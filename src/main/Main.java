@@ -136,7 +136,7 @@ public class Main {
         ControllerVentas controllerVentas = new ControllerVentas(modelVentas, viewVentas);
         
         
-        Object[] controllers = new Object[14];
+        Object[] controllers = new Object[15];
         controllers[0] = controllerAdministradores;
         controllers[1] = controllerClientes;
         controllers[2] = controllerCompras;
