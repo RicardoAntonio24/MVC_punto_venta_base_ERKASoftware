@@ -255,9 +255,9 @@ public class ModelClientes {
     }
 
     /**
-     * Método que realiza las siguiente acciones:
-     * 1.- Moverse al anterior registro
-     * 2.- obtener los valores de los campos de rs y guardarlos en las variables definidas...
+     * Método que realiza las siguiente acciones: 1.- Moverse al anterior
+     * registro 2.- obtener los valores de los campos de rs y guardarlos en las
+     * variables definidas...
      */
     public void moverAnteriorRegistro() {
         try {
@@ -289,15 +289,15 @@ public class ModelClientes {
     }
 
     /**
-     * Método que realiza las siguiente acciones:
-     * 1.- Moverse al siguiente registro
-     * 2.- obtener los valores de los campos de rs y guardarlos en las variables definidas...
+     * Método que realiza las siguiente acciones: 1.- Moverse al siguiente
+     * registro 2.- obtener los valores de los campos de rs y guardarlos en las
+     * variables definidas...
      */
     public void moverSiguienteRegistro() {
-        try{
-            if(rs.isLast()==false) {
+        try {
+            if (rs.isLast() == false) {
                 rs.next(); // Siguiente registro 
-                
+
                 id_cliente = rs.getInt("id_cliente");
                 tipo_cliente = rs.getString("tipo_cliente");
                 rfc = rs.getString("rfc_cliente");
@@ -317,15 +317,15 @@ public class ModelClientes {
                 ap_mat_representante = rs.getString("apellido_mat_representante");
                 telefono_representante = rs.getString("telefono_representante");
             }
-        } catch(Exception err) {
-            JOptionPane.showMessageDialog(null,"Error " + err.getMessage());
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
         }
     }
-    
+
     /**
-     * Método que realiza las siguiente acciones:
-     * 1.- Moverse al ultimo registro
-     * 2.- obtener los valores de los campos de rs y guardarlos en las variables definidas...
+     * Método que realiza las siguiente acciones: 1.- Moverse al ultimo registro
+     * 2.- obtener los valores de los campos de rs y guardarlos en las variables
+     * definidas...
      */
     public void moverUltimoRegistro() {
         try {
@@ -357,45 +357,83 @@ public class ModelClientes {
     }
 
     
-//    /**
-//     * Método que realiza las siguiente acciones:
-//     *  - Crea un nuevo registro y lo almacena en la base de datos.
-//     */
-//    public void insertarRegistro() {
-//        try {
-//            nombre = this.getNombre();
-//            email = this.getEmail();
-//            telefono = this.getTelefono();
-//            st.executeUpdate("INSERT INTO contactos (nombre, email, telefono)" + " VALUES ('"+ nombre +"','"+ email +"', '"+ telefono +"');");
-//            JOptionPane.showMessageDialog(null, "Registro guardado.");
-//            this.conectarDB();
-//            this.moverUltimoRegistro();
-//        }
-//        catch(SQLException err) { 
-//            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
-//        }
-//    }
-//    
-//    /**
-//     * Método que realiza las siguiente acciones:
-//     *  - Guarda los cambios realizados a un registro seleccionado.
-//     */
-//    public void modificarRegistro() {
-//        try {
-//            id = rs.getInt("id_contacto");
-//            nombre = this.getNombre();
-//            email = this.getEmail();
-//            telefono = this.getTelefono();
-//            st.executeUpdate("UPDATE contactos SET nombre = '"+ nombre +"', email = '"+ email +"', telefono = '"+ telefono +"' WHERE id_contacto = "+ id +"; ");
-//            JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
-//            this.conectarDB();
-//            this.moverUltimoRegistro();
-//        }
-//        catch(SQLException err) { 
-//            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
-//        }
-//    }
-//    
+    /**
+     * Método que realiza las siguiente acciones: - Crea un nuevo registro y lo
+     * almacena en la base de datos.
+     */
+    public void insertarRegistro() {
+        try {
+            tipo_cliente = this.getTipo_cliente(); // Obtiene los valores actuales de las variables. (16)
+            rfc = this.getRfc();
+            nombre = this.getNombre();
+            apellido_pat = this.getApellido_pat();
+            apellido_mat = this.getApellido_mat();
+            telefono = this.getTelefono();
+            correo = this.getCorreo();
+            calle = this.getCalle();
+            colonia = this.getColonia();
+            cod_postal = this.getCod_postal();
+            ciudad = this.getCiudad();
+            estado = this.getEstado();
+            nom_representante = this.getNom_representante();
+            ap_pat_representante = this.getAp_pat_representante();
+            ap_mat_representante = this.getAp_mat_representante();
+            telefono_representante = this.getTelefono_representante();
+            
+            st.executeUpdate("INSERT INTO clientes (tipo_cliente, rfc_cliente, nombre_cliente, apellido_pat_cliente, apellido_mat_cliente, telefono_cliente, correo_cliente, calle_numero_cliente, colonia_cliente, cod_postal_cliente, ciudad_cliente, estado_cliente, nombre_representante, apellido_pat_representante, apellido_mat_representante, telefono_representante)"
+                    + " VALUES ('" + tipo_cliente + "','" + rfc + "', '" + nombre + "', '" + apellido_pat + "', '" + apellido_mat + "', '" + telefono + "', '" + correo + "', '" + calle + "', '" + colonia + "', '" + cod_postal + "', '" + ciudad + "', '" + estado + "', '" + nom_representante + "', '" + ap_pat_representante + "', '" + ap_mat_representante + "', '" + telefono_representante + "'); ");
+            JOptionPane.showMessageDialog(null, "Registro guardado.");
+            this.conectarDB();
+            this.moverUltimoRegistro();
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
+        }
+    }
+
+    /**
+     * Método que realiza las siguiente acciones:
+     *  - Guarda (actualiza) los cambios realizados a un registro seleccionado.
+     */
+    public void modificarRegistro() {
+        try {
+            id_cliente = rs.getInt("id_cliente"); // Obtiene el id del registro seleccionado.
+            tipo_cliente = this.getTipo_cliente(); // Obtiene los valores actuales de las variables. (16)
+            rfc = this.getRfc();
+            nombre = this.getNombre();
+            apellido_pat = this.getApellido_pat();
+            apellido_mat = this.getApellido_mat();
+            telefono = this.getTelefono();
+            correo = this.getCorreo();
+            calle = this.getCalle();
+            colonia = this.getColonia();
+            cod_postal = this.getCod_postal();
+            ciudad = this.getCiudad();
+            estado = this.getEstado();
+            nom_representante = this.getNom_representante();
+            ap_pat_representante = this.getAp_pat_representante();
+            ap_mat_representante = this.getAp_mat_representante();
+            telefono_representante = this.getTelefono_representante();
+            
+            st.executeUpdate("UPDATE clientes SET tipo_cliente = '"+ tipo_cliente +"', rfc_cliente = '"+ rfc +"', "
+                    + "nombre_cliente = '"+ nombre +"', apellido_pat_cliente = '"+ apellido_pat +"', "
+                        + "apellido_mat_cliente = '"+ apellido_mat +"', telefono_cliente = '"+ telefono +"', "
+                            + "correo_cliente = '"+ correo +"', calle_numero_cliente = '"+ calle +"', "
+                                + "colonia_cliente = '"+ colonia +"', cod_postal_cliente = '"+ cod_postal +"', "
+                                    + "ciudad_cliente = '"+ ciudad +"', estado_cliente = '"+ estado +"', "
+                                        + "nombre_representante = '"+ nom_representante +"', "
+                                            + "apellido_pat_representante = '"+ ap_pat_representante +"', "
+                                                + "apellido_mat_representante = '"+ ap_mat_representante +"', "
+                                                    + "telefono_representante = '"+ telefono_representante +"' "
+                                                        + "WHERE id_cliente = "+ id_cliente +"; ");
+            JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
+            this.conectarDB();
+            this.moverUltimoRegistro();
+        }
+        catch(SQLException err) { 
+            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+        }
+    }
+    
 //    /**
 //     * Método que realiza las siguiente acciones:
 //     *  - Muestra un mensaje preguntando si el usuario desea borrar el registro. S
@@ -420,6 +458,5 @@ public class ModelClientes {
 //            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
 //        }
 //    }
-    
     
 } // Cierre de la clase ModelClientes.

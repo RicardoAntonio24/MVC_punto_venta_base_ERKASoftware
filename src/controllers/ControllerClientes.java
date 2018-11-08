@@ -35,13 +35,13 @@ public class ControllerClientes {
                 jb_ultimo_actionPerformed();
             }
             else if (e.getSource() == viewClientes.jb_nuevo) {
-//                jb_nuevo_actionPerformed();
+                jb_nuevo_actionPerformed();
             }
             else if (e.getSource() == viewClientes.jb_insertar) {
-//                jb_insertar_actionPerformed();
+                jb_insertar_actionPerformed();
             }
             else if (e.getSource() == viewClientes.jb_modificar) {
-//                jb_modificar_actionPerformed();
+                jb_modificar_actionPerformed();
             }
             else if (e.getSource() == viewClientes.jb_eliminar) {
 //                jb_eliminar_actionPerformed();
@@ -175,35 +175,76 @@ public class ControllerClientes {
     }
     
     
-//    /**
-//     * Método para preparar los campos de texto para un nuevo registro.
-//     */
-//    private void jbtn_nuevo_actionPerformed() {
-//        viewAgenda.jtf_nombre.setText(""); // Limpia los campos de texto de la vista. (3)
-//        viewAgenda.jtf_email.setText("");
-//        viewAgenda.jtf_telefono.setText("");
-//    }
-//    
-//    /**
-//     * Método para insertar (guardar) un registro nuevo en la tabla contactos.
-//     */
-//    private void jbtn_insertar_actionPerformed() {
-//        modelAgenda.setNombre(viewAgenda.jtf_nombre.getText()); // Asigna el valor de "Nombre" de la vista a la variable.
-//        modelAgenda.setEmail(viewAgenda.jtf_email.getText()); // Asigna el valor de "e-mail" de la vista a la variable.
-//        modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText()); // Asigna el valor de "telefono" de la vista a la variable.
-//        modelAgenda.insertarRegistro(); // Invoca al método para Guardar o Insertar un nuevo registro.
-//    }
-//    
-//    /**
-//     * Método para modificar (actualizar) un registro de la tabla contactos.
-//     */
-//    private void jbtn_modificar_actionPerformed() {
-//        modelAgenda.setNombre(viewAgenda.jtf_nombre.getText()); // Asigna el nuevo valor de "Nombre" de la vista a la variable.
-//        modelAgenda.setEmail(viewAgenda.jtf_email.getText()); // Asigna el nuevo valor de "e-mail" de la vista a la variable.
-//        modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText()); // Asigna el valor de "telefono" de la vista a la variable.
-//        modelAgenda.modificarRegistro(); // Invoca al método para Modificar (actualizar) un registro.
-//    }
-//    
+    /**
+     * Método para preparar los campos de texto para un nuevo registro.
+     */
+    private void jb_nuevo_actionPerformed() {
+        viewClientes.jcb_tipocliente.setSelectedIndex(0);
+        viewClientes.jtf_rfc.setText(""); // Limpia los campos de texto de la vista. (15)
+        viewClientes.jtf_nombre.setText("");
+        viewClientes.jtf_apellidopaterno.setText("");
+        viewClientes.jtf_apellidomaterno.setText("");
+        viewClientes.jtf_telefono.setText("");
+        viewClientes.jtf_correoelectronico.setText("");
+        viewClientes.jtf_calle.setText("");
+        viewClientes.jtf_colonia.setText("");
+        viewClientes.jtf_codigopostal.setText("");
+        viewClientes.jtf_ciudad.setText("");
+        viewClientes.jtf_estado.setText("");
+        viewClientes.jtf_nombrerepresentante.setText("");
+        viewClientes.jtf_apellidopatrepresentante.setText("");
+        viewClientes.jtf_apellidomatrepresentante.setText("");
+        viewClientes.jtf_telefonorepresentante.setText("");
+    }
+    
+    /**
+     * Método para insertar (guardar) un registro nuevo en la tabla clientes.
+     */
+    private void jb_insertar_actionPerformed() {
+        modelClientes.setTipo_cliente((String) viewClientes.jcb_tipocliente.getSelectedItem()); // Asigna los valores introducidos en la vista a las variables del modelo. (16)
+        modelClientes.setRfc(viewClientes.jtf_rfc.getText());
+        modelClientes.setNombre(viewClientes.jtf_nombre.getText());
+        modelClientes.setApellido_pat(viewClientes.jtf_apellidopaterno.getText());
+        modelClientes.setApellido_mat(viewClientes.jtf_apellidomaterno.getText());
+        modelClientes.setTelefono(viewClientes.jtf_telefono.getText());
+        modelClientes.setCorreo(viewClientes.jtf_correoelectronico.getText());
+        modelClientes.setCalle(viewClientes.jtf_calle.getText());
+        modelClientes.setColonia(viewClientes.jtf_colonia.getText());
+        modelClientes.setCod_postal(viewClientes.jtf_codigopostal.getText());
+        modelClientes.setCiudad(viewClientes.jtf_ciudad.getText());
+        modelClientes.setEstado(viewClientes.jtf_estado.getText());
+        modelClientes.setNom_representante(viewClientes.jtf_nombrerepresentante.getText());
+        modelClientes.setAp_pat_representante(viewClientes.jtf_apellidopatrepresentante.getText());
+        modelClientes.setAp_mat_representante(viewClientes.jtf_apellidomatrepresentante.getText());
+        modelClientes.setTelefono_representante(viewClientes.jtf_telefonorepresentante.getText());
+        
+        modelClientes.insertarRegistro(); // Invoca al método para Guardar o Insertar un nuevo registro en la tabla clientes.
+    }
+    
+    /**
+     * Método para modificar (actualizar) un registro de la tabla contactos.
+     */
+    private void jb_modificar_actionPerformed() {
+        modelClientes.setTipo_cliente((String) viewClientes.jcb_tipocliente.getSelectedItem()); // Asigna los nuevos valores introducidos en la vista a las variables del modelo. (16)
+        modelClientes.setRfc(viewClientes.jtf_rfc.getText());
+        modelClientes.setNombre(viewClientes.jtf_nombre.getText());
+        modelClientes.setApellido_pat(viewClientes.jtf_apellidopaterno.getText());
+        modelClientes.setApellido_mat(viewClientes.jtf_apellidomaterno.getText());
+        modelClientes.setTelefono(viewClientes.jtf_telefono.getText());
+        modelClientes.setCorreo(viewClientes.jtf_correoelectronico.getText());
+        modelClientes.setCalle(viewClientes.jtf_calle.getText());
+        modelClientes.setColonia(viewClientes.jtf_colonia.getText());
+        modelClientes.setCod_postal(viewClientes.jtf_codigopostal.getText());
+        modelClientes.setCiudad(viewClientes.jtf_ciudad.getText());
+        modelClientes.setEstado(viewClientes.jtf_estado.getText());
+        modelClientes.setNom_representante(viewClientes.jtf_nombrerepresentante.getText());
+        modelClientes.setAp_pat_representante(viewClientes.jtf_apellidopatrepresentante.getText());
+        modelClientes.setAp_mat_representante(viewClientes.jtf_apellidomatrepresentante.getText());
+        modelClientes.setTelefono_representante(viewClientes.jtf_telefonorepresentante.getText());
+        
+        modelClientes.modificarRegistro(); // Invoca al método para Modificar (actualizar) un registro.
+    }
+    
 //    /**
 //     * Método para eliminar un registro de la tabla contactos.
 //     */
