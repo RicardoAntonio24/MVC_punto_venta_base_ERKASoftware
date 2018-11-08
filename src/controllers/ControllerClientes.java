@@ -222,7 +222,7 @@ public class ControllerClientes {
     }
     
     /**
-     * Método para modificar (actualizar) un registro de la tabla contactos.
+     * Método para modificar (actualizar) un registro de la tabla clientes.
      */
     private void jb_modificar_actionPerformed() {
         modelClientes.setTipo_cliente((String) viewClientes.jcb_tipocliente.getSelectedItem()); // Asigna los nuevos valores introducidos en la vista a las variables del modelo. (16)
