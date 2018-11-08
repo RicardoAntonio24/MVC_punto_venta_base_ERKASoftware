@@ -70,7 +70,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jl_idproducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jl_idproveedor" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jl_rfc" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jl_telefono" min="-2" max="-2" attributes="0"/>
                               <Component id="jl_estado" min="-2" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                                   <Component id="jtf_rfc" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jtf_telefono" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jtf_idproducto" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <Component id="jtf_idproveedor" min="-2" pref="190" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -158,8 +158,8 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jl_idproducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtf_idproducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_idproveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtf_idproveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jl_nombrerepresentante" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtf_nombrerepresentante" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -295,7 +295,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jl_idproducto">
+        <Component class="javax.swing.JLabel" name="jl_idproveedor">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -303,7 +303,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ID Producto:"/>
+            <Property name="text" type="java.lang.String" value="ID Proveedor:"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -435,7 +435,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtf_idproducto">
+        <Component class="javax.swing.JTextField" name="jtf_idproveedor">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -446,6 +446,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_nombre">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_telefono">
           <AuxValues>

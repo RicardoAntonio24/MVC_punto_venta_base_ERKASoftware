@@ -32,7 +32,7 @@ public class ViewProveedores extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jl_idproducto = new javax.swing.JLabel();
+        jl_idproveedor = new javax.swing.JLabel();
         jl_rfc = new javax.swing.JLabel();
         jl_nombre = new javax.swing.JLabel();
         jl_telefono = new javax.swing.JLabel();
@@ -42,7 +42,7 @@ public class ViewProveedores extends javax.swing.JFrame {
         jl_codigopostal = new javax.swing.JLabel();
         jl_ciudad = new javax.swing.JLabel();
         jl_estado = new javax.swing.JLabel();
-        jtf_idproducto = new javax.swing.JTextField();
+        jtf_idproveedor = new javax.swing.JTextField();
         jtf_rfc = new javax.swing.JTextField();
         jtf_nombre = new javax.swing.JTextField();
         jtf_telefono = new javax.swing.JTextField();
@@ -108,9 +108,9 @@ public class ViewProveedores extends javax.swing.JFrame {
                 .addGap(5, 5, 5))
         );
 
-        jl_idproducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jl_idproducto.setForeground(new java.awt.Color(255, 255, 255));
-        jl_idproducto.setText("ID Producto:");
+        jl_idproveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_idproveedor.setForeground(new java.awt.Color(255, 255, 255));
+        jl_idproveedor.setText("ID Proveedor:");
 
         jl_rfc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_rfc.setForeground(new java.awt.Color(255, 255, 255));
@@ -229,7 +229,7 @@ public class ViewProveedores extends javax.swing.JFrame {
                             .addComponent(jtf_correoelectronico, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_idproducto)
+                            .addComponent(jl_idproveedor)
                             .addComponent(jl_rfc)
                             .addComponent(jl_telefono)
                             .addComponent(jl_estado)
@@ -244,7 +244,7 @@ public class ViewProveedores extends javax.swing.JFrame {
                                 .addComponent(jtf_rfc, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jtf_telefono)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jtf_idproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtf_idproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -294,8 +294,8 @@ public class ViewProveedores extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_idproducto)
-                    .addComponent(jtf_idproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_idproveedor)
+                    .addComponent(jtf_idproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_nombrerepresentante)
                     .addComponent(jtf_nombrerepresentante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -426,7 +426,7 @@ public class ViewProveedores extends javax.swing.JFrame {
     public javax.swing.JLabel jl_colonia;
     public javax.swing.JLabel jl_correoelectronico;
     public javax.swing.JLabel jl_estado;
-    public javax.swing.JLabel jl_idproducto;
+    public javax.swing.JLabel jl_idproveedor;
     public javax.swing.JLabel jl_nombre;
     public javax.swing.JLabel jl_nombrerepresentante;
     public javax.swing.JLabel jl_rfc;
@@ -440,8 +440,8 @@ public class ViewProveedores extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_colonia;
     public javax.swing.JTextField jtf_correoelectronico;
     public javax.swing.JTextField jtf_estado;
-    public javax.swing.JTextField jtf_idproducto;
-    private javax.swing.JTextField jtf_nombre;
+    public javax.swing.JTextField jtf_idproveedor;
+    public javax.swing.JTextField jtf_nombre;
     public javax.swing.JTextField jtf_nombrerepresentante;
     public javax.swing.JTextField jtf_rfc;
     public javax.swing.JTextField jtf_telefono;
