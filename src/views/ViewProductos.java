@@ -404,7 +404,7 @@ public class ViewProductos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField7;
     public javax.swing.JButton jb_anterior;
@@ -427,7 +427,7 @@ public class ViewProductos extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_descripcion;
     public javax.swing.JTextField jtf_idproducto;
     public javax.swing.JTextField jtf_iniciomay;
-    private javax.swing.JTextField jtf_marca;
+    public javax.swing.JTextField jtf_marca;
     public javax.swing.JTextField jtf_nombre;
     public javax.swing.JTextField jtf_preciomay;
     public javax.swing.JTextField jtf_preciouni;
