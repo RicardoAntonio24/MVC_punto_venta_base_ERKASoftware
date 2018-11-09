@@ -370,7 +370,7 @@ public class ModelEmpleadosVentas {
                             + "telefono_empleado  = '"+ telefono_empleado +"', calle_numero_empleado  = '"+ calle_numero_empleado +"', "
                                 + "colonia_empleado = '"+ colonia_empleado+"', cod_postal_empleado = '"+ cod_postal_empleado +"', "
                                     + "ciudad_empleado= '"+ ciudad_empleado +"', estado_empleado  = '"+ estado_empleado  +"', "
-                                        + "contrasena_empleado = '"+ contrasena_empleado+"', "
+                                        + "contrasena_empleado = '"+ contrasena_empleado+"' "
                                             + "WHERE id_empleado = "+ id_empleado +"; ");
             
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
