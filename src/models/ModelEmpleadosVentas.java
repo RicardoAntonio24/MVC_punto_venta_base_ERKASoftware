@@ -168,7 +168,26 @@ public class ModelEmpleadosVentas {
     public void setContrasena_empleado(String contrasena_empleado) {
         this.contrasena_empleado = contrasena_empleado;
     }
+    
+    
+    private String cad_fecha_nac; // Variables adicionales para la correcta inserción de fechas (Date) en un registro. (2)
+    private String cad_fecha_ing;
+    
+    public String getCad_fecha_nac() {
+        return cad_fecha_nac;
+    }
 
+    public void setCad_fecha_nac(String cad_fecha_nac) {
+        this.cad_fecha_nac = cad_fecha_nac;
+    }
+
+    public String getCad_fecha_ing() {
+        return cad_fecha_ing;
+    }
+
+    public void setCad_fecha_ing(String cad_fecha_ing) {
+        this.cad_fecha_ing = cad_fecha_ing;
+    }
     
 
    
@@ -324,11 +343,9 @@ public class ModelEmpleadosVentas {
             nombre_empleado = this.getNombre_empleado();
             apellido_pat_empleado = this.getApellido_pat_empleado();
             apellido_mat_empleado = this.getApellido_mat_empleado();
-            fecha_nac_empleado = this.getFecha_nac_empleado();
-            fecha_ingreso_empleado = this.getFecha_ingreso_empleado();
-            
+            cad_fecha_nac = this.getCad_fecha_nac(); // Cambio de uso de variables de Date a String para insertar registros. (2)
+            cad_fecha_ing = this.getCad_fecha_ing();
             telefono_empleado = this.getTelefono_empleado();
-            
             calle_numero_empleado = this.getCalle_numero_empleado();
             colonia_empleado  = this.getColonia_empleado();
             cod_postal_empleado = this.getCod_postal_empleado();
@@ -337,7 +354,7 @@ public class ModelEmpleadosVentas {
             contrasena_empleado= this.getContrasena_empleado();
             
             st.executeUpdate("INSERT INTO empleados_ventas (rfc_empleado,nombre_empleado,apellido_pat_empleado, apellido_mat_empleado, fecha_nac_empleado, fecha_ingreso_empleado, telefono_empleado, calle_numero_empleado , colonia_empleado, cod_postal_empleado, ciudad_empleado, estado_empleado, contrasena_empleado)"
-                    + " VALUES ('" + rfc_empleado + "','" + nombre_empleado  + "', '" + apellido_pat_empleado  + "', '" +  apellido_mat_empleado + "', '" +  fecha_nac_empleado  + "', '" + fecha_ingreso_empleado + "', '" + telefono_empleado + "', '" +  calle_numero_empleado + "', '" + colonia_empleado + "', '" + cod_postal_empleado + "', '" + ciudad_empleado + "', '" + estado_empleado + "',  '" + contrasena_empleado + "'); ");
+                    + " VALUES ('" + rfc_empleado + "','" + nombre_empleado  + "', '" + apellido_pat_empleado  + "', '" +  apellido_mat_empleado + "', '" +  cad_fecha_nac  + "', '" + cad_fecha_ing + "', '" + telefono_empleado + "', '" +  calle_numero_empleado + "', '" + colonia_empleado + "', '" + cod_postal_empleado + "', '" + ciudad_empleado + "', '" + estado_empleado + "',  '" + contrasena_empleado + "'); ");
             JOptionPane.showMessageDialog(null, "Registro guardado.");
             this.conectarDB();
             this.moverUltimoRegistro();
@@ -353,8 +370,8 @@ public class ModelEmpleadosVentas {
             nombre_empleado = this.getNombre_empleado();
             apellido_pat_empleado = this.getApellido_pat_empleado();
             apellido_mat_empleado = this.getApellido_mat_empleado();
-            fecha_nac_empleado = this.getFecha_nac_empleado();
-            fecha_ingreso_empleado = this.getFecha_ingreso_empleado();
+            cad_fecha_nac = this.getCad_fecha_nac(); // Cambio de uso de variables de Date a String para insertar registros. (2)
+            cad_fecha_ing = this.getCad_fecha_ing();
             telefono_empleado = this.getTelefono_empleado();
             calle_numero_empleado = this.getCalle_numero_empleado();
             colonia_empleado  = this.getColonia_empleado();
@@ -366,7 +383,7 @@ public class ModelEmpleadosVentas {
             
             st.executeUpdate("UPDATE empleados_ventas SET rfc_empleado = '"+ rfc_empleado +"', nombre_empleado = '"+ nombre_empleado +"', "
                     + "apellido_pat_empleado = '"+ apellido_pat_empleado +"', apellido_mat_empleado = '"+ apellido_mat_empleado +"', "
-                        + "fecha_nac_empleado = '"+ fecha_nac_empleado +"', fecha_ingreso_empleado  = '"+ fecha_ingreso_empleado  +"', "
+                        + "fecha_nac_empleado = '"+ cad_fecha_nac +"', fecha_ingreso_empleado  = '"+ cad_fecha_ing  +"', "
                             + "telefono_empleado  = '"+ telefono_empleado +"', calle_numero_empleado  = '"+ calle_numero_empleado +"', "
                                 + "colonia_empleado = '"+ colonia_empleado+"', cod_postal_empleado = '"+ cod_postal_empleado +"', "
                                     + "ciudad_empleado= '"+ ciudad_empleado +"', estado_empleado  = '"+ estado_empleado  +"', "
@@ -382,8 +399,6 @@ public class ModelEmpleadosVentas {
         }
     }
     
-    
-    
-    
+
     
 }
