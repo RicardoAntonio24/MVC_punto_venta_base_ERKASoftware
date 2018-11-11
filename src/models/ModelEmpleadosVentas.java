@@ -343,8 +343,10 @@ public class ModelEmpleadosVentas {
             nombre_empleado = this.getNombre_empleado();
             apellido_pat_empleado = this.getApellido_pat_empleado();
             apellido_mat_empleado = this.getApellido_mat_empleado();
+            
             cad_fecha_nac = this.getCad_fecha_nac(); // Cambio de uso de variables de Date a String para insertar registros. (2)
             cad_fecha_ing = this.getCad_fecha_ing();
+            
             telefono_empleado = this.getTelefono_empleado();
             calle_numero_empleado = this.getCalle_numero_empleado();
             colonia_empleado  = this.getColonia_empleado();
@@ -370,8 +372,10 @@ public class ModelEmpleadosVentas {
             nombre_empleado = this.getNombre_empleado();
             apellido_pat_empleado = this.getApellido_pat_empleado();
             apellido_mat_empleado = this.getApellido_mat_empleado();
+            
             cad_fecha_nac = this.getCad_fecha_nac(); // Cambio de uso de variables de Date a String para insertar registros. (2)
             cad_fecha_ing = this.getCad_fecha_ing();
+            
             telefono_empleado = this.getTelefono_empleado();
             calle_numero_empleado = this.getCalle_numero_empleado();
             colonia_empleado  = this.getColonia_empleado();

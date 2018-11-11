@@ -179,6 +179,29 @@ public class ModelAdministradores {
     }
     
     
+    private String cad_fecha_nac; 
+    private String cad_fecha_ing;
+
+    public String getCad_fecha_nac() {
+        return cad_fecha_nac;
+    }
+
+    public void setCad_fecha_nac(String cad_fecha_nac) {
+        this.cad_fecha_nac = cad_fecha_nac;
+    }
+
+    public String getCad_fecha_ing() {
+        return cad_fecha_ing;
+    }
+
+    public void setCad_fecha_ing(String cad_fecha_ing) {
+        this.cad_fecha_ing = cad_fecha_ing;
+    }
+    
+    
+    
+    
+    
      public void conectarDB() {
         try {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/ferreteria_acme", "root", "");
@@ -202,6 +225,7 @@ public class ModelAdministradores {
             
             fecha_nac_admin = rs.getDate("fecha_nac_admin");
             fecha_ingreso_admin = rs.getDate("fecha_ingreso_admin");
+            
             correo_admin = rs.getString("correo_admin");
             telefono_admin = rs.getString("telefono_admin");
             calle_numero_admin = rs.getString("calle_numero_admin");
@@ -332,8 +356,10 @@ public class ModelAdministradores {
             nombre_admin = this.getNombre_admin();
             apellido_pat_admin = this.getApellido_pat_admin();
             apellido_mat_admin = this.getApellido_mat_admin();
-            fecha_nac_admin = this.getFecha_nac_admin();
-            fecha_ingreso_admin = this.getFecha_ingreso_admin();
+          
+            cad_fecha_nac = this.getCad_fecha_nac(); // Cambio de uso de variables de Date a String para insertar registros. (2)
+            cad_fecha_ing = this.getCad_fecha_ing();
+            
             
             telefono_admin = this.getTelefono_admin();
             correo_admin = this.getCorreo_admin();
@@ -345,7 +371,7 @@ public class ModelAdministradores {
             contrasena_admin= this.getContrasena_admin();
             
             st.executeUpdate("INSERT INTO administradores (rfc_admin,nombre_admin,apellido_pat_admin, apellido_mat_admin, fecha_nac_admin, fecha_ingreso_admin, telefono_admin, correo_admin, calle_numero_admin , colonia_admin, cod_postal_admin, ciudad_admin, estado_admin, contrasena_admin)"
-                    + " VALUES ('" + rfc_admin + "','" + nombre_admin  + "', '" + apellido_pat_admin  + "', '" +  apellido_mat_admin + "', '" +  fecha_nac_admin  + "', '" + fecha_ingreso_admin + "', '" + telefono_admin + "', '" + correo_admin + "', '" +  calle_numero_admin + "', '" + colonia_admin + "', '" + cod_postal_admin + "', '" + ciudad_admin + "', '" + estado_admin + "',  '" + contrasena_admin + "'); ");
+                    + " VALUES ('" + rfc_admin + "','" + nombre_admin  + "', '" + apellido_pat_admin  + "', '" +  apellido_mat_admin + "', '" +  cad_fecha_nac  + "', '" + cad_fecha_ing + "', '" + telefono_admin + "', '" + correo_admin + "', '" +  calle_numero_admin + "', '" + colonia_admin + "', '" + cod_postal_admin + "', '" + ciudad_admin + "', '" + estado_admin + "',  '" + contrasena_admin + "'); ");
             JOptionPane.showMessageDialog(null, "Registro guardado.");
             this.conectarDB();
             this.moverUltimoRegistro();
@@ -361,8 +387,9 @@ public class ModelAdministradores {
             nombre_admin = this.getNombre_admin();
             apellido_pat_admin = this.getApellido_pat_admin();
             apellido_mat_admin = this.getApellido_mat_admin();
-            fecha_nac_admin = this.getFecha_nac_admin();
-            fecha_ingreso_admin = this.getFecha_ingreso_admin();
+            
+            cad_fecha_nac = this.getCad_fecha_nac(); 
+            cad_fecha_ing = this.getCad_fecha_ing();
             
             telefono_admin = this.getTelefono_admin();
             correo_admin = this.getCorreo_admin();
@@ -376,7 +403,7 @@ public class ModelAdministradores {
             
             st.executeUpdate("UPDATE administradores SET rfc_admin = '"+ rfc_admin +"', nombre_admin = '"+ nombre_admin +"', "
                     + "apellido_pat_admin = '"+ apellido_pat_admin +"', apellido_mat_admin = '"+ apellido_mat_admin +"', "
-                        + "fecha_nac_admin = '"+ fecha_nac_admin +"', fecha_ingreso_admin  = '"+ fecha_ingreso_admin  +"', "
+                        + "fecha_nac_admin = '"+ cad_fecha_nac +"', fecha_ingreso_admin  = '"+ cad_fecha_ing  +"', "
                             + "telefono_admin  = '"+ telefono_admin +"',  correo_admin  = '"+ correo_admin +"',"
                               + " calle_numero_admin  = '"+ calle_numero_admin +"', "
                                 + "colonia_admin = '"+ colonia_admin +"', cod_postal_admin = '"+ cod_postal_admin +"', "

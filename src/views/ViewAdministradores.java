@@ -151,9 +151,9 @@ public class ViewAdministradores extends javax.swing.JFrame {
         jl_fechanac.setForeground(new java.awt.Color(255, 255, 255));
         jl_fechanac.setText("Fecha de Nacimiento:");
 
-        jcb_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "07", "10" }));
+        jcb_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18 19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jcb_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05" }));
+        jcb_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         jl_fechain.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_fechain.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,9 +163,9 @@ public class ViewAdministradores extends javax.swing.JFrame {
         jl_telefono.setForeground(new java.awt.Color(255, 255, 255));
         jl_telefono.setText("Telefono:");
 
-        jcb_diain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05" }));
+        jcb_diain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18 19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jcb_mesin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04" }));
+        jcb_mesin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         jl_correoelectronico.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_correoelectronico.setForeground(new java.awt.Color(255, 255, 255));
@@ -275,7 +275,6 @@ public class ViewAdministradores extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jl_apellidomate)
                                 .addGap(29, 29, 29)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtf_apellidopat)
                             .addComponent(jtf_apellidomate, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -326,7 +325,7 @@ public class ViewAdministradores extends javax.swing.JFrame {
                                 .addComponent(jl_passwd)
                                 .addGap(10, 10, 10)
                                 .addComponent(jpf_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jb_primero, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)

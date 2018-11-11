@@ -7,6 +7,11 @@ import views.ViewAdministradores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.ModelEmpleadosVentas;
 import views.ViewEmpleadosVentas;
 
@@ -38,7 +43,7 @@ public class ControllerAdministradores {
                jb_nuevo_actionPerformed();
             }
             else if (e.getSource() == viewAdministradores.jb_insertar) {
-              jb_insertar_actionPerformed();
+                jb_insertar_actionPerformed();
             }
             else if (e.getSource() == viewAdministradores.jb_modificar) {
                 jb_modificar_actionPerformed();
@@ -73,6 +78,30 @@ public class ControllerAdministradores {
         viewAdministradores.jtf_apellidomate.setText(modelAdministradores.getApellido_mat_admin());
         
         //fecha ingreso fecha nacimiento
+        
+        DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha_nac = modelAdministradores.getFecha_nac_admin();
+        String fecha_nac_cad = fecha.format(fecha_nac); // Convierte la fecha correspondiente a String
+        String [] afecha1 = fecha_nac_cad.split("-"); // Separa los componentes de la fecha (año-mes-día)
+        String anio_nac = afecha1[0];
+        String mes_nac = afecha1[1];
+        String dia_nac = afecha1[2];
+        viewAdministradores.jcb_dia.setSelectedItem(dia_nac);
+        viewAdministradores.jcb_mes.setSelectedItem(mes_nac);
+        viewAdministradores.jtf_anio.setText(anio_nac);
+        
+        
+        Date fecha_in = modelAdministradores.getFecha_ingreso_admin();
+        String fecha_in_cad = fecha.format(fecha_in); // Convierte la fecha correspondiente a String
+        String [] afecha2 = fecha_in_cad.split("-"); // Separa los componentes de la fecha (año-mes-día)
+        String anio_in = afecha2[0];
+        String mes_in = afecha2[1];
+        String dia_in  = afecha2[2];
+        viewAdministradores.jcb_diain.setSelectedItem(dia_in);
+        viewAdministradores.jcb_mesin.setSelectedItem(mes_in);
+        viewAdministradores.jtf_anioin.setText(anio_in);
+        
+        
       
        viewAdministradores.jtf_telefono.setText(modelAdministradores.getTelefono_admin());
         viewAdministradores.jtf_calle.setText(modelAdministradores.getCalle_numero_admin());
@@ -112,9 +141,29 @@ public class ControllerAdministradores {
         viewAdministradores.jtf_apellidopat.setText(modelAdministradores.getApellido_pat_admin());
         viewAdministradores.jtf_apellidomate.setText(modelAdministradores.getApellido_mat_admin());
         
+         //fecha de ingreso y fecha de nacimiento...
+        DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha_nac = modelAdministradores.getFecha_nac_admin();
-        //viewEmpleadosVentas.jtf_apellidomaterno.setText(modelClientes.getApellido_mat());
-        //viewEmpleadosVentas.jtf_telefono.setText(modelClientes.getTelefono());
+        String fecha_nac_cad = fecha.format(fecha_nac); 
+        String [] afecha1 = fecha_nac_cad.split("-"); 
+        String anio_nac = afecha1[0];
+        String mes_nac = afecha1[1];
+        String dia_nac = afecha1[2];
+        viewAdministradores.jcb_dia.setSelectedItem(dia_nac);
+        viewAdministradores.jcb_mes.setSelectedItem(mes_nac);
+        viewAdministradores.jtf_anio.setText(anio_nac);
+        
+        
+         Date fecha_in = modelAdministradores.getFecha_ingreso_admin();
+        String fecha_in_cad = fecha.format(fecha_in); 
+        String [] afecha2 = fecha_in_cad.split("-"); 
+        String anio_in = afecha2[0];
+        String mes_in = afecha2[1];
+        String dia_in  = afecha2[2];
+        viewAdministradores.jcb_diain.setSelectedItem(dia_in);
+        viewAdministradores.jcb_mesin.setSelectedItem(mes_in);
+        viewAdministradores.jtf_anioin.setText(anio_in);
+        
         
          viewAdministradores.jtf_telefono.setText(modelAdministradores.getTelefono_admin());
          viewAdministradores.jtf_calle.setText(modelAdministradores.getCalle_numero_admin());
@@ -157,10 +206,11 @@ public class ControllerAdministradores {
        //fecha nacimiento
         viewAdministradores.jcb_dia.setSelectedIndex(0);
         viewAdministradores.jcb_mes.setSelectedIndex(0);
-      
+        viewAdministradores.jtf_anio.setText("");
        //fecha ingreso
         viewAdministradores.jcb_diain.setSelectedIndex(0);
         viewAdministradores.jcb_mesin.setSelectedIndex(0);
+        viewAdministradores.jtf_anioin.setText("");
        
        
        viewAdministradores.jtf_telefono.setText("");
@@ -179,7 +229,21 @@ public class ControllerAdministradores {
          modelAdministradores.setApellido_pat_admin(viewAdministradores.jtf_apellidopat.getText());
          modelAdministradores.setApellido_mat_admin(viewAdministradores.jtf_apellidomate.getText());
         
-        //fecha nacimiento y empleado
+    
+        String anio_n = viewAdministradores.jtf_anio.getText();
+        String mes_n = (String) viewAdministradores.jcb_mes.getSelectedItem();
+        String dia_n = (String) viewAdministradores.jcb_dia.getSelectedItem();
+        String nacimiento = anio_n + "-" + mes_n + "-" + dia_n;
+        modelAdministradores.setCad_fecha_nac(nacimiento);
+
+        String anio_i = viewAdministradores.jtf_anioin.getText();
+        String mes_i = (String) viewAdministradores.jcb_mesin.getSelectedItem();
+        String dia_i = (String) viewAdministradores.jcb_diain.getSelectedItem();
+        String ingreso = anio_i + "-" + mes_i + "-" + dia_i;
+        modelAdministradores.setCad_fecha_ing(ingreso);
+         
+         
+         
      
         modelAdministradores.setTelefono_admin(viewAdministradores.jtf_telefono.getText());
         modelAdministradores.setCalle_numero_admin(viewAdministradores.jtf_colonia.getText());
@@ -197,8 +261,21 @@ public class ControllerAdministradores {
        modelAdministradores.setNombre_admin(viewAdministradores.jtf_nombre.getText());
         modelAdministradores.setApellido_pat_admin(viewAdministradores.jtf_apellidopat.getText());
         modelAdministradores.setApellido_mat_admin(viewAdministradores.jtf_apellidomate.getText());
+ 
+         //fechas nacimiento e ingreso del empleado
+        String anio_n = viewAdministradores.jtf_anio.getText();
+        String mes_n = (String) viewAdministradores.jcb_mes.getSelectedItem();
+        String dia_n = (String) viewAdministradores.jcb_dia.getSelectedItem();
+        String nacimiento = anio_n + "-" + mes_n + "-" + dia_n;
+        modelAdministradores.setCad_fecha_nac(nacimiento);
+
+        String anio_i = viewAdministradores.jtf_anioin.getText();
+        String mes_i = (String) viewAdministradores.jcb_mesin.getSelectedItem();
+        String dia_i = (String) viewAdministradores.jcb_diain.getSelectedItem();
+        String ingreso = anio_i + "-" + mes_i + "-" + dia_i;
+        modelAdministradores.setCad_fecha_ing(ingreso);
         
-   //fecha nacimiento emplmodelAdministradoreseado
+        
      
         modelAdministradores.setTelefono_admin(viewAdministradores.jtf_telefono.getText());
         modelAdministradores.setCalle_numero_admin(viewAdministradores.jtf_colonia.getText());
