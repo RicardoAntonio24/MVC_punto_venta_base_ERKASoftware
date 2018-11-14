@@ -33,7 +33,6 @@ public class ModelCompras {
     public int getId_compra() {
         return id_compra;
     }
-
     public void setId_compra(int id_compra) {
         this.id_compra = id_compra;
     }
@@ -41,7 +40,6 @@ public class ModelCompras {
     public Date getFecha() {
         return fecha;
     }
-
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -49,7 +47,6 @@ public class ModelCompras {
     public int getId_sucursal() {
         return id_sucursal;
     }
-
     public void setId_sucursal(int id_sucursal) {
         this.id_sucursal = id_sucursal;
     }
@@ -57,7 +54,6 @@ public class ModelCompras {
     public int getId_admin() {
         return id_admin;
     }
-
     public void setId_admin(int id_admin) {
         this.id_admin = id_admin;
     }
@@ -65,7 +61,6 @@ public class ModelCompras {
     public int getId_proveedor() {
         return id_proveedor;
     }
-
     public void setId_proveedor(int id_proveedor) {
         this.id_proveedor = id_proveedor;
     }
@@ -73,7 +68,6 @@ public class ModelCompras {
     public float getSubtotal() {
         return subtotal;
     }
-
     public void setSubtotal(float subtotal) {
         this.subtotal = subtotal;
     }
@@ -81,7 +75,6 @@ public class ModelCompras {
     public float getIva() {
         return iva;
     }
-
     public void setIva(float iva) {
         this.iva = iva;
     }
@@ -89,7 +82,6 @@ public class ModelCompras {
     public float getImp_total() {
         return imp_total;
     }
-
     public void setImp_total(float imp_total) {
         this.imp_total = imp_total;
     }
@@ -101,7 +93,6 @@ public class ModelCompras {
     public ArrayList getSucursales() {
         return sucursales;
     }
-
     public void setSucursales(ArrayList sucursales) {
         this.sucursales = sucursales;
     }
@@ -109,7 +100,6 @@ public class ModelCompras {
     public ArrayList getAdmins() {
         return admins;
     }
-
     public void setAdmins(ArrayList admins) {
         this.admins = admins;
     }
@@ -117,7 +107,6 @@ public class ModelCompras {
     public ArrayList getProveedores() {
         return proveedores;
     }
-
     public void setProveedores(ArrayList proveedores) {
         this.proveedores = proveedores;
     }
@@ -129,7 +118,6 @@ public class ModelCompras {
     public String getNom_sucursal() {
         return nom_sucursal;
     }
-
     public void setNom_sucursal(String nom_sucursal) {
         this.nom_sucursal = nom_sucursal;
     }
@@ -137,7 +125,6 @@ public class ModelCompras {
     public String getNom_admin() {
         return nom_admin;
     }
-
     public void setNom_admin(String nom_admin) {
         this.nom_admin = nom_admin;
     }
@@ -145,7 +132,6 @@ public class ModelCompras {
     public String getNom_proveedor() {
         return nom_proveedor;
     }
-
     public void setNom_proveedor(String nom_proveedor) {
         this.nom_proveedor = nom_proveedor;
     }
@@ -155,12 +141,11 @@ public class ModelCompras {
     public String getCad_fecha_com() {
         return cad_fecha_com;
     }
-
     public void setCad_fecha_com(String cad_fecha_com) {
         this.cad_fecha_com = cad_fecha_com;
     }
 
-    // Variables para la gestión de detalles de Compras:
+// Variables para la gestión de detalles de Compras:
     private int id_det_compra;
     private int id_compra_2;
     private int id_producto;
@@ -171,7 +156,6 @@ public class ModelCompras {
     public int getId_det_compra() {
         return id_det_compra;
     }
-
     public void setId_det_compra(int id_det_compra) {
         this.id_det_compra = id_det_compra;
     }
@@ -179,7 +163,6 @@ public class ModelCompras {
     public int getId_compra_2() {
         return id_compra_2;
     }
-
     public void setId_compra_2(int id_compra_2) {
         this.id_compra_2 = id_compra_2;
     }
@@ -187,7 +170,6 @@ public class ModelCompras {
     public int getId_producto() {
         return id_producto;
     }
-
     public void setId_producto(int id_producto) {
         this.id_producto = id_producto;
     }
@@ -195,7 +177,6 @@ public class ModelCompras {
     public int getCantidad() {
         return cantidad;
     }
-
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
@@ -203,7 +184,6 @@ public class ModelCompras {
     public float getPrecio_compra() {
         return precio_compra;
     }
-
     public void setPrecio_compra(float precio_compra) {
         this.precio_compra = precio_compra;
     }
@@ -211,7 +191,6 @@ public class ModelCompras {
     public float getTotal_prod() {
         return total_prod;
     }
-
     public void setTotal_prod(float total_prod) {
         this.total_prod = total_prod;
     }
@@ -221,7 +200,6 @@ public class ModelCompras {
     public ArrayList getProductos() {
         return productos;
     }
-
     public void setProductos(ArrayList productos) {
         this.productos = productos;
     }
@@ -231,7 +209,6 @@ public class ModelCompras {
     public String getNom_producto() {
         return nom_producto;
     }
-
     public void setNom_producto(String nom_producto) {
         this.nom_producto = nom_producto;
     }
@@ -312,8 +289,7 @@ public class ModelCompras {
     }
 
     /**
-     * Lee los valores del registro seleccionado y los asigna a las variables
-     * miembro correspondientes.
+     * Lee los valores del registro seleccionado y los asigna a las variables miembro correspondientes.
      */
     public void setValues() {
         try {
@@ -347,6 +323,37 @@ public class ModelCompras {
             JOptionPane.showMessageDialog(null, "Error model 102: " + err.getMessage());
         }
     }
+    
+    private ResultSet cons_detalle; // Variable para mover el cursor de ResultSet entre los registros de detalle_compra.
+    
+    /**
+     * Lee los valores del registro seleccionado y los asigna a las variables miembro correspondientes.
+     */
+    public void setValuesDetalleCompra() {
+        try {
+            id_compra_2 = id_compra;
+            precio_compra = cons_detalle.getFloat("precio_compra");
+            cantidad = cons_detalle.getInt("cantidad");
+            total_prod = cons_detalle.getFloat("total_producto");
+            id_producto = cons_detalle.getInt("id_producto");
+            // Obtiene los nombres de productos existentes en la BD, para asginarlos al ComboBox...
+            String cons_prod = "SELECT nombre_producto FROM productos WHERE id_producto = " + id_producto + "; ";
+            rs = st.executeQuery(cons_prod);
+            if (rs.next()) {
+                nom_producto = rs.getString(1);
+            }
+            
+            registro_det[0] = Integer.toString(id_compra_2);
+            registro_det[1] = nom_producto;
+            registro_det[2] = Float.toString(precio_compra);
+            registro_det[3] = Integer.toString(cantidad);
+            registro_det[4] = Float.toString(total_prod);
+            tabla_detalle.addRow(registro_det);
+
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error model 103: " + err.getMessage());
+        }
+    }
 
     int cursor = 1; // Variable para alamacenar la posición actual del cursor de rs.
 
@@ -364,7 +371,18 @@ public class ModelCompras {
                 setValues();
                 cursor = 1;
             }
-
+            // Movimiento de registros de 'detalle_compra'...
+            ResultSet cons_num = st.executeQuery("SELECT COUNT(*) FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+            if (cons_num.next()) {
+                int num_registros = cons_num.getInt(1); // Obtiene el número de registros existentes en la tabla 'detalle_compra'.
+                for (int r = 1; r <= num_registros; r++) {
+                    cons_detalle = st.executeQuery("SELECT * FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+                    if (cons_detalle.next()) {
+                        cons_detalle.absolute(r); // Mueve el cursor del ResultSet a el registro número r...
+                        setValuesDetalleCompra();
+                    }
+                }
+            }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
         }
@@ -386,7 +404,18 @@ public class ModelCompras {
                     setValues();
                 }
             }
-
+            // Movimiento de registros de 'detalle_compra'...
+            ResultSet cons_num = st.executeQuery("SELECT COUNT(*) FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+            if (cons_num.next()) {
+                int num_registros = cons_num.getInt(1); // Obtiene el número de registros existentes en la tabla 'detalle_compra'.
+                for (int r = 1; r <= num_registros; r++) {
+                    cons_detalle = st.executeQuery("SELECT * FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+                    if (cons_detalle.next()) {
+                        cons_detalle.absolute(r); // Mueve el cursor del ResultSet a el registro número r...
+                        setValuesDetalleCompra();
+                    }
+                }
+            }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
         }
@@ -412,7 +441,18 @@ public class ModelCompras {
                     }
                 }
             }
-
+            // Movimiento de registros de 'detalle_compra'...
+            cons_num = st.executeQuery("SELECT COUNT(*) FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+            if (cons_num.next()) {
+                int num_registros = cons_num.getInt(1); // Obtiene el número de registros existentes en la tabla 'detalle_compra'.
+                for (int r = 1; r <= num_registros; r++) {
+                    cons_detalle = st.executeQuery("SELECT * FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+                    if (cons_detalle.next()) {
+                        cons_detalle.absolute(r); // Mueve el cursor del ResultSet a el registro número r...
+                        setValuesDetalleCompra();
+                    }
+                }
+            }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
         }
@@ -438,11 +478,23 @@ public class ModelCompras {
                     }
                 }
             }
-
+            // Movimiento de registros de 'detalle_compra'...
+            ResultSet cons_num = st.executeQuery("SELECT COUNT(*) FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+            if (cons_num.next()) {
+                int num_registros = cons_num.getInt(1); // Obtiene el número de registros existentes en la tabla 'detalle_compra'.
+                for (int r = 1; r <= num_registros; r++) {
+                    cons_detalle = st.executeQuery("SELECT * FROM detalle_compra WHERE id_compra = "+ id_compra +"; ");
+                    if (cons_detalle.next()) {
+                        cons_detalle.absolute(r); // Mueve el cursor del ResultSet a el registro número r...
+                        setValuesDetalleCompra();
+                    }
+                }
+            }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
         }
     }
+    
 
     /**
      * Método que realiza las siguiente acciones: - Crea un nuevo registro y lo
@@ -539,7 +591,6 @@ public class ModelCompras {
     public DefaultTableModel getTabla_detalle() {
         return tabla_detalle;
     }
-
     public void setTabla_detalle(DefaultTableModel tabla_detalle) {
         this.tabla_detalle = tabla_detalle;
     }
@@ -547,7 +598,6 @@ public class ModelCompras {
     public String[] getRegistro_det() {
         return registro_det;
     }
-
     public void setRegistro_det(String[] registro_det) {
         this.registro_det = registro_det;
     }
@@ -555,7 +605,6 @@ public class ModelCompras {
     public String getTemp_idcompra() {
         return temp_idcompra;
     }
-
     public void setTemp_idcompra(String temp_idcompra) {
         this.temp_idcompra = temp_idcompra;
     }
@@ -563,7 +612,6 @@ public class ModelCompras {
     public String getTemp_nomproducto() {
         return temp_nomproducto;
     }
-
     public void setTemp_nomproducto(String temp_nomproducto) {
         this.temp_nomproducto = temp_nomproducto;
     }
@@ -571,7 +619,6 @@ public class ModelCompras {
     public String getTemp_precio() {
         return temp_precio;
     }
-
     public void setTemp_precio(String temp_precio) {
         this.temp_precio = temp_precio;
     }
@@ -579,11 +626,11 @@ public class ModelCompras {
     public String getTemp_cantidad() {
         return temp_cantidad;
     }
-
     public void setTemp_cantidad(String temp_cantidad) {
         this.temp_cantidad = temp_cantidad;
     }
-
+    
+    
     /**
      * Método para configurar el modelo (columnas) de la tabla 'detalle de compra'.
      */
@@ -618,13 +665,43 @@ public class ModelCompras {
             JOptionPane.showMessageDialog(null,"Error al agregar producto. "+err.getMessage());
         }
     }
+    
 
     /**
-     *
+     * Método para finalizar el registro completo de COMPRA (compras y detalle_compra) !.
      */
     public void terminarCompra() {
         try {
-
+            int rows = tabla_detalle.getRowCount();
+            float acum_total = 0.0f; // Variable para acumular el monto total de compra.
+            for (int r = 0; r < rows; r++) {
+                for (int c = 0; c < 5;) {
+                    id_compra_2 = Integer.parseInt((String) tabla_detalle.getValueAt(r, c));
+                    c ++; // 1
+                    String nom_prod = (String) tabla_detalle.getValueAt(r, c);
+                    ResultSet consulta = st.executeQuery("SELECT id_producto FROM productos WHERE nombre_producto = '"+ nom_prod +"'; ");
+                    if (consulta.next()) {
+                        id_producto = consulta.getInt(1); // Obtiene el id del producto para la tabla 'detalle_compra'.
+                    }
+                    c ++; // 2
+                    precio_compra = Float.parseFloat((String) tabla_detalle.getValueAt(r, c));
+                    c ++; // 3
+                    cantidad = Integer.parseInt((String) tabla_detalle.getValueAt(r, c));
+                    c ++;// 4
+                    total_prod = Float.parseFloat((String) tabla_detalle.getValueAt(r, c));
+                    c ++; // 5
+                    acum_total = acum_total + total_prod;
+                }
+                st.executeUpdate("INSERT INTO detalle_compra (id_compra, id_producto, cantidad, precio_compra, total_producto)"
+                    + " VALUES (" + id_compra_2 + ", " + id_producto + ", " + cantidad + ", " + precio_compra + ", " + total_prod + "); ");
+            }
+            float calc_iva = acum_total * 16 / 100;
+            float calc_subtotal = acum_total - calc_iva;
+            st.executeUpdate("UPDATE compras SET subtotal_compra = "+ calc_subtotal +", iva_compra = "+ calc_iva +", importe_total_compra = "+ acum_total +" WHERE id_compra = "+ id_compra_2 +"; ");
+            
+            JOptionPane.showMessageDialog(null, "Compra finalizada con éxito.");
+            this.conectarDB();
+//            this.moverUltimoRegistro();
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null,"Error al finalizar Compra. "+err.getMessage());
         }

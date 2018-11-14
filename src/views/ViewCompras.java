@@ -74,6 +74,7 @@ public class ViewCompras extends javax.swing.JFrame {
         jb_ultimo = new javax.swing.JButton();
         jl_idcompra_det = new javax.swing.JLabel();
         jb_fincompra = new javax.swing.JButton();
+        jb_eliminarproducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,14 +148,14 @@ public class ViewCompras extends javax.swing.JFrame {
         jl_totalcompra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_totalcompra.setText("Total de Compra:");
 
+        jtf_totalcompra.setEditable(false);
         jtf_totalcompra.setText("0.0");
-        jtf_totalcompra.setEnabled(false);
 
+        jtf_iva.setEditable(false);
         jtf_iva.setText("0.0");
-        jtf_iva.setEnabled(false);
 
+        jtf_subtotal.setEditable(false);
         jtf_subtotal.setText("0.0");
-        jtf_subtotal.setEnabled(false);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("$");
@@ -168,17 +169,17 @@ public class ViewCompras extends javax.swing.JFrame {
         jb_nuevo.setBackground(new java.awt.Color(153, 153, 153));
         jb_nuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_nuevo.setText("Nuevo");
-        jb_nuevo.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jb_nuevo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         jb_insertar.setBackground(new java.awt.Color(153, 153, 153));
         jb_insertar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_insertar.setText("Insertar");
-        jb_insertar.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_insertar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
 
         jb_modificar.setBackground(new java.awt.Color(153, 153, 153));
         jb_modificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_modificar.setText("Modificar");
-        jb_modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
 
         jl_idcompra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_idcompra.setText("ID de Compra:");
@@ -235,7 +236,7 @@ public class ViewCompras extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jb_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jb_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                        .addComponent(jb_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                         .addGap(39, 39, 39))))
         );
         jPanel_compraLayout.setVerticalGroup(
@@ -303,6 +304,10 @@ public class ViewCompras extends javax.swing.JFrame {
             }
         });
 
+        jtf_precio.setEditable(false);
+
+        jtf_cantidad.setEditable(false);
+
         jtab_detalle_compra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtab_detalle_compra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -324,31 +329,31 @@ public class ViewCompras extends javax.swing.JFrame {
         jb_agregarproducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_agregarproducto.setForeground(new java.awt.Color(153, 0, 0));
         jb_agregarproducto.setText("Agregar Producto");
-        jb_agregarproducto.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0)));
+        jb_agregarproducto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0)));
 
         jb_primero.setBackground(new java.awt.Color(153, 153, 153));
         jb_primero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_primero.setForeground(new java.awt.Color(51, 51, 51));
         jb_primero.setText("|<");
-        jb_primero.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jb_primero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         jb_anterior.setBackground(new java.awt.Color(153, 153, 153));
         jb_anterior.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_anterior.setForeground(new java.awt.Color(51, 51, 51));
         jb_anterior.setText("<<");
-        jb_anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jb_anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         jb_siguiente.setBackground(new java.awt.Color(153, 153, 153));
         jb_siguiente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_siguiente.setForeground(new java.awt.Color(51, 51, 51));
         jb_siguiente.setText(">>");
-        jb_siguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jb_siguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         jb_ultimo.setBackground(new java.awt.Color(153, 153, 153));
         jb_ultimo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_ultimo.setForeground(new java.awt.Color(51, 51, 51));
         jb_ultimo.setText(">|");
-        jb_ultimo.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jb_ultimo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         jl_idcompra_det.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_idcompra_det.setText("ID Compra:");
@@ -356,7 +361,13 @@ public class ViewCompras extends javax.swing.JFrame {
         jb_fincompra.setBackground(new java.awt.Color(153, 153, 153));
         jb_fincompra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_fincompra.setText("Terminar Compra");
-        jb_fincompra.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_fincompra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+
+        jb_eliminarproducto.setBackground(new java.awt.Color(153, 153, 153));
+        jb_eliminarproducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jb_eliminarproducto.setForeground(new java.awt.Color(153, 0, 0));
+        jb_eliminarproducto.setText("Eliminar Producto");
+        jb_eliminarproducto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0), new java.awt.Color(153, 0, 0)));
 
         javax.swing.GroupLayout jPanel_detallecompraLayout = new javax.swing.GroupLayout(jPanel_detallecompra);
         jPanel_detallecompra.setLayout(jPanel_detallecompraLayout);
@@ -387,25 +398,27 @@ public class ViewCompras extends javax.swing.JFrame {
                             .addComponent(jtf_cantidad)
                             .addComponent(jtf_precio)
                             .addComponent(jcb_nombreproducto, 0, 154, Short.MAX_VALUE)
-                            .addComponent(jtf_idcompra_det)))
+                            .addComponent(jtf_idcompra_det))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE))
                     .addGroup(jPanel_detallecompraLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jb_agregarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jb_fincompra, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_eliminarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel_detallecompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_detallecompraLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jb_primero, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_detallecompraLayout.createSequentialGroup()
+                        .addComponent(jb_fincompra, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jb_primero, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jb_anterior, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
                         .addComponent(jb_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jb_ultimo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel_detallecompraLayout.setVerticalGroup(
             jPanel_detallecompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,12 +449,14 @@ public class ViewCompras extends javax.swing.JFrame {
                         .addGroup(jPanel_detallecompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jb_siguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jb_ultimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_fincompra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jb_anterior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_fincompra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jb_primero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_detallecompraLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(jb_agregarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel_detallecompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jb_agregarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_eliminarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -536,9 +551,10 @@ public class ViewCompras extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel_compra;
     public javax.swing.JPanel jPanel_detallecompra;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jb_agregarproducto;
     public javax.swing.JButton jb_anterior;
+    public javax.swing.JButton jb_eliminarproducto;
     public javax.swing.JButton jb_fincompra;
     public javax.swing.JButton jb_insertar;
     public javax.swing.JButton jb_modificar;
