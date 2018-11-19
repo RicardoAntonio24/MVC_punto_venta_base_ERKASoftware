@@ -46,7 +46,7 @@ public class ViewInicioSesion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acceso al sistema", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 20), new java.awt.Color(153, 153, 153)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acceso al sistema", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 20), new java.awt.Color(153, 153, 153)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
 
         jl_usuario.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jl_usuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -64,7 +64,8 @@ public class ViewInicioSesion extends javax.swing.JFrame {
 
         jcb_tipousuario.setBackground(new java.awt.Color(153, 153, 153));
         jcb_tipousuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jcb_tipousuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
+        jcb_tipousuario.setForeground(new java.awt.Color(51, 51, 51));
+        jcb_tipousuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Ventas" }));
         jcb_tipousuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

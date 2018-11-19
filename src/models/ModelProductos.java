@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -150,6 +151,9 @@ public class ModelProductos {
             JOptionPane.showMessageDialog(null, "Error modelProductos 102: " + err.getMessage());
         }
     }
+    
+    int cursor = 1; // Variable para alamacenar la posición actual del cursor de rs.
+    
     /**
      * Método que realiza las siguiente acciones: 1.- Moverse al primer registro
      * 2.- obtener los valores de los campos de rs y guardarlos en las variables
@@ -157,20 +161,16 @@ public class ModelProductos {
      */
     public void moverPrimerRegistro() {
         try {
-            if (rs.isFirst() == false) {
+            String sql = "SELECT * FROM productos;";
+            rs = st.executeQuery(sql);
+            if (rs.next()) { // Comprueba si la consulta devolvió registros.
                 rs.first(); //Primer registro
-
-                id_producto = rs.getInt("id_producto");
-                nombre_producto = rs.getString("nombre_producto");
-                tipo_producto = rs.getString("tipo_producto");
-                marca = rs.getString("marca_producto");
-                precio_unitario = rs.getString("precio_unitario");
-                precio_mayoreo = rs.getString("precio_mayoreo");
-                inicio_mayoreo = rs.getString("inicio_mayoreo");
-                descripcion = rs.getString("descripcion");   
+                setValues();
+                cursor = 1;
             }
+            
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error prim* " + err.getMessage());
         }
     }
 
@@ -181,20 +181,18 @@ public class ModelProductos {
      */
     public void moverAnteriorRegistro() {
         try {
-            if (rs.isFirst() == false) {
-                rs.previous(); //Registro anterior
-                
-                id_producto = rs.getInt("id_producto");
-                nombre_producto = rs.getString("nombre_producto");
-                tipo_producto = rs.getString("tipo_producto");
-                marca = rs.getString("marca_producto");
-                precio_unitario = rs.getString("precio_unitario");
-                precio_mayoreo = rs.getString("precio_mayoreo");
-                inicio_mayoreo = rs.getString("inicio_mayoreo");
-                descripcion = rs.getString("descripcion");   
+            String sql = "SELECT * FROM productos;";
+            rs = st.executeQuery(sql);
+            if (rs.next()) { // Comprueba si la consulta devolvió registros.
+                if (cursor > 1) {
+                    cursor--;
+                    rs.absolute(cursor); // Mueve el cursor de ResultSet a un número específico de registro (Registro anterior).
+                    setValues();
+                }
             }
+            
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ant* " + err.getMessage());
         }          
     }
     /**
@@ -204,19 +202,22 @@ public class ModelProductos {
      */
     public void moverSiguienteRegistro() {
         try {
-            if (rs.isLast() == false) {
-                rs.next(); // Siguiente registro 
-                id_producto = rs.getInt("id_producto");
-                nombre_producto = rs.getString("nombre_producto");
-                tipo_producto = rs.getString("tipo_producto");
-                marca = rs.getString("marca_producto");
-                precio_unitario = rs.getString("precio_unitario");
-                precio_mayoreo = rs.getString("precio_mayoreo");
-                inicio_mayoreo = rs.getString("inicio_mayoreo");
-                descripcion = rs.getString("descripcion");   
+            ResultSet cons_num = st.executeQuery("SELECT COUNT(*) FROM productos;");
+            if (cons_num.next()) {
+                int num_registros = cons_num.getInt(1); // Obtiene el número de registros existentes en la tabla 'productos'.
+                String sql = "SELECT * FROM productos;";
+                rs = st.executeQuery(sql);
+                if (rs.next()) { // Comprueba si la consulta devolvió registros.
+                    if (cursor < num_registros) {
+                        cursor++;
+                        rs.absolute(cursor); // Mueve el cursor de ResultSet a un número específico de registro (Siguiente registro).
+                        setValues();
+                    }
+                }
             }
+            
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error sig* " + err.getMessage());
         } 
     }
      /**
@@ -226,19 +227,22 @@ public class ModelProductos {
      */
     public void moverUltimoRegistro() {
         try {
-            if (rs.isLast() == false) {
-                rs.last(); //Último registro
-                id_producto = rs.getInt("id_producto");
-                nombre_producto = rs.getString("nombre_producto");
-                tipo_producto = rs.getString("tipo_producto");
-                marca = rs.getString("marca_producto");
-                precio_unitario = rs.getString("precio_unitario");
-                precio_mayoreo = rs.getString("precio_mayoreo");
-                inicio_mayoreo = rs.getString("inicio_mayoreo");
-                descripcion = rs.getString("descripcion");   
+            String sql = "SELECT * FROM productos;";
+            rs = st.executeQuery(sql);
+            if (rs.next()) { // Comprueba si la consulta devolvió registros.
+                if (rs.isLast() == false) {
+                    rs.last(); //Último registro
+                    setValues();
+                    ResultSet cons_num = st.executeQuery("SELECT COUNT(*) FROM productos;");
+                    if (cons_num.next()) {
+                        int num_registros = cons_num.getInt(1); // Obtiene el número de registros existentes en la tabla 'productos'.
+                        cursor = num_registros;
+                    }
+                }
             }
+            
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ult* " + err.getMessage());
         } 
     }
     /**
@@ -271,7 +275,7 @@ public class ModelProductos {
      */
     public void modificarRegistro() {
         try {
-            id_producto = rs.getInt("id_producto"); // Obtiene el id del registro seleccionado.
+            id_producto = this.getId_producto(); // Obtiene el id del registro seleccionado.
             tipo_producto = this.getTipo_producto(); // Obtiene los valores actuales de las variables. (16)
             nombre_producto = this.getNombre_producto();
             marca = this.getMarca();
@@ -290,9 +294,10 @@ public class ModelProductos {
             this.moverUltimoRegistro();
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error upd* "+err.getMessage()); 
         }
     }
+    
     //    /**
 //     * Método que realiza las siguiente acciones:
 //     *  - Muestra un mensaje preguntando si el usuario desea borrar el registro. S
@@ -317,5 +322,115 @@ public class ModelProductos {
 //            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
 //        }
 //    }
-   
+    
+    private int id_sucursal;
+    private int existencias;
+    
+    public int getId_sucursal() {
+        return id_sucursal;
+    }
+    public void setId_sucursal(int id_sucursal) {
+        this.id_sucursal = id_sucursal;
+    }
+
+    public int getExistencias() {
+        return existencias;
+    }
+    public void setExistencias(int existencias) {
+        this.existencias = existencias;
+    }
+    
+    private ArrayList sucursales;
+    
+    public ArrayList getSucursales() {
+        return sucursales;
+    }
+    public void setSucursales(ArrayList sucursales) {
+        this.sucursales = sucursales;
+    }
+    
+    /**
+     * Método para asignar los valores disponibles de la BD al ComboBox.
+     */
+    public void llenarComboBox() {
+        // ComboBox con nombres de sucursales.
+        try { // Nombres de Sucursales
+            ResultSet cons = st.executeQuery("SELECT * FROM sucursales;");
+//            if (cons.next()) {
+                ArrayList suc = new ArrayList(); // Lista para los valores a almacenar en el ComboBox
+                while (cons.next()) {
+                    String num_suc = Integer.toString(cons.getInt("id_sucursal"));
+                    String elemento_suc = cons.getString("nombre_sucursal");
+                    String elem = num_suc + " - " + elemento_suc;
+                    suc.add(elem);
+                }
+                this.setSucursales(suc); // Transfiere los datos al arreglo para ControllerCompras
+//            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+    
+    /**
+     * 
+     */
+    public void mostrarRegistroStock() {
+        try {
+            id_producto = this.getId_producto();
+            id_sucursal = this.getId_sucursal();
+            ResultSet cons2 = st.executeQuery("SELECT * FROM productos_por_sucursal WHERE "
+                    + "id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+            if (cons2.next()) {
+                existencias = cons2.getInt("existencia");
+            }
+        }
+        catch (SQLException err) {
+            JOptionPane.showMessageDialog(null,"Error al mostrar Stock " + err.getMessage());
+        }
+    }
+    
+    /**
+     * Método que realiza las siguiente acciones: - Crea un nuevo registro y lo
+     * almacena en la BD, tabla productos_por_sucursal.
+     */
+    public void insertarStock() {
+        try {
+            id_producto = this.getId_producto();
+            id_sucursal = this.getId_sucursal();
+            existencias = this.getExistencias();
+            
+            st.executeUpdate("INSERT INTO productos_por_sucursal (id_producto, id_sucursal, existencia)"
+                    + " VALUES (" + id_producto + ", " + id_sucursal + ", " + existencias + "); ");
+            JOptionPane.showMessageDialog(null, "Stock guardado.");
+            this.conectarDB();
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error s1 " + err.getMessage());
+        }
+    }
+     /**
+     * Método que realiza las siguiente acciones:
+     *  - Guarda (actualiza) los cambios realizados a un registro seleccionado, tabla productos_por_sucursal.
+     */
+    public void modificarStock() {
+        try {
+            id_producto = this.getId_producto();
+            id_sucursal = this.getId_sucursal();
+            existencias = this.getExistencias();
+            ResultSet cons_id = st.executeQuery("SELECT id_prod_por_sucursal FROM productos_por_sucursal WHERE id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+            if(cons_id.next()) {
+                int id_stock_prod = cons_id.getInt("id_prod_por_sucursal");
+                
+                st.executeUpdate("UPDATE productos_por_sucursal SET existencia = "+ existencias +" "
+                        + "WHERE id_prod_por_sucursal = "+ id_stock_prod +"; ");
+            }
+            JOptionPane.showMessageDialog(null, "Stock modificado !.");
+            this.conectarDB();
+        }
+        catch(SQLException err) { 
+            JOptionPane.showMessageDialog(null,"Error s2 "+err.getMessage()); 
+        }
+    }
+    
+    
+    
 }// Cierre de la clase ModelClientes.

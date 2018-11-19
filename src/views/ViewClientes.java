@@ -130,6 +130,8 @@ public class ViewClientes extends javax.swing.JFrame {
         jl_idcliente.setForeground(new java.awt.Color(255, 255, 255));
         jl_idcliente.setText("ID del cliente:");
 
+        jtf_idcliente.setEnabled(false);
+
         jl_tipocliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_tipocliente.setForeground(new java.awt.Color(255, 255, 255));
         jl_tipocliente.setText("Tipo de cliente:");
@@ -261,7 +263,8 @@ public class ViewClientes extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jl_codigopostal)
                                 .addGap(58, 58, 58)
-                                .addComponent(jtf_codigopostal, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtf_codigopostal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jl_colonia)
                                 .addGap(97, 97, 97)
@@ -279,13 +282,13 @@ public class ViewClientes extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtf_apellidopaterno)
-                                    .addComponent(jtf_idcliente)
                                     .addComponent(jcb_tipocliente, 0, 161, Short.MAX_VALUE)
                                     .addComponent(jtf_rfc)
                                     .addComponent(jtf_nombre)
                                     .addComponent(jtf_apellidomaterno)
-                                    .addComponent(jtf_telefono)
-                                    .addComponent(jtf_correoelectronico)))
+                                    .addComponent(jtf_correoelectronico)
+                                    .addComponent(jtf_idcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtf_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jl_calle)
                                 .addGap(94, 94, 94)
@@ -308,7 +311,7 @@ public class ViewClientes extends javax.swing.JFrame {
                                 .addComponent(jb_ultimo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jl_nombrerepresentante)
@@ -322,7 +325,7 @@ public class ViewClientes extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jl_telefonorepresentante)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtf_telefonorepresentante, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)))
+                                        .addComponent(jtf_telefonorepresentante, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()

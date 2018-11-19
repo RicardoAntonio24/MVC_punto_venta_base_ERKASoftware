@@ -373,6 +373,8 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
         jl_descuento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_descuento.setText("Descuento:");
 
+        jtf_idpromocion.setEnabled(false);
+
         jcb_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcb_productoActionPerformed(evt);

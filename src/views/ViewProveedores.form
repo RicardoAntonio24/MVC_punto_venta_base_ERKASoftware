@@ -30,10 +30,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -70,7 +67,10 @@
                                   <Component id="jtf_colonia" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jtf_calle" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jtf_correoelectronico" max="32767" attributes="0"/>
-                                  <Component id="jtf_codigopostal" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jtf_codigopostal" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -85,9 +85,11 @@
                                   <Component id="jtf_nombre" min="-2" pref="190" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jtf_rfc" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jtf_telefono" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="jtf_idproveedor" min="-2" pref="190" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jtf_telefono" min="-2" pref="118" max="-2" attributes="0"/>
+                                              <Component id="jtf_idproveedor" min="-2" pref="90" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -126,14 +128,20 @@
                               <Component id="jl_apellidopat" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jl_apellidomat" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="5" max="32767" attributes="0"/>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jl_telefonorepresentante" min="-2" max="-2" attributes="0"/>
-                              <Component id="jb_primero" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jl_telefonorepresentante" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jb_primero" min="-2" pref="63" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jb_anterior" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -141,10 +149,10 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jtf_nombrerepresentante" max="32767" attributes="0"/>
+                              <Component id="jtf_nombrerepresentante" pref="165" max="32767" attributes="0"/>
                               <Component id="jtf_apellidopat" max="32767" attributes="0"/>
                               <Component id="jtf_apellidomat" max="32767" attributes="0"/>
-                              <Component id="jtf_telefonorepresentante" pref="165" max="32767" attributes="0"/>
+                              <Component id="jtf_telefonorepresentante" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -504,6 +512,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jtf_idproveedor">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

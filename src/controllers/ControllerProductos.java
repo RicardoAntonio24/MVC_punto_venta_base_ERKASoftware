@@ -44,6 +44,12 @@ public class ControllerProductos {
             else if (e.getSource() == viewProductos.jb_eliminar) {
 //                jb_eliminar_actionPerformed();
             }
+            else if (e.getSource() == viewProductos.jb_insertar_stock) {
+                jb_insertar_stock_actionPerformed();
+            }
+            else if (e.getSource() == viewProductos.jb_modificar_stock) {
+                jb_modificar_stock_actionPerformed();
+            }
         }
     };
     
@@ -57,11 +63,18 @@ public class ControllerProductos {
         this.viewProductos = viewProductos;
         setActionListener();
         initDB();
+        modelProductos.llenarComboBox(); // Llama al método para llenar el ComboBox (registros existentes).
+        // Configuración de ComboBox para nombres de sucursales...
+        for (int s = 0; s < modelProductos.getSucursales().size(); s++) {
+            viewProductos.jcb_sucursal.addItem((String) modelProductos.getSucursales().get(s));
+        }
+        this.mostrarStock();
+        initDB();
         initComponents();
     }
     /**
      * Método que llama al método conectarBD del modelo y muestra los datos
-     * del primer registro en las cajas de texto de ViewClientes.
+     * del primer registro en las cajas de texto de ViewProductos.
      */
     private void initDB() {
         modelProductos.conectarDB();
@@ -75,6 +88,7 @@ public class ControllerProductos {
         viewProductos.jtf_preciomay.setText(modelProductos.getPrecio_mayoreo());
         viewProductos.jtf_iniciomay.setText(modelProductos.getInicio_mayoreo());
         viewProductos.jtf_descripcion.setText(modelProductos.getDescripcion());
+//        this.mostrarStock();
     }
     /**
      * Metodo para inicializar la ViewProductos
@@ -97,7 +111,11 @@ public class ControllerProductos {
         viewProductos.jb_insertar.addActionListener(actionListener);
         viewProductos.jb_modificar.addActionListener(actionListener);
         viewProductos.jb_eliminar.addActionListener(actionListener);
+        
+        viewProductos.jb_insertar_stock.addActionListener(actionListener);
+        viewProductos.jb_modificar_stock.addActionListener(actionListener);
     }
+    
      /**
      * Muestra los valores de las variables almacenados en el modelProductos en la viewProductos.
      */
@@ -112,6 +130,7 @@ public class ControllerProductos {
         viewProductos.jtf_preciomay.setText(modelProductos.getPrecio_mayoreo());
         viewProductos.jtf_iniciomay.setText(modelProductos.getInicio_mayoreo());
         viewProductos.jtf_descripcion.setText(modelProductos.getDescripcion()); 
+//        this.mostrarStock();
     }
      /**
      * Método para ver el primer registro de la tabla productos
@@ -119,6 +138,7 @@ public class ControllerProductos {
     private void jb_primero_actionPerformed() {
         modelProductos.moverPrimerRegistro();
         setValues();
+        this.mostrarStock();
     }
     /**
      * Método para ver el registro anterior de la tabla productos.
@@ -126,6 +146,7 @@ public class ControllerProductos {
     private void jb_anterior_actionPerformed() {
         modelProductos.moverAnteriorRegistro();
         setValues();
+        this.mostrarStock();
     }
 
     /**
@@ -134,6 +155,7 @@ public class ControllerProductos {
     private void jb_siguiente_actionPerformed() {
         modelProductos.moverSiguienteRegistro();
         setValues();
+        this.mostrarStock();
     }
     
     /**
@@ -142,11 +164,13 @@ public class ControllerProductos {
     private void jb_ultimo_actionPerformed() {
         modelProductos.moverUltimoRegistro();
         setValues();
+        this.mostrarStock();
     }
     /**
      * Método para preparar los campos de texto para un nuevo registro.
      */
     private void jb_nuevo_actionPerformed() {
+        viewProductos.jtf_idproducto.setText("0");
         viewProductos.jcb_tipoproducto.setSelectedIndex(0);
         viewProductos.jtf_nombre.setText(""); // Limpia los campos de texto de la vista. (15)
         viewProductos.jtf_marca.setText("");
@@ -154,7 +178,6 @@ public class ControllerProductos {
         viewProductos.jtf_preciomay.setText("");
         viewProductos.jtf_iniciomay.setText("");
         viewProductos.jtf_descripcion.setText("");
-        
     }
     
     /**
@@ -169,7 +192,6 @@ public class ControllerProductos {
         modelProductos.setInicio_mayoreo(viewProductos.jtf_iniciomay.getText());
         modelProductos.setDescripcion(viewProductos.jtf_descripcion.getText());
         
-        
         modelProductos.insertarRegistro(); // Invoca al método para Guardar o Insertar un nuevo registro en la tabla productos.
     }
     
@@ -177,6 +199,7 @@ public class ControllerProductos {
      * Método para modificar (actualizar) un registro de la tabla productos.
      */
     private void jb_modificar_actionPerformed() {
+        modelProductos.setId_producto(Integer.parseInt(viewProductos.jtf_idproducto.getText()));
         modelProductos.setTipo_producto((String) viewProductos.jcb_tipoproducto.getSelectedItem()); // Asigna los nuevos valores introducidos en la vista a las variables del modelo. (16)
         modelProductos.setNombre_producto(viewProductos.jtf_nombre.getText());
         modelProductos.setMarca(viewProductos.jtf_marca.getText());
@@ -194,6 +217,44 @@ public class ControllerProductos {
 //    private void jbtn_eliminar_actionPerformed() {
 //        modelProductos.eliminarRegistro(); // Invoca al método para Eliminar un registro.
 //    }
+    
+    
+    /**
+     * 
+     */
+    private void mostrarStock() {
+        modelProductos.setId_producto(Integer.parseInt(viewProductos.jtf_idproducto.getText()));
+        String id_s = (String) viewProductos.jcb_sucursal.getSelectedItem();
+        modelProductos.setId_sucursal(Integer.parseInt(id_s.substring(0,1)));
+        modelProductos.mostrarRegistroStock(); // Llama al método del model para mostrar el Stock de x producto.
+        viewProductos.jtf_stock.setText(Integer.toString(modelProductos.getExistencias()));
+    }
+    
+    /**
+     * 
+     */
+    private void jb_insertar_stock_actionPerformed() {
+        modelProductos.setId_producto(Integer.parseInt(viewProductos.jtf_idproducto.getText()));
+        String id_s = (String) viewProductos.jcb_sucursal.getSelectedItem();
+        modelProductos.setId_sucursal(Integer.parseInt(id_s.substring(0,1)));
+        modelProductos.setExistencias(Integer.parseInt(viewProductos.jtf_stock.getText()));
+        
+        modelProductos.insertarStock();
+        this.mostrarStock();
+    }
+    
+    /**
+     * 
+     */
+    private void jb_modificar_stock_actionPerformed() {
+        modelProductos.setId_producto(Integer.parseInt(viewProductos.jtf_idproducto.getText()));
+        String id_s = (String) viewProductos.jcb_sucursal.getSelectedItem();
+        modelProductos.setId_sucursal(Integer.parseInt(id_s.substring(0,1)));
+        modelProductos.setExistencias(Integer.parseInt(viewProductos.jtf_stock.getText()));
+        
+        modelProductos.modificarStock();
+        this.mostrarStock();
+    }
     
     
 } // Cierre de la clase ControllerProductos.
