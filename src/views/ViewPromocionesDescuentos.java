@@ -85,7 +85,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
         jtf_anio2 = new javax.swing.JTextField();
         jcb_sucursal = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        table_promo = new javax.swing.JTable();
         jb_nuevo3 = new javax.swing.JButton();
         jb_insertar1 = new javax.swing.JButton();
         jb_modificar1 = new javax.swing.JButton();
@@ -373,6 +373,12 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
         jl_descuento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_descuento.setText("Descuento:");
 
+        jcb_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_productoActionPerformed(evt);
+            }
+        });
+
         jcb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rebaja" }));
 
         jl_fechainicio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -397,7 +403,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        table_promo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -408,7 +414,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                 "ID", "Producto", "Tipo", "Descuento", "Fecha Inicio", "Fecha Limite ", "Sucursal"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(table_promo);
 
         jb_nuevo3.setBackground(new java.awt.Color(153, 153, 153));
         jb_nuevo3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -634,6 +640,10 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcb_mes3ActionPerformed
 
+    private void jcb_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_productoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_productoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -695,7 +705,6 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
     public javax.swing.JTable jTable1;
-    public javax.swing.JTable jTable2;
     public javax.swing.JButton jb_insertar;
     public javax.swing.JButton jb_insertar1;
     public javax.swing.JButton jb_modificar;
@@ -704,12 +713,12 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
     public javax.swing.JButton jb_nuevo2;
     public javax.swing.JButton jb_nuevo3;
     public javax.swing.JComboBox<String> jcb_dia;
-    private javax.swing.JComboBox<String> jcb_dia1;
-    private javax.swing.JComboBox<String> jcb_dia2;
+    public javax.swing.JComboBox<String> jcb_dia1;
+    public javax.swing.JComboBox<String> jcb_dia2;
     public javax.swing.JComboBox<String> jcb_dia3;
     public javax.swing.JComboBox<String> jcb_dia4;
-    private javax.swing.JComboBox<String> jcb_mes;
-    private javax.swing.JComboBox<String> jcb_mes1;
+    public javax.swing.JComboBox<String> jcb_mes;
+    public javax.swing.JComboBox<String> jcb_mes1;
     public javax.swing.JComboBox<String> jcb_mes2;
     public javax.swing.JComboBox<String> jcb_mes3;
     public javax.swing.JComboBox<String> jcb_producto;
@@ -738,5 +747,6 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_idpromocion;
     public javax.swing.JTextField jtf_montolimite;
     public javax.swing.JTextField jtf_montominimo;
+    public javax.swing.JTable table_promo;
     // End of variables declaration//GEN-END:variables
 }
