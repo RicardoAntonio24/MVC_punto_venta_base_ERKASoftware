@@ -188,7 +188,13 @@ public class ModelPromocionesDescuentos {
         this.fecha_limite = fecha_limite;
     }
     
-
+//Variables para Descuentos
+    private int id_descuento;
+    
+    
+    
+    
+    
     
     
     
@@ -245,18 +251,20 @@ public class ModelPromocionesDescuentos {
             id_producto = rs.getInt("id_producto");
             
             tipo_promocion = rs.getString("tipo_promocion");
+            
             fecha_inicio_promo = rs.getDate("fecha_inicio_promo");
             fecha_limite_promo = rs.getDate("fecha_limite_promo");
-            id_sucursal = rs.getInt("tipo_promocion");
+            
+            descuento_promocion = rs.getInt("descuento_promocion");
             
             id_sucursal = rs.getInt("id_sucursal");
          
-            String cons_pro = "SELECT nombre_producto FROM producto WHERE id_producto = " + id_producto + "; ";
+            String cons_pro = "SELECT nombre_producto FROM productos WHERE id_producto = " + id_producto + "; ";
             rs = st.executeQuery(cons_pro);
             if (rs.next()) {
                 nom_producto = rs.getString(1);
             }
-             String cons_sucu = "SELECT nombre_admin FROM administradores WHERE id_admin = " + id_sucursal + "; ";
+             String cons_sucu = "SELECT nombre_sucursal FROM sucursales WHERE id_sucursal= " + id_sucursal + "; ";
             rs = st.executeQuery(cons_sucu);
             if (rs.next()) {
                nom_sucursal = rs.getString(1);
@@ -267,7 +275,65 @@ public class ModelPromocionesDescuentos {
             JOptionPane.showMessageDialog(null, "Error model 102: " + err.getMessage());
         }
     }
-     
+    
+    private String dia;
+    private String mes;
+    private String anio;
+    
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public String getAnio() {
+        return anio;
+    }
+
+    public void setAnio(String anio) {
+        this.anio = anio;
+    }
+    
+    private String dia2;
+    private String mes2;
+    private String anio2;
+    
+    public String getDia2() {
+        return dia2;
+    }
+
+    public void setDia2(String dia2) {
+        this.dia2 = dia2;
+    }
+
+    public String getMes2() {
+        return mes2;
+    }
+
+    public void setMes2(String mes2) {
+        this.mes2 = mes2;
+    }
+
+    public String getAnio2() {
+        return anio2;
+    }
+
+    public void setAnio2(String anio2) {
+        this.anio2 = anio2;
+    }
+    
+    
+    
     private ResultSet promo;
     public void setValuesPromocion() {
         try {
@@ -287,7 +353,16 @@ public class ModelPromocionesDescuentos {
             registro_promo[2] = tipo_promocion;
             registro_promo[3] = Integer.toString(descuento_promocion);
             
-            // fechas
+//            // fechas
+//            fecha_inicio = anio + "-" + mes + "-" + dia;
+//              System.out.println("  Fecha 1: " + fecha_inicio);
+//            fecha_limite = anio + "-" + mes + "-" + dia;
+//              System.out.println("  Fecha 2: " + fecha_limite);
+            
+            registro_promo[4] = fecha_inicio;
+            registro_promo[5] = fecha_limite;
+            
+            
             registro_promo[6] = Integer.toString(id_sucursal);
             table_promo.addRow(registro_promo);
 
@@ -310,6 +385,15 @@ public class ModelPromocionesDescuentos {
     private String temp_iniciopromo;
     private String temp_limitepromo;
     private String tem_idsucursal;
+    private String temp_idproducto;
+
+    public String getTemp_idproducto() {
+        return temp_idproducto;
+    }
+
+    public void setTemp_idproducto(String temp_idproducto) {
+        this.temp_idproducto = temp_idproducto;
+    }
 
     public DefaultTableModel getTable_promo() {
         return table_promo;
@@ -386,7 +470,7 @@ public class ModelPromocionesDescuentos {
         try {
             table_promo.addColumn("ID Promocion");
             table_promo.addColumn("Nombre del Producto");
-            table_promo.addColumn("Tipo Producto");
+            table_promo.addColumn("Tipo Promocion");
             table_promo.addColumn("Descuento");
             table_promo.addColumn("Fecha Inicio");
             table_promo.addColumn("Fecha Limite");
@@ -396,22 +480,66 @@ public class ModelPromocionesDescuentos {
         }
     }
     
+    
+    
+    
     public void agregarPromocion() {
         try {
             registro_promo[0] = temp_idpromo;
             registro_promo[1] = temp_nomproducto;
+           
             registro_promo[2] = temp_tipopromo;
             registro_promo[3] = temp_descpromo;
             
+            // fechas
+            temp_iniciopromo = anio + "-" + mes + "-" + dia;
+              System.out.println("  Fecha 1: " + temp_iniciopromo);
+            temp_limitepromo = anio + "-" + mes + "-" + dia;
+              System.out.println("  Fecha 2: " + temp_limitepromo);
+              
             registro_promo[4] = temp_iniciopromo;
             registro_promo[5] = temp_limitepromo;
             
             registro_promo[6] = tem_idsucursal;
             
+             
 
             table_promo.addRow(registro_promo);
+            
+            int id_suc = 0;
+            
+             int id_prod = 0;
+            
+            ResultSet consulta = st.executeQuery("SELECT id_sucursal FROM sucursales WHERE nombre_sucursal = '"+ tem_idsucursal +"'; ");
+            if(consulta.next()){
+                id_suc = consulta.getInt(1);
+            }
+            
+            ResultSet consulta2 = st.executeQuery("SELECT id_producto FROM productos WHERE nombre_producto = '"+ temp_idproducto +"'; ");
+            if(consulta2.next()){
+                id_prod = consulta2.getInt(1);
+            }
+           
+            
+            
+            
+            st.executeUpdate("INSERT INTO promociones (id_promocion, id_producto, tipo_promocion, descuento_promocion, fecha_inicio_promo,fecha_limite_promo, id_sucursal)"
+                    + " VALUES (" + temp_idpromo + ", '" + id_prod + "', '" + temp_tipopromo + "', "+ temp_descpromo +", '"+ temp_iniciopromo + "','" + temp_limitepromo + "'," + id_suc+ "); ");
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null,"Error al agregar producto. "+err.getMessage());
         }
     }
+    
+    
+    
+   
+        
+    public void editarPromocion() {
+     
+            
+}
+
+    
+
+    
 }

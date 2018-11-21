@@ -4,8 +4,12 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import models.ModelPromocionesDescuentos;
 import views.ViewPromocionesDescuentos;
 
@@ -27,7 +31,12 @@ public class ControllerPromocionesDescuentos {
                 jb_nuevo3_actionPerformed();
             }
             else if (e.getSource() == viewPromocionesDescuentos.jb_insertar1) {
-                jb_insertar1_actionPerformed();
+                try {
+                    jb_insertar1_actionPerformed();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControllerPromocionesDescuentos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
             }
             else if (e.getSource() == viewPromocionesDescuentos.jb_modificar) {
                 //jb_modificar_actionPerformed();
@@ -100,8 +109,8 @@ public class ControllerPromocionesDescuentos {
         //fecha limite
         
         Date fecha_lim = modelPromocionesDescuentos.getFecha_limite_promo();
-        String fecha_limite = fecha.format(fecha_lim); // Convierte la fecha correspondiente a String
-        String [] afecha2 = fecha_limite.split("-"); // Separa los componentes de la fecha (año-mes-día)
+        String fecha_limite = fecha.format(fecha_lim); 
+        String [] afecha2 = fecha_limite.split("-"); 
         String anio_li = afecha2[0];
         String mes_li = afecha2[1];
         String dia_li  = afecha2[2];
@@ -197,29 +206,44 @@ public class ControllerPromocionesDescuentos {
         viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
     }
 
-       private void jb_insertar1_actionPerformed() {
-        modelPromocionesDescuentos.setTemp_idpromo(viewPromocionesDescuentos.jtf_idpromocion.getText());
+       private void jb_insertar1_actionPerformed() throws SQLException {
+//        modelPromocionesDescuentos.setTemp_idpromo(viewPromocionesDescuentos.jtf_idpromocion.getText());
+
         modelPromocionesDescuentos.setTemp_nomproducto((String)viewPromocionesDescuentos.jcb_producto.getSelectedItem());
         modelPromocionesDescuentos.setTemp_tipopromo((String)viewPromocionesDescuentos.jcb_tipo.getSelectedItem());
          modelPromocionesDescuentos.setTemp_descpromo(viewPromocionesDescuentos.jtf_descuento.getText());
         
          
          //fecha inicio 
-        modelPromocionesDescuentos.setTemp_iniciopromo((String)viewPromocionesDescuentos.jcb_dia3.getSelectedItem());
-        modelPromocionesDescuentos.setTemp_iniciopromo((String)viewPromocionesDescuentos.jcb_mes3.getSelectedItem());
-        modelPromocionesDescuentos.setTemp_iniciopromo(viewPromocionesDescuentos.jtf_anio1.getText());
+        modelPromocionesDescuentos.setDia((String)viewPromocionesDescuentos.jcb_dia3.getSelectedItem());
+        modelPromocionesDescuentos.setMes((String)viewPromocionesDescuentos.jcb_mes3.getSelectedItem());
+        modelPromocionesDescuentos.setAnio(viewPromocionesDescuentos.jtf_anio1.getText());
         
         //y fecha limite
-        modelPromocionesDescuentos.setTemp_limitepromo((String)viewPromocionesDescuentos.jcb_dia4.getSelectedItem());
-        modelPromocionesDescuentos.setTemp_limitepromo((String)viewPromocionesDescuentos.jcb_mes2.getSelectedItem());
-        modelPromocionesDescuentos.setTemp_limitepromo(viewPromocionesDescuentos.jtf_anio2.getText());
+        modelPromocionesDescuentos.setDia2((String)viewPromocionesDescuentos.jcb_dia4.getSelectedItem());
+        modelPromocionesDescuentos.setMes2((String)viewPromocionesDescuentos.jcb_mes2.getSelectedItem());
+        modelPromocionesDescuentos.setAnio2(viewPromocionesDescuentos.jtf_anio2.getText());
         
   
         modelPromocionesDescuentos.setTem_idsucursal((String)viewPromocionesDescuentos.jcb_sucursal.getSelectedItem());
         modelPromocionesDescuentos.agregarPromocion();
+    
     }
 
-   
+   private void jb_modificar1_actionPerformed(){
+      
+       int filaSeleccionada = 1;
+       if (filaSeleccionada != -1){
+          
+           
+       }
+        
+       
+       
+
+       modelPromocionesDescuentos.editarPromocion();
+       
+   }
        
 }
 
