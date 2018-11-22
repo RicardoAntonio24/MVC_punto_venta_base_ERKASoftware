@@ -33,9 +33,9 @@ public class ViewInicioSesion extends javax.swing.JFrame {
         jl_usuario = new javax.swing.JLabel();
         jtf_usuario = new javax.swing.JTextField();
         jl_passwd = new javax.swing.JLabel();
-        jtf_passwd = new javax.swing.JTextField();
         jb_iniciar = new javax.swing.JButton();
         jcb_tipousuario = new javax.swing.JComboBox<>();
+        jpf_passwd = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -76,11 +76,11 @@ public class ViewInicioSesion extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jl_passwd)
-                    .addComponent(jtf_passwd)
                     .addComponent(jtf_usuario)
                     .addComponent(jl_usuario)
                     .addComponent(jb_iniciar, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                    .addComponent(jcb_tipousuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jcb_tipousuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpf_passwd))
                 .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
@@ -92,9 +92,9 @@ public class ViewInicioSesion extends javax.swing.JFrame {
                 .addComponent(jtf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jl_passwd)
-                .addGap(1, 1, 1)
-                .addComponent(jtf_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpf_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addComponent(jcb_tipousuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addComponent(jb_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,7 +197,7 @@ public class ViewInicioSesion extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jcb_tipousuario;
     public javax.swing.JLabel jl_passwd;
     public javax.swing.JLabel jl_usuario;
-    public javax.swing.JTextField jtf_passwd;
+    public javax.swing.JPasswordField jpf_passwd;
     public javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
 }
