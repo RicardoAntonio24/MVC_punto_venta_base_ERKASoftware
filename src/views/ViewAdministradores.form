@@ -164,12 +164,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jl_passwd" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jl_nomusuario" min="-2" max="-2" attributes="0"/>
                                       <Component id="jl_passwd1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField1" max="32767" attributes="0"/>
+                                      <Component id="jtf_nomusuario" max="32767" attributes="0"/>
                                       <Component id="jpf_passwd" pref="169" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -198,8 +198,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_idadmin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtf_idadmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_passwd" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_nomusuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtf_nomusuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -425,7 +425,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jl_passwd">
+        <Component class="javax.swing.JLabel" name="jl_nomusuario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -1051,7 +1051,10 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jtf_nomusuario">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

@@ -36,7 +36,7 @@ public class ViewAdministradores extends javax.swing.JFrame {
         jl_rfc = new javax.swing.JLabel();
         jtf_idadmin = new javax.swing.JTextField();
         jtf_rfc = new javax.swing.JTextField();
-        jl_passwd = new javax.swing.JLabel();
+        jl_nomusuario = new javax.swing.JLabel();
         jpf_passwd = new javax.swing.JPasswordField();
         jl_nombre = new javax.swing.JLabel();
         jtf_nombre = new javax.swing.JTextField();
@@ -79,7 +79,7 @@ public class ViewAdministradores extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jl_passwd1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtf_nomusuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,9 +133,9 @@ public class ViewAdministradores extends javax.swing.JFrame {
 
         jtf_idadmin.setEnabled(false);
 
-        jl_passwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jl_passwd.setForeground(new java.awt.Color(255, 255, 255));
-        jl_passwd.setText("Nombre de Usuario:");
+        jl_nomusuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_nomusuario.setForeground(new java.awt.Color(255, 255, 255));
+        jl_nomusuario.setText("Nombre de Usuario:");
 
         jpf_passwd.setText("jPasswordField1");
 
@@ -348,11 +348,11 @@ public class ViewAdministradores extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jl_passwd)
+                                    .addComponent(jl_nomusuario)
                                     .addComponent(jl_passwd1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
+                                    .addComponent(jtf_nomusuario)
                                     .addComponent(jpf_passwd, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(196, 196, 196)
@@ -373,8 +373,8 @@ public class ViewAdministradores extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_idadmin)
                     .addComponent(jtf_idadmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_passwd)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jl_nomusuario)
+                    .addComponent(jtf_nomusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_rfc)
@@ -518,7 +518,6 @@ public class ViewAdministradores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JButton jb_anterior;
     public javax.swing.JButton jb_eliminar;
     public javax.swing.JButton jb_insertar;
@@ -543,7 +542,7 @@ public class ViewAdministradores extends javax.swing.JFrame {
     public javax.swing.JLabel jl_fechanac;
     public javax.swing.JLabel jl_idadmin;
     public javax.swing.JLabel jl_nombre;
-    public javax.swing.JLabel jl_passwd;
+    public javax.swing.JLabel jl_nomusuario;
     public javax.swing.JLabel jl_passwd1;
     public javax.swing.JLabel jl_rfc;
     public javax.swing.JLabel jl_telefono;
@@ -560,6 +559,7 @@ public class ViewAdministradores extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_estado;
     public javax.swing.JTextField jtf_idadmin;
     public javax.swing.JTextField jtf_nombre;
+    public javax.swing.JTextField jtf_nomusuario;
     public javax.swing.JTextField jtf_rfc;
     public javax.swing.JTextField jtf_telefono;
     // End of variables declaration//GEN-END:variables
