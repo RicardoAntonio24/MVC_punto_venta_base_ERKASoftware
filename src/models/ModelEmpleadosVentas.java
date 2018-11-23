@@ -29,6 +29,7 @@ public class ModelEmpleadosVentas {
     private String cod_postal_empleado;
     private String ciudad_empleado;
     private String estado_empleado;
+    private String nom_usuario;
     private String contrasena_empleado;
    
 
@@ -160,6 +161,14 @@ public class ModelEmpleadosVentas {
     public void setEstado_empleado(String estado_empleado) {
         this.estado_empleado = estado_empleado;
     }
+    
+    public String getNom_usuario() {
+        return nom_usuario;
+    }
+
+    public void setNom_usuario(String nom_usuario) {
+        this.nom_usuario = nom_usuario;
+    }
 
     public String getContrasena_empleado() {
         return contrasena_empleado;
@@ -221,6 +230,7 @@ public class ModelEmpleadosVentas {
             cod_postal_empleado = rs.getString("cod_postal_empleado");
             ciudad_empleado = rs.getString("ciudad_empleado");
             estado_empleado = rs.getString("estado_empleado");
+            nom_usuario = rs.getString("nom_usuario");
             contrasena_empleado = rs.getString("contrasena_empleado");
             
         } catch (SQLException err) {
@@ -232,23 +242,7 @@ public class ModelEmpleadosVentas {
         try {
             if (rs.isFirst() == false) {
                 rs.first(); //Primer registro
-
-                id_empleado = rs.getInt("id_empleado");
-                rfc_empleado = rs.getString("rfc_empleado");
-                nombre_empleado = rs.getString("nombre_empleado");
-                apellido_pat_empleado = rs.getString("apellido_pat_empleado");
-                apellido_mat_empleado = rs.getString("apellido_mat_empleado");
-                
-                fecha_nac_empleado = rs.getDate("fecha_nac_empleado");
-                fecha_ingreso_empleado = rs.getDate("fecha_ingreso_empleado");
-                
-                telefono_empleado = rs.getString("telefono_empleado");
-                calle_numero_empleado = rs.getString("calle_numero_empleado");
-                colonia_empleado = rs.getString("colonia_empleado");
-                cod_postal_empleado = rs.getString("cod_postal_empleado");
-                ciudad_empleado = rs.getString("ciudad_empleado");
-                estado_empleado = rs.getString("estado_empleado");
-                contrasena_empleado = rs.getString("contrasena_empleado");
+                setValues();
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -259,23 +253,7 @@ public class ModelEmpleadosVentas {
         try {
             if (rs.isFirst() == false) {
                 rs.previous(); //Registro anterior
-
-                id_empleado = rs.getInt("id_empleado");
-                rfc_empleado = rs.getString("rfc_empleado");
-                nombre_empleado = rs.getString("nombre_empleado");
-                apellido_pat_empleado = rs.getString("apellido_pat_empleado");
-                apellido_mat_empleado = rs.getString("apellido_mat_empleado");
-                
-                fecha_nac_empleado = rs.getDate("fecha_nac_empleado");
-                fecha_ingreso_empleado = rs.getDate("fecha_ingreso_empleado");
-                
-                telefono_empleado = rs.getString("telefono_empleado");
-                calle_numero_empleado = rs.getString("calle_numero_empleado");
-                colonia_empleado = rs.getString("colonia_empleado");
-                cod_postal_empleado = rs.getString("cod_postal_empleado");
-                ciudad_empleado = rs.getString("ciudad_empleado");
-                estado_empleado = rs.getString("estado_empleado");
-                contrasena_empleado = rs.getString("contrasena_empleado");
+                setValues();
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -286,24 +264,8 @@ public class ModelEmpleadosVentas {
         try {
             if (rs.isLast() == false) {
                 rs.next(); // Siguiente registro 
-                
-                id_empleado = rs.getInt("id_empleado");
-                rfc_empleado = rs.getString("rfc_empleado");
-                nombre_empleado = rs.getString("nombre_empleado");
-                apellido_pat_empleado = rs.getString("apellido_pat_empleado");
-                apellido_mat_empleado = rs.getString("apellido_mat_empleado");
-                
-                fecha_nac_empleado = rs.getDate("fecha_nac_empleado");
-                fecha_ingreso_empleado = rs.getDate("fecha_ingreso_empleado");
-                
-                telefono_empleado = rs.getString("telefono_empleado");
-                calle_numero_empleado = rs.getString("calle_numero_empleado");
-                colonia_empleado = rs.getString("colonia_empleado");
-                cod_postal_empleado = rs.getString("cod_postal_empleado");
-                ciudad_empleado = rs.getString("ciudad_empleado");
-                estado_empleado = rs.getString("estado_empleado");
-                contrasena_empleado = rs.getString("contrasena_empleado");
-                }
+                setValues();
+            }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
         }
@@ -313,23 +275,7 @@ public class ModelEmpleadosVentas {
         try {
             if (rs.isLast() == false) {
                 rs.last(); //Último registro
-
-                id_empleado = rs.getInt("id_empleado");
-                rfc_empleado = rs.getString("rfc_empleado");
-                nombre_empleado = rs.getString("nombre_empleado");
-                apellido_pat_empleado = rs.getString("apellido_pat_empleado");
-                apellido_mat_empleado = rs.getString("apellido_mat_empleado");
-                
-                fecha_nac_empleado = rs.getDate("fecha_nac_empleado");
-                fecha_ingreso_empleado = rs.getDate("fecha_ingreso_empleado");
-                
-                telefono_empleado = rs.getString("telefono_empleado");
-                calle_numero_empleado = rs.getString("calle_numero_empleado");
-                colonia_empleado = rs.getString("colonia_empleado");
-                cod_postal_empleado = rs.getString("cod_postal_empleado");
-                ciudad_empleado = rs.getString("ciudad_empleado");
-                estado_empleado = rs.getString("estado_empleado");
-                contrasena_empleado = rs.getString("contrasena_empleado");
+                setValues();
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -352,11 +298,12 @@ public class ModelEmpleadosVentas {
             colonia_empleado  = this.getColonia_empleado();
             cod_postal_empleado = this.getCod_postal_empleado();
             ciudad_empleado = this.getCiudad_empleado();
-            estado_empleado = this.getEstado_empleado(); 
+            estado_empleado = this.getEstado_empleado();
+            nom_usuario = this.getNom_usuario();
             contrasena_empleado= this.getContrasena_empleado();
             
-            st.executeUpdate("INSERT INTO empleados_ventas (rfc_empleado,nombre_empleado,apellido_pat_empleado, apellido_mat_empleado, fecha_nac_empleado, fecha_ingreso_empleado, telefono_empleado, calle_numero_empleado , colonia_empleado, cod_postal_empleado, ciudad_empleado, estado_empleado, contrasena_empleado)"
-                    + " VALUES ('" + rfc_empleado + "','" + nombre_empleado  + "', '" + apellido_pat_empleado  + "', '" +  apellido_mat_empleado + "', '" +  cad_fecha_nac  + "', '" + cad_fecha_ing + "', '" + telefono_empleado + "', '" +  calle_numero_empleado + "', '" + colonia_empleado + "', '" + cod_postal_empleado + "', '" + ciudad_empleado + "', '" + estado_empleado + "',  '" + contrasena_empleado + "'); ");
+            st.executeUpdate("INSERT INTO empleados_ventas (rfc_empleado,nombre_empleado,apellido_pat_empleado, apellido_mat_empleado, fecha_nac_empleado, fecha_ingreso_empleado, telefono_empleado, calle_numero_empleado , colonia_empleado, cod_postal_empleado, ciudad_empleado, estado_empleado, nom_usuario, contrasena_empleado)"
+                    + " VALUES ('" + rfc_empleado + "','" + nombre_empleado  + "', '" + apellido_pat_empleado  + "', '" +  apellido_mat_empleado + "', '" +  cad_fecha_nac  + "', '" + cad_fecha_ing + "', '" + telefono_empleado + "', '" +  calle_numero_empleado + "', '" + colonia_empleado + "', '" + cod_postal_empleado + "', '" + ciudad_empleado + "', '" + estado_empleado + "', '"+ nom_usuario +"', '" + contrasena_empleado + "'); ");
             JOptionPane.showMessageDialog(null, "Registro guardado.");
             this.conectarDB();
             this.moverUltimoRegistro();
@@ -381,7 +328,8 @@ public class ModelEmpleadosVentas {
             colonia_empleado  = this.getColonia_empleado();
             cod_postal_empleado = this.getCod_postal_empleado();
             ciudad_empleado = this.getCiudad_empleado();
-            estado_empleado = this.getEstado_empleado(); 
+            estado_empleado = this.getEstado_empleado();
+            nom_usuario = this.getNom_usuario();
             contrasena_empleado= this.getContrasena_empleado();
 
             
@@ -391,7 +339,7 @@ public class ModelEmpleadosVentas {
                             + "telefono_empleado  = '"+ telefono_empleado +"', calle_numero_empleado  = '"+ calle_numero_empleado +"', "
                                 + "colonia_empleado = '"+ colonia_empleado+"', cod_postal_empleado = '"+ cod_postal_empleado +"', "
                                     + "ciudad_empleado= '"+ ciudad_empleado +"', estado_empleado  = '"+ estado_empleado  +"', "
-                                        + "contrasena_empleado = '"+ contrasena_empleado+"' "
+                                        + "nom_usuario = '"+ nom_usuario +"', contrasena_empleado = '"+ contrasena_empleado+"' "
                                             + "WHERE id_empleado = "+ id_empleado +"; ");
             
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
@@ -402,7 +350,7 @@ public class ModelEmpleadosVentas {
             JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
         }
     }
-    
 
+    
     
 }

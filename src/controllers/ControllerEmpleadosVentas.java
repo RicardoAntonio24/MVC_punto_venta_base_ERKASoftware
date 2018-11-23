@@ -103,6 +103,7 @@ public class ControllerEmpleadosVentas {
         viewEmpleadosVentas.jtf_codigopostal1.setText(modelEmpleadosVentas.getCod_postal_empleado());
         viewEmpleadosVentas.jtf_ciudad1.setText(modelEmpleadosVentas.getCiudad_empleado());
         viewEmpleadosVentas.jtf_estado1.setText(modelEmpleadosVentas.getEstado_empleado());
+        viewEmpleadosVentas.jtf_nomusuario.setText(modelEmpleadosVentas.getNom_usuario());
         viewEmpleadosVentas.jpf_passwd1.setText(modelEmpleadosVentas.getContrasena_empleado());
     }
     
@@ -162,6 +163,7 @@ public class ControllerEmpleadosVentas {
         viewEmpleadosVentas.jtf_codigopostal1.setText(modelEmpleadosVentas.getCod_postal_empleado());
         viewEmpleadosVentas.jtf_ciudad1.setText(modelEmpleadosVentas.getCiudad_empleado());
         viewEmpleadosVentas.jtf_estado1.setText(modelEmpleadosVentas.getEstado_empleado());
+        viewEmpleadosVentas.jtf_nomusuario.setText(modelEmpleadosVentas.getNom_usuario());
         viewEmpleadosVentas.jpf_passwd1.setText(modelEmpleadosVentas.getContrasena_empleado());
     }
      
@@ -207,6 +209,7 @@ public class ControllerEmpleadosVentas {
         viewEmpleadosVentas.jtf_codigopostal1.setText("");
         viewEmpleadosVentas.jtf_ciudad1.setText("");
         viewEmpleadosVentas.jtf_estado1.setText("");
+        viewEmpleadosVentas.jtf_nomusuario.setText("");
         viewEmpleadosVentas.jpf_passwd1.setText("");
         
     }
@@ -235,6 +238,7 @@ public class ControllerEmpleadosVentas {
         modelEmpleadosVentas.setCod_postal_empleado(viewEmpleadosVentas.jtf_codigopostal1.getText());
         modelEmpleadosVentas.setCiudad_empleado(viewEmpleadosVentas.jtf_ciudad1.getText());
         modelEmpleadosVentas.setEstado_empleado(viewEmpleadosVentas.jtf_estado1.getText());
+        modelEmpleadosVentas.setNom_usuario(viewEmpleadosVentas.jtf_nomusuario.getText());
         modelEmpleadosVentas.setContrasena_empleado(viewEmpleadosVentas.jpf_passwd1.getText());
         
         modelEmpleadosVentas.insertarRegistro(); 
@@ -264,6 +268,7 @@ public class ControllerEmpleadosVentas {
         modelEmpleadosVentas.setCod_postal_empleado(viewEmpleadosVentas.jtf_codigopostal1.getText());
         modelEmpleadosVentas.setCiudad_empleado(viewEmpleadosVentas.jtf_ciudad1.getText());
         modelEmpleadosVentas.setEstado_empleado(viewEmpleadosVentas.jtf_estado1.getText());
+        modelEmpleadosVentas.setNom_usuario(viewEmpleadosVentas.jtf_nomusuario.getText());
         modelEmpleadosVentas.setContrasena_empleado(viewEmpleadosVentas.jpf_passwd1.getText());
         
         modelEmpleadosVentas.modificarRegistro(); 

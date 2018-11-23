@@ -623,8 +623,6 @@ public class ViewEmpleadosVentas extends javax.swing.JFrame {
         jl_nomusuario2.setForeground(new java.awt.Color(255, 255, 255));
         jl_nomusuario2.setText("Nombre de Usuario:");
 
-        jtf_nomusuario.setEnabled(false);
-
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
