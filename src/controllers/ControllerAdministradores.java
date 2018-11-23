@@ -102,15 +102,15 @@ public class ControllerAdministradores {
         viewAdministradores.jtf_anioin.setText(anio_in);
         
         
-      
-       viewAdministradores.jtf_telefono.setText(modelAdministradores.getTelefono_admin());
+        viewAdministradores.jtf_telefono.setText(modelAdministradores.getTelefono_admin());
+        viewAdministradores.jtf_correoelectronico.setText(modelAdministradores.getCorreo_admin());
         viewAdministradores.jtf_calle.setText(modelAdministradores.getCalle_numero_admin());
         viewAdministradores.jtf_colonia.setText(modelAdministradores.getColonia_admin());
         viewAdministradores.jtf_codigopostal.setText(modelAdministradores.getCod_postal_admin());
         viewAdministradores.jtf_ciudad.setText(modelAdministradores.getCiudad_admin());
         viewAdministradores.jtf_estado.setText(modelAdministradores.getEstado_admin());
+        viewAdministradores.jtf_nomusuario.setText(modelAdministradores.getNom_usuario());
         viewAdministradores.jpf_passwd.setText(modelAdministradores.getContrasena_admin());
-      
     }
     
     public void initComponents() {
@@ -166,13 +166,14 @@ public class ControllerAdministradores {
         
         
          viewAdministradores.jtf_telefono.setText(modelAdministradores.getTelefono_admin());
+         viewAdministradores.jtf_correoelectronico.setText(modelAdministradores.getCorreo_admin());
          viewAdministradores.jtf_calle.setText(modelAdministradores.getCalle_numero_admin());
          viewAdministradores.jtf_colonia.setText(modelAdministradores.getColonia_admin());
          viewAdministradores.jtf_codigopostal.setText(modelAdministradores.getCod_postal_admin());
          viewAdministradores.jtf_ciudad.setText(modelAdministradores.getCiudad_admin());
          viewAdministradores.jtf_estado.setText(modelAdministradores.getEstado_admin());
+         viewAdministradores.jtf_nomusuario.setText(modelAdministradores.getNom_usuario());
          viewAdministradores.jpf_passwd.setText(modelAdministradores.getContrasena_admin());
-      
     }
  
      
@@ -212,15 +213,15 @@ public class ControllerAdministradores {
         viewAdministradores.jcb_mesin.setSelectedIndex(0);
         viewAdministradores.jtf_anioin.setText("");
        
-       
-       viewAdministradores.jtf_telefono.setText("");
+        viewAdministradores.jtf_correoelectronico.setText("");
+        viewAdministradores.jtf_telefono.setText("");
         viewAdministradores.jtf_calle.setText("");
         viewAdministradores.jtf_colonia.setText("");
         viewAdministradores.jtf_codigopostal.setText("");
         viewAdministradores.jtf_ciudad.setText("");
         viewAdministradores.jtf_estado.setText("");
+        viewAdministradores.jtf_nomusuario.setText("");
         viewAdministradores.jpf_passwd.setText("");
-       
     }
     
      private void jb_insertar_actionPerformed() {
@@ -242,14 +243,15 @@ public class ControllerAdministradores {
         String ingreso = anio_i + "-" + mes_i + "-" + dia_i;
         modelAdministradores.setCad_fecha_ing(ingreso);
          
-         
-         
-     
+        modelAdministradores.setCorreo_admin(viewAdministradores.jtf_correoelectronico.getText());
         modelAdministradores.setTelefono_admin(viewAdministradores.jtf_telefono.getText());
-        modelAdministradores.setCalle_numero_admin(viewAdministradores.jtf_colonia.getText());
+        modelAdministradores.setCalle_numero_admin(viewAdministradores.jtf_calle.getText());
+        modelAdministradores.setColonia_admin(viewAdministradores.jtf_colonia.getText());
         modelAdministradores.setCod_postal_admin(viewAdministradores.jtf_codigopostal.getText());
         modelAdministradores.setCiudad_admin(viewAdministradores.jtf_ciudad.getText());
         modelAdministradores.setEstado_admin(viewAdministradores.jtf_estado.getText());
+        modelAdministradores.setNom_usuario(viewAdministradores.jtf_nomusuario.getText());
+        modelAdministradores.setContrasena_admin(viewAdministradores.jpf_passwd.getText());
         
         
         modelAdministradores.insertarRegistro(); 
@@ -276,13 +278,18 @@ public class ControllerAdministradores {
         modelAdministradores.setCad_fecha_ing(ingreso);
         
         
-     
+        modelAdministradores.setCorreo_admin(viewAdministradores.jtf_correoelectronico.getText());
         modelAdministradores.setTelefono_admin(viewAdministradores.jtf_telefono.getText());
-        modelAdministradores.setCalle_numero_admin(viewAdministradores.jtf_colonia.getText());
+        modelAdministradores.setCalle_numero_admin(viewAdministradores.jtf_calle.getText());
+        modelAdministradores.setColonia_admin(viewAdministradores.jtf_colonia.getText());
         modelAdministradores.setCod_postal_admin(viewAdministradores.jtf_codigopostal.getText());
         modelAdministradores.setCiudad_admin(viewAdministradores.jtf_ciudad.getText());
         modelAdministradores.setEstado_admin(viewAdministradores.jtf_estado.getText());
+        modelAdministradores.setNom_usuario(viewAdministradores.jtf_nomusuario.getText());
+        modelAdministradores.setContrasena_admin(viewAdministradores.jpf_passwd.getText());
         
         modelAdministradores.modificarRegistro(); 
     }
+    
+    
 }

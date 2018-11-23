@@ -31,6 +31,7 @@ public class ModelAdministradores {
     private String cod_postal_admin;
     private String ciudad_admin;
     private String estado_admin;
+    private String nom_usuario;
     private String contrasena_admin;
 
 
@@ -169,6 +170,14 @@ public class ModelAdministradores {
     public void setEstado_admin(String estado_admin) {
         this.estado_admin = estado_admin;
     }
+    
+    public String getNom_usuario() {
+        return nom_usuario;
+    }
+
+    public void setNom_usuario(String nom_usuario) {
+        this.nom_usuario = nom_usuario;
+    }
 
     public String getContrasena_admin() {
         return contrasena_admin;
@@ -233,6 +242,7 @@ public class ModelAdministradores {
             cod_postal_admin = rs.getString("cod_postal_admin");
             ciudad_admin = rs.getString("ciudad_admin");
             estado_admin = rs.getString("estado_admin");
+            nom_usuario = rs.getString("nom_usuario");
             contrasena_admin = rs.getString("contrasena_admin");
             
         } catch (SQLException err) {
@@ -244,23 +254,7 @@ public class ModelAdministradores {
         try {
             if (rs.isFirst() == false) {
                 rs.first(); //Primer registro
-
-                id_admin = rs.getInt("id_admin");
-                rfc_admin = rs.getString("rfc_admin");
-                nombre_admin = rs.getString("nombre_admin");
-                apellido_pat_admin = rs.getString("apellido_pat_admin");
-                apellido_mat_admin = rs.getString("apellido_mat_admin");
-            
-                fecha_nac_admin = rs.getDate("fecha_nac_admin");
-                fecha_ingreso_admin = rs.getDate("fecha_ingreso_admin");
-                correo_admin = rs.getString("correo_admin");
-                telefono_admin = rs.getString("telefono_admin");
-                calle_numero_admin = rs.getString("calle_numero_admin");
-                colonia_admin = rs.getString("colonia_admin");
-                cod_postal_admin = rs.getString("cod_postal_admin");
-                ciudad_admin = rs.getString("ciudad_admin");
-                estado_admin = rs.getString("estado_admin");
-                contrasena_admin = rs.getString("contrasena_admin");
+                setValues();
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -271,23 +265,7 @@ public class ModelAdministradores {
         try {
             if (rs.isFirst() == false) {
                 rs.previous(); //Registro anterior
-
-               id_admin = rs.getInt("id_admin");
-                rfc_admin = rs.getString("rfc_admin");
-                nombre_admin = rs.getString("nombre_admin");
-                apellido_pat_admin = rs.getString("apellido_pat_admin");
-                apellido_mat_admin = rs.getString("apellido_mat_admin");
-            
-                fecha_nac_admin = rs.getDate("fecha_nac_admin");
-                fecha_ingreso_admin = rs.getDate("fecha_ingreso_admin");
-                correo_admin = rs.getString("correo_admin");
-                telefono_admin = rs.getString("telefono_admin");
-                calle_numero_admin = rs.getString("calle_numero_admin");
-                colonia_admin = rs.getString("colonia_admin");
-                cod_postal_admin = rs.getString("cod_postal_admin");
-                ciudad_admin = rs.getString("ciudad_admin");
-                estado_admin = rs.getString("estado_admin");
-                contrasena_admin = rs.getString("contrasena_admin");
+                setValues();
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -299,23 +277,7 @@ public class ModelAdministradores {
         try {
             if (rs.isLast() == false) {
                 rs.next(); // Siguiente registro 
-                
-                id_admin = rs.getInt("id_admin");
-                rfc_admin = rs.getString("rfc_admin");
-                nombre_admin = rs.getString("nombre_admin");
-                apellido_pat_admin = rs.getString("apellido_pat_admin");
-                apellido_mat_admin = rs.getString("apellido_mat_admin");
-            
-                fecha_nac_admin = rs.getDate("fecha_nac_admin");
-                fecha_ingreso_admin = rs.getDate("fecha_ingreso_admin");
-                correo_admin = rs.getString("correo_admin");
-                telefono_admin = rs.getString("telefono_admin");
-                calle_numero_admin = rs.getString("calle_numero_admin");
-                colonia_admin = rs.getString("colonia_admin");
-                cod_postal_admin = rs.getString("cod_postal_admin");
-                ciudad_admin = rs.getString("ciudad_admin");
-                estado_admin = rs.getString("estado_admin");
-                contrasena_admin = rs.getString("contrasena_admin");
+                setValues();
                 }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -326,23 +288,7 @@ public class ModelAdministradores {
         try {
             if (rs.isLast() == false) {
                 rs.last(); //Último registro
-
-                 id_admin = rs.getInt("id_admin");
-                rfc_admin = rs.getString("rfc_admin");
-                nombre_admin = rs.getString("nombre_admin");
-                apellido_pat_admin = rs.getString("apellido_pat_admin");
-                apellido_mat_admin = rs.getString("apellido_mat_admin");
-            
-                fecha_nac_admin = rs.getDate("fecha_nac_admin");
-                fecha_ingreso_admin = rs.getDate("fecha_ingreso_admin");
-                correo_admin = rs.getString("correo_admin");
-                telefono_admin = rs.getString("telefono_admin");
-                calle_numero_admin = rs.getString("calle_numero_admin");
-                colonia_admin = rs.getString("colonia_admin");
-                cod_postal_admin = rs.getString("cod_postal_admin");
-                ciudad_admin = rs.getString("ciudad_admin");
-                estado_admin = rs.getString("estado_admin");
-                contrasena_admin = rs.getString("contrasena_admin");
+                setValues();
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
@@ -367,11 +313,12 @@ public class ModelAdministradores {
             colonia_admin  = this.getColonia_admin();
             cod_postal_admin = this.getCod_postal_admin();
             ciudad_admin = this.getCiudad_admin();
-            estado_admin = this.getEstado_admin(); 
+            estado_admin = this.getEstado_admin();
+            nom_usuario = this.getNom_usuario();
             contrasena_admin= this.getContrasena_admin();
             
-            st.executeUpdate("INSERT INTO administradores (rfc_admin,nombre_admin,apellido_pat_admin, apellido_mat_admin, fecha_nac_admin, fecha_ingreso_admin, telefono_admin, correo_admin, calle_numero_admin , colonia_admin, cod_postal_admin, ciudad_admin, estado_admin, contrasena_admin)"
-                    + " VALUES ('" + rfc_admin + "','" + nombre_admin  + "', '" + apellido_pat_admin  + "', '" +  apellido_mat_admin + "', '" +  cad_fecha_nac  + "', '" + cad_fecha_ing + "', '" + telefono_admin + "', '" + correo_admin + "', '" +  calle_numero_admin + "', '" + colonia_admin + "', '" + cod_postal_admin + "', '" + ciudad_admin + "', '" + estado_admin + "',  '" + contrasena_admin + "'); ");
+            st.executeUpdate("INSERT INTO administradores (rfc_admin,nombre_admin,apellido_pat_admin, apellido_mat_admin, fecha_nac_admin, fecha_ingreso_admin, telefono_admin, correo_admin, calle_numero_admin , colonia_admin, cod_postal_admin, ciudad_admin, estado_admin, nom_usuario, contrasena_admin)"
+                    + " VALUES ('" + rfc_admin + "','" + nombre_admin  + "', '" + apellido_pat_admin  + "', '" +  apellido_mat_admin + "', '" +  cad_fecha_nac  + "', '" + cad_fecha_ing + "', '" + telefono_admin + "', '" + correo_admin + "', '" +  calle_numero_admin + "', '" + colonia_admin + "', '" + cod_postal_admin + "', '" + ciudad_admin + "', '" + estado_admin + "', '"+ nom_usuario +"', '" + contrasena_admin + "'); ");
             JOptionPane.showMessageDialog(null, "Registro guardado.");
             this.conectarDB();
             this.moverUltimoRegistro();
@@ -397,7 +344,8 @@ public class ModelAdministradores {
             colonia_admin  = this.getColonia_admin();
             cod_postal_admin = this.getCod_postal_admin();
             ciudad_admin = this.getCiudad_admin();
-            estado_admin = this.getEstado_admin(); 
+            estado_admin = this.getEstado_admin();
+            nom_usuario = this.getNom_usuario();
             contrasena_admin= this.getContrasena_admin();
 
             
@@ -408,7 +356,7 @@ public class ModelAdministradores {
                               + " calle_numero_admin  = '"+ calle_numero_admin +"', "
                                 + "colonia_admin = '"+ colonia_admin +"', cod_postal_admin = '"+ cod_postal_admin +"', "
                                     + "ciudad_admin= '"+ ciudad_admin +"', estado_admin  = '"+ estado_admin  +"', "
-                                        + "contrasena_admin = '"+ contrasena_admin +"' "
+                                        + "nom_usuario = '"+ nom_usuario +"', contrasena_admin = '"+ contrasena_admin +"' "
                                             + "WHERE id_admin = "+ id_admin +"; ");
             
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
@@ -419,7 +367,7 @@ public class ModelAdministradores {
             JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
         }
     }
-     
-     
-     
+
+    
+    
 }

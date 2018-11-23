@@ -210,20 +210,20 @@ insert into PROVEEDORES (ID_PROVEEDOR,RFC_PROVEEDOR,NOMBRE_PROVEEDOR,TELEFONO_PR
 (5,'EEEEEEEE55555555','IUSA','6958400','fabricaiusa-mex@gmail.com','AUTOPISTA PUEBLA 114','RIO VIEJO','40258','PUEBLA','PUEBLA','RAMON','ARAIZA','GOMEZ','7425896310');
 
 
-insert into EMPLEADOS_VENTAS (RFC_EMPLEADO,NOMBRE_EMPLEADO,APELLIDO_PAT_EMPLEADO,APELLIDO_MAT_EMPLEADO,FECHA_NAC_EMPLEADO,FECHA_INGRESO_EMPLEADO,TELEFONO_EMPLEADO,CALLE_NUMERO_EMPLEADO,COLONIA_EMPLEADO,COD_POSTAL_EMPLEADO,CIUDAD_EMPLEADO,ESTADO_EMPLEADO,CONTRASENA_EMPLEADO) values
-('EMPVENTAS1111','Alexis','Hernandez','Perez','1997-10-20','2007-10-20','775123450','heroes de nacozari 25','la estacion','43720','tulancingo','Hidalgo','uno'),
-('EMPVENTAS1112','Angeles','Gayosso','Octaviano','1999-06-23','2011-05-25','771123450','la morena 104','la morena ','43550','tulancingo','Pachuca','dos'),
-('EMPVENTAS1113','Diego','Bolaños','Pardo','1997-12-12','2012-12-20','771432234','morelos pavon 45','tulancingo','72012','tulancingo','Chiapas ','tres'),
-('EMPVENTAS1114','Mario','Nieto','Lopez','1999-01-09','2007-01-15','775127051','francico i madero 102','francisco i madero','77234','tulancingo','Guerrero','cuatro'),
-('EMPVENTAS1115','Andres','Hernandez','Ramirez','1999-11-02','2015-07-02','775113247','cuautepec 111','la esperanza ','740123','tulancingo','Zacatecas ','cinco');
+insert into EMPLEADOS_VENTAS (RFC_EMPLEADO,NOMBRE_EMPLEADO,APELLIDO_PAT_EMPLEADO,APELLIDO_MAT_EMPLEADO,FECHA_NAC_EMPLEADO,FECHA_INGRESO_EMPLEADO,TELEFONO_EMPLEADO,CALLE_NUMERO_EMPLEADO,COLONIA_EMPLEADO,COD_POSTAL_EMPLEADO,CIUDAD_EMPLEADO,ESTADO_EMPLEADO,NOM_USUARIO,CONTRASENA_EMPLEADO) values
+('EMPVENTAS1111','Alexis','Hernandez','Perez','1997-10-20','2007-10-20','775123450','heroes de nacozari 25','la estacion','43720','tulancingo','Hidalgo','AlexisPerez','uno'),
+('EMPVENTAS1112','Angeles','Gayosso','Octaviano','1999-06-23','2011-05-25','771123450','la morena 104','la morena ','43550','tulancingo','Pachuca','Angie','dos'),
+('EMPVENTAS1113','Diego','Bolaños','Pardo','1997-12-12','2012-12-20','771432234','morelos pavon 45','tulancingo','72012','tulancingo','Chiapas ','DiegoBolanos','tres'),
+('EMPVENTAS1114','Estefanía','Garcia','Resendiz','1999-01-09','2007-01-15','775127051','francico i madero 102','francisco i madero','77234','tulancingo','Guerrero','Fanny','cuatro'),
+('EMPVENTAS1115','Andres','Hernandez','Ramirez','1999-11-02','2015-07-02','775113247','cuautepec 111','la esperanza ','740123','tulancingo','Zacatecas ','Yo','cinco');
 
 
-insert into ADMINISTRADORES (RFC_ADMIN,NOMBRE_ADMIN,APELLIDO_PAT_ADMIN,APELLIDO_MAT_ADMIN,FECHA_NAC_ADMIN,FECHA_INGRESO_ADMIN,TELEFONO_ADMIN,CORREO_ADMIN,CALLE_NUMERO_ADMIN,COLONIA_ADMIN,COD_POSTAL_ADMIN,CIUDAD_ADMIN,ESTADO_ADMIN,CONTRASENA_ADMIN) values
-('ADMINISTRAD01','karla ','fragoso','cerecedo','1998-11-04','2017-05-10','7752151742','rojo1@gmail.com','102','Magisterio ','92136','Tulancingo','Hidalgo','rojo1'),
-('ADMINISTRAD02','Gloria','Cerecedo','Perez','1967-09-06','2017-11-12','7891186979','rojo2@gmail.com','s/n','Platanal','92101','Tantoyuca','Veracruz','rojo2'),
-('ADMINISTRAD03','Agustin','Monter','Vera','1998-08-28','2018-02-10','7751362563','rojo3@gmail.com','s/n','Magisterio ','92136','Tulancingo','Hidalgo','rojo3'),
-('ADMINISTRAD04','Ricardo','Cerecedo','Morales','1999-11-15','2015-12-15','7891102665','rojo4@gmail.com','126','Platanal','92105','Tantoyuca','Veracruz','rojo4'),
-('ADMINISTRAD05','lucia','morales','hernandez','1968-11-17','2017-03-11','7751360915','rojo5@gmail.com','s/n','Morena','92103','Tulancingo','Hidalgo','rojo5');
+insert into ADMINISTRADORES (RFC_ADMIN,NOMBRE_ADMIN,APELLIDO_PAT_ADMIN,APELLIDO_MAT_ADMIN,FECHA_NAC_ADMIN,FECHA_INGRESO_ADMIN,TELEFONO_ADMIN,CORREO_ADMIN,CALLE_NUMERO_ADMIN,COLONIA_ADMIN,COD_POSTAL_ADMIN,CIUDAD_ADMIN,ESTADO_ADMIN,NOM_USUARIO,CONTRASENA_ADMIN) values
+('ADMINISTRAD01','karla ','fragoso','cerecedo','1998-11-04','2017-05-10','7752151742','rojo1@gmail.com','102','Magisterio ','92136','Tulancingo','Hidalgo','karla41','rojo1'),
+('ADMINISTRAD02','Gloria','Cerecedo','Perez','1967-09-06','2017-11-12','7891186979','rojo2@gmail.com','s/n','Platanal','92101','Tantoyuca','Veracruz','gloria2','rojo2'),
+('ADMINISTRAD03','Agustin','Monter','Vera','1998-08-28','2018-02-10','7751362563','rojo3@gmail.com','s/n','Magisterio ','92136','Tulancingo','Hidalgo','agustin3','rojo3'),
+('ADMINISTRAD04','Ricardo','Cerecedo','Morales','1999-11-15','2015-12-15','7891102665','rojo4@gmail.com','126','Platanal','92105','Tantoyuca','Veracruz','ricardo4','rojo4'),
+('ADMINISTRAD05','lucia','morales','hernandez','1968-11-17','2017-03-11','7751360915','rojo5@gmail.com','s/n','Morena','92103','Tulancingo','Hidalgo','lucia5','rojo5');
 
 
 insert into PRODUCTOS (NOMBRE_PRODUCTO,TIPO_PRODUCTO,MARCA_PRODUCTO,PRECIO_UNITARIO,PRECIO_MAYOREO,INICIO_MAYOREO,DESCRIPCION) values
