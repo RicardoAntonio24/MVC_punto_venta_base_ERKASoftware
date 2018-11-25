@@ -190,7 +190,7 @@
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jtf_nventa" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Component id="jtf_fechaventa" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                                   <Component id="jcb_sucursal" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -239,7 +239,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel15" min="-2" pref="10" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField7" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="jtf_importefinal" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -259,7 +259,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jl_formapago" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jComboBox4" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="jcb_formapago" min="-2" pref="145" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -291,12 +291,12 @@
                           <Component id="jtf_descuento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jl_formapago" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcb_formapago" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jl_fecha" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtf_fechaventa" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -312,7 +312,7 @@
                           <Component id="jcb_cliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jl_importetotal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtf_importefinal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
@@ -435,9 +435,9 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="jtf_fechaventa">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -603,7 +603,7 @@
                 <Property name="text" type="java.lang.String" value="$"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="jtf_importefinal">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>
@@ -644,7 +644,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox4">
+            <Component class="javax.swing.JComboBox" name="jcb_formapago">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
@@ -661,11 +661,12 @@
             <Component class="javax.swing.JComboBox" name="jcb_banco">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Banamex"/>
-                    <StringItem index="1" value="Bansefi"/>
-                    <StringItem index="2" value="Bancomer"/>
-                    <StringItem index="3" value="HSBC"/>
+                  <StringArray count="5">
+                    <StringItem index="0" value=" "/>
+                    <StringItem index="1" value="Banamex"/>
+                    <StringItem index="2" value="Bansefi"/>
+                    <StringItem index="3" value="Bancomer"/>
+                    <StringItem index="4" value="HSBC"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -741,6 +742,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jb_cotizacion">
               <Properties>
@@ -813,7 +817,7 @@
                                   <Component id="jtf_nventa1" max="32767" attributes="0"/>
                                   <Component id="jcb_producto" alignment="0" pref="150" max="32767" attributes="0"/>
                                   <Component id="jtf_cantidad" max="32767" attributes="0"/>
-                                  <Component id="jTextField11" max="32767" attributes="0"/>
+                                  <Component id="jtf_precio" max="32767" attributes="0"/>
                                   <Component id="jtf_promocion" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -847,7 +851,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtf_precio" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -863,12 +867,12 @@
                               <Component id="jb_agregarproducto" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jb_eliminarproducto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jb_finventa" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jb_siguiente" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="jb_ultimo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="jb_anterior1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jb_primero" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jb_finventa" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -956,7 +960,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
+            <Component class="javax.swing.JTextField" name="jtf_precio">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>

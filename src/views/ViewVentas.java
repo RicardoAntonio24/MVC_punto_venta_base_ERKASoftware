@@ -40,7 +40,7 @@ public class ViewVentas extends javax.swing.JFrame {
         jl_vendedor = new javax.swing.JLabel();
         jl_cliente = new javax.swing.JLabel();
         jtf_nventa = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jtf_fechaventa = new javax.swing.JTextField();
         jcb_sucursal = new javax.swing.JComboBox<>();
         jcb_vendedor = new javax.swing.JComboBox<>();
         jcb_cliente = new javax.swing.JComboBox<>();
@@ -58,11 +58,11 @@ public class ViewVentas extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jtf_total = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jtf_importefinal = new javax.swing.JTextField();
         jl_formapago = new javax.swing.JLabel();
         jl_banco = new javax.swing.JLabel();
         jl_nocuenta = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jcb_formapago = new javax.swing.JComboBox<>();
         jcb_banco = new javax.swing.JComboBox<>();
         jtf_nocuenta = new javax.swing.JTextField();
         jb_nuevo = new javax.swing.JButton();
@@ -78,7 +78,7 @@ public class ViewVentas extends javax.swing.JFrame {
         jtf_nventa1 = new javax.swing.JTextField();
         jtf_cantidad = new javax.swing.JTextField();
         jcb_producto = new javax.swing.JComboBox<>();
-        jTextField11 = new javax.swing.JTextField();
+        jtf_precio = new javax.swing.JTextField();
         jtf_promocion = new javax.swing.JTextField();
         jb_primero = new javax.swing.JButton();
         jb_anterior1 = new javax.swing.JButton();
@@ -152,7 +152,7 @@ public class ViewVentas extends javax.swing.JFrame {
 
         jtf_nventa.setEnabled(false);
 
-        jTextField2.setEnabled(false);
+        jtf_fechaventa.setEditable(false);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Descuento:");
@@ -192,7 +192,7 @@ public class ViewVentas extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("$");
 
-        jTextField7.setEditable(false);
+        jtf_importefinal.setEditable(false);
 
         jl_formapago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_formapago.setText("Forma de pago:");
@@ -203,9 +203,9 @@ public class ViewVentas extends javax.swing.JFrame {
         jl_nocuenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_nocuenta.setText("No.Cuenta:");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta" }));
+        jcb_formapago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta" }));
 
-        jcb_banco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Banamex", "Bansefi", "Bancomer", "HSBC" }));
+        jcb_banco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Banamex", "Bansefi", "Bancomer", "HSBC" }));
 
         jb_nuevo.setBackground(new java.awt.Color(153, 153, 153));
         jb_nuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -245,7 +245,7 @@ public class ViewVentas extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtf_nventa, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtf_fechaventa, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jcb_sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jl_vendedor)
@@ -283,7 +283,7 @@ public class ViewVentas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtf_importefinal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -299,7 +299,7 @@ public class ViewVentas extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jl_formapago)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jcb_formapago, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -323,11 +323,11 @@ public class ViewVentas extends javax.swing.JFrame {
                     .addComponent(jtf_descuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(jl_formapago)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcb_formapago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jl_fecha)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_fechaventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcb_sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -341,7 +341,7 @@ public class ViewVentas extends javax.swing.JFrame {
                     .addComponent(jcb_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_importetotal)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_importefinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(111, 111, 111))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -406,7 +406,7 @@ public class ViewVentas extends javax.swing.JFrame {
             }
         });
 
-        jTextField11.setEditable(false);
+        jtf_precio.setEditable(false);
 
         jtf_promocion.setEditable(false);
 
@@ -499,7 +499,7 @@ public class ViewVentas extends javax.swing.JFrame {
                             .addComponent(jtf_nventa1)
                             .addComponent(jcb_producto, 0, 150, Short.MAX_VALUE)
                             .addComponent(jtf_cantidad)
-                            .addComponent(jTextField11)
+                            .addComponent(jtf_precio)
                             .addComponent(jtf_promocion))
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -525,7 +525,7 @@ public class ViewVentas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtf_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jl_promocion)
@@ -536,12 +536,12 @@ public class ViewVentas extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jb_agregarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jb_eliminarproducto))
+                    .addComponent(jb_finventa, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jb_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jb_ultimo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jb_anterior1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jb_primero, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jb_finventa, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_primero, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -625,7 +625,6 @@ public class ViewVentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -644,9 +643,6 @@ public class ViewVentas extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    public javax.swing.JTextField jTextField11;
-    public javax.swing.JTextField jTextField2;
-    public javax.swing.JTextField jTextField7;
     public javax.swing.JButton jb_agregarproducto;
     public javax.swing.JButton jb_anterior;
     public javax.swing.JButton jb_anterior1;
@@ -654,13 +650,14 @@ public class ViewVentas extends javax.swing.JFrame {
     public javax.swing.JButton jb_eliminarproducto;
     public javax.swing.JButton jb_finventa;
     public javax.swing.JButton jb_insertar;
-    private javax.swing.JButton jb_modificar;
+    public javax.swing.JButton jb_modificar;
     public javax.swing.JButton jb_nuevo;
     public javax.swing.JButton jb_primero;
     public javax.swing.JButton jb_siguiente;
     public javax.swing.JButton jb_ultimo;
     public javax.swing.JComboBox<String> jcb_banco;
     public javax.swing.JComboBox<String> jcb_cliente;
+    public javax.swing.JComboBox<String> jcb_formapago;
     public javax.swing.JComboBox<String> jcb_producto;
     public javax.swing.JComboBox<String> jcb_sucursal;
     public javax.swing.JComboBox<String> jcb_vendedor;
@@ -680,10 +677,13 @@ public class ViewVentas extends javax.swing.JFrame {
     public javax.swing.JLabel jl_vendedor;
     public javax.swing.JTextField jtf_cantidad;
     public javax.swing.JTextField jtf_descuento;
+    public javax.swing.JTextField jtf_fechaventa;
+    public javax.swing.JTextField jtf_importefinal;
     public javax.swing.JTextField jtf_iva;
     public javax.swing.JTextField jtf_nocuenta;
     public javax.swing.JTextField jtf_nventa;
     public javax.swing.JTextField jtf_nventa1;
+    public javax.swing.JTextField jtf_precio;
     public javax.swing.JTextField jtf_promocion;
     public javax.swing.JTextField jtf_subtotal;
     public javax.swing.JTextField jtf_total;
