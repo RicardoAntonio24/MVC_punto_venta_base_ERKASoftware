@@ -51,13 +51,13 @@ public class ControllerVentas {
             }
             // Botones para panel de detalle de Compra.
             else if (e.getSource() == viewVentas.jb_agregarproducto) {
-//                jb_agregarproducto_actionPerformed();
+                jb_agregarproducto_actionPerformed();
             }
             else if (e.getSource() == viewVentas.jb_eliminarproducto) {
-//                jb_eliminarproducto_actionPerformed();
+                jb_eliminarproducto_actionPerformed();
             }
             else if (e.getSource() == viewVentas.jb_finventa) {
-//                jb_fincompra_actionPerformed();
+                jb_fincompra_actionPerformed();
             }
 //            else if (e.getSource() == viewVentas.jb_cotizacion) {
 //                jb_cotizacion_actionPerformed();
@@ -86,17 +86,20 @@ public class ControllerVentas {
         for (int c = 0; c < modelVentas.getClientes().size(); c++) {
             viewVentas.jcb_cliente.addItem((String) modelVentas.getClientes().get(c));
         }
-//        for (int pr = 0; pr < modelVentas.getProductos().size(); pr++) {
-//            viewVentas.jcb_producto.addItem((String) modelVentas.getProductos().get(pr));
-//        }
+        for (int pr = 0; pr < modelVentas.getProductos().size(); pr++) {
+            viewVentas.jcb_producto.addItem((String) modelVentas.getProductos().get(pr));
+        }
         initDB();
-//        // Código para inhabilitar el panel de 'detalle de compra'...
-//        for (Component component : viewCompras.jPanel_detallecompra.getComponents()) {
-//            component.setEnabled(false);
-//        }
-//        modelVentas.llenarTabla();
-//        viewVentas.jtab_detalle_compra.setModel(modelVentas.getTabla_detalle());
-//        this.jb_primero_actionPerformed(); // Llama al metodo para mostrar en la tabla los detalles del primer registro de Venta.
+        // Código para inhabilitar el panel de 'detalle de venta'...
+        for (Component component : viewVentas.jPanel_detalleventa.getComponents()) {
+            component.setEnabled(false);
+        }
+        viewVentas.jtab_detalle_venta.setEnabled(true); // Habilita la tabla detalle de venta
+        viewVentas.jb_primero.setEnabled(true); viewVentas.jb_anterior1.setEnabled(true); viewVentas.jb_siguiente.setEnabled(true); viewVentas.jb_ultimo.setEnabled(true);
+        
+        modelVentas.llenarTabla();
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
+        this.jb_primero_actionPerformed(); // Llama al metodo para mostrar en la tabla los detalles del primer registro de Venta.
         initComponents();
     }
     
@@ -108,18 +111,7 @@ public class ControllerVentas {
         modelVentas.conectarDB();
         String id_vta = Integer.toString(modelVentas.getId_venta());
         viewVentas.jtf_nventa.setText(id_vta);
-//        // Fecha de la compra...
-//        DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
-//        Date fecha_com = modelCompras.getFecha();
-//        String fecha_com_cad = fecha.format(fecha_com); // Convierte la fecha correspondiente a String
-//        String [] afecha1 = fecha_com_cad.split("-"); // Separa los componentes de la fecha (año-mes-día)
-//        String anio_nac = afecha1[0];
-//        String mes_nac = afecha1[1];
-//        String dia_nac = afecha1[2];
-//        viewCompras.jcb_dia.setSelectedItem(dia_nac);
-//        viewCompras.jcb_mes.setSelectedItem(mes_nac);
-//        viewCompras.jtf_anio.setText(anio_nac);
-        
+//        // Fecha de la venta...
         DateFormat df = new SimpleDateFormat("yyyy-M-d");
         Date fecha_vta = modelVentas.getFecha_venta();
         String fechaSQL = df.format(fecha_vta); // Convierte la fecha correspondiente a String
@@ -172,18 +164,7 @@ public class ControllerVentas {
     private void setValues() {
         String id_vta = Integer.toString(modelVentas.getId_venta());
         viewVentas.jtf_nventa.setText(id_vta);
-//        // Fecha de la compra...
-//        DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
-//        Date fecha_com = modelCompras.getFecha();
-//        String fecha_com_cad = fecha.format(fecha_com); // Convierte la fecha correspondiente a String
-//        String [] afecha1 = fecha_com_cad.split("-"); // Separa los componentes de la fecha (año-mes-día)
-//        String anio_nac = afecha1[0];
-//        String mes_nac = afecha1[1];
-//        String dia_nac = afecha1[2];
-//        viewCompras.jcb_dia.setSelectedItem(dia_nac);
-//        viewCompras.jcb_mes.setSelectedItem(mes_nac);
-//        viewCompras.jtf_anio.setText(anio_nac);
-        
+//        // Fecha de la venta...
         DateFormat df = new SimpleDateFormat("yyyy-M-d");
         Date fecha_vta = modelVentas.getFecha_venta();
         String fechaSQL = df.format(fecha_vta); // Convierte la fecha correspondiente a String
@@ -202,72 +183,72 @@ public class ControllerVentas {
         viewVentas.jtf_nocuenta.setText(modelVentas.getNo_cuenta());
     }
     
-//    /**
-//     * Muestra los valores de las variables almacenados en el modelVentas en la viewVentas (Sección de detalle de Venta).
-//     */
-//    private void setValuesDetalleCompra() {
-//        viewVentas.jtab_detalle_compra.setModel(modelVentas.getTabla_detalle());
-//    }
+    /**
+     * Muestra los valores de las variables almacenados en el modelVentas en la viewVentas (Sección de detalle de Venta).
+     */
+    private void setValuesDetalleVenta() {
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
+    }
     
     
     /**
-     * Método para ver el primer registro de la tabla compras.
+     * Método para ver el primer registro de la tabla ventas.
      */
     private void jb_primero_actionPerformed() {
-//        int nrows = modelCompras.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
-//        for (int i = (nrows-1); i >= 0; i--) {
-//            modelCompras.getTabla_detalle().removeRow(i);
-//        }
-//        viewCompras.jtab_detalle_compra.setModel(modelCompras.getTabla_detalle());
+        int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de venta v. (5)
+        for (int i = (nrows-1); i >= 0; i--) {
+            modelVentas.getTabla_detalle().removeRow(i);
+        }
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
         
         modelVentas.moverPrimerRegistro();
         setValues();
-//        setValuesDetalleCompra();
+        setValuesDetalleVenta();
     }
     
     /**
-     * Método para ver el registro anterior de la tabla compras.
+     * Método para ver el registro anterior de la tabla ventas.
      */
     private void jb_anterior_actionPerformed() {
-//        int nrows = modelCompras.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
-//        for (int i = (nrows-1); i >= 0; i--) {
-//            modelCompras.getTabla_detalle().removeRow(i);
-//        }
-//        viewCompras.jtab_detalle_compra.setModel(modelCompras.getTabla_detalle());
+        int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
+        for (int i = (nrows-1); i >= 0; i--) {
+            modelVentas.getTabla_detalle().removeRow(i);
+        }
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
         
         modelVentas.moverAnteriorRegistro();
         setValues();
-//        setValuesDetalleCompra();
+        setValuesDetalleVenta();
     }
 
     /**
-     * Método para ver el siguiente registro de la tabla compras.
+     * Método para ver el siguiente registro de la tabla ventas.
      */
     private void jb_siguiente_actionPerformed() {
-//        int nrows = modelCompras.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
-//        for (int i = (nrows-1); i >= 0; i--) {
-//            modelCompras.getTabla_detalle().removeRow(i);
-//        }
-//        viewCompras.jtab_detalle_compra.setModel(modelCompras.getTabla_detalle());
+        int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
+        for (int i = (nrows-1); i >= 0; i--) {
+            modelVentas.getTabla_detalle().removeRow(i);
+        }
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
         
         modelVentas.moverSiguienteRegistro();
         setValues();
-//        setValuesDetalleCompra();
+        setValuesDetalleVenta();
     }
     
     /**
-     * Método para ver el último registro de la tabla compras.
+     * Método para ver el último registro de la tabla ventas.
      */
     private void jb_ultimo_actionPerformed() {
-//        int nrows = modelCompras.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
-//        for (int i = (nrows-1); i >= 0; i--) {
-//            modelCompras.getTabla_detalle().removeRow(i);
-//        }
-//        viewCompras.jtab_detalle_compra.setModel(modelCompras.getTabla_detalle());
+        int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
+        for (int i = (nrows-1); i >= 0; i--) {
+            modelVentas.getTabla_detalle().removeRow(i);
+        }
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
         
         modelVentas.moverUltimoRegistro();
         setValues();
-//        setValuesDetalleCompra();
+        setValuesDetalleVenta();
     }
     
     
@@ -289,11 +270,11 @@ public class ControllerVentas {
         viewVentas.jcb_banco.setSelectedIndex(0);
         viewVentas.jtf_nocuenta.setText("");
         
-//        int nrows = modelCompras.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de compra v. (5)
-//        for (int i = (nrows-1); i >= 0; i--) {
-//            modelCompras.getTabla_detalle().removeRow(i);
-//        }
-//        viewCompras.jtab_detalle_compra.setModel(modelCompras.getTabla_detalle());
+        int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de venta v. (5)
+        for (int i = (nrows-1); i >= 0; i--) {
+            modelVentas.getTabla_detalle().removeRow(i);
+        }
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
     }
     
     
@@ -317,16 +298,17 @@ public class ControllerVentas {
         
         modelVentas.insertarRegistro(); // Invoca al método para Guardar o Insertar un nuevo registro en la tabla Ventas.
         
-//        jb_ultimo_actionPerformed(); // Llama al método para mostrar el registro insertado (último).
-//        viewVentas.jtf_nventa1.setText(viewVentas.jtf_nventa.getText()); // Asigna el valor del registro de venta insertado como referencia para el detalle de venta.
-//        
-//        viewVentas.jb_primero.setEnabled(false); // Deshablita botones de movimiento entre registros. (4)
-//        viewVentas.jb_anterior1.setEnabled(false);
-//        viewVentas.jb_siguiente.setEnabled(false);
-//        viewVentas.jb_ultimo.setEnabled(false);
-//        viewVentas.jcb_producto.setEditable(true); // Vuelve editables las áreas de datos para el detalle de venta. (3)
-//        viewVentas.jtf_precio.setEditable(true);
-//        viewVentas.jtf_cantidad.setEditable(true);
+        jb_ultimo_actionPerformed(); // Llama al método para mostrar el registro insertado (último).
+        viewVentas.jtf_nventa1.setText(viewVentas.jtf_nventa.getText()); // Asigna el valor del registro de venta insertado como referencia para el detalle de venta.
+        
+        // Código para habilitar el panel de 'detalle de venta'...
+        for (Component component : viewVentas.jPanel_detalleventa.getComponents()) {
+            component.setEnabled(true);
+        }
+        viewVentas.jb_primero.setEnabled(false); // Deshablita botones de movimiento entre registros. (4)
+        viewVentas.jb_anterior1.setEnabled(false);
+        viewVentas.jb_siguiente.setEnabled(false);
+        viewVentas.jb_ultimo.setEnabled(false);
     }
     
     /**
@@ -352,6 +334,79 @@ public class ControllerVentas {
         modelVentas.modificarRegistro(); // Invoca al método para modificar un registro en la tabla Ventas.
     }
     
+    
+    /**
+     * Método para añadir un producto a la tabla de 'detalle de Venta'.
+     */
+    private void jb_agregarproducto_actionPerformed() {
+        modelVentas.setTemp_idventa(viewVentas.jtf_nventa1.getText());
+        modelVentas.setTemp_nomproducto((String)viewVentas.jcb_producto.getSelectedItem());
+        modelVentas.setTemp_cantidad(viewVentas.jtf_cantidad.getText());
+        
+        modelVentas.agregarProducto();
+        // Código para actualizar la caja de texto de 'Total al momento'.
+        modelVentas.setTotal_actual(0.0f);
+        for (int i = 0; i < viewVentas.jtab_detalle_venta.getRowCount(); i++) {
+            String total_prod = (String) viewVentas.jtab_detalle_venta.getValueAt(i, 6);
+            modelVentas.setTotal_actual(modelVentas.getTotal_actual() + Float.parseFloat(total_prod));
+        }
+        viewVentas.jtf_totalactual.setText(Float.toString(modelVentas.getTotal_actual()));
+    }
+    
+    /**
+     * Método para quitar un producto de la tabla del registro de 'detalle de venta'.
+     */
+    private void jb_eliminarproducto_actionPerformed() {
+        int elem = viewVentas.jtab_detalle_venta.getSelectedRow();
+        if (elem >= 0) {
+            modelVentas.getTabla_detalle().removeRow(elem);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún registro");
+        }
+        // Código para actualizar la caja de texto de 'Total al momento'.
+        modelVentas.setTotal_actual(0.0f);
+        for (int i = 0; i < viewVentas.jtab_detalle_venta.getRowCount(); i++) {
+            String total_prod = (String) viewVentas.jtab_detalle_venta.getValueAt(i, 6);
+            modelVentas.setTotal_actual(modelVentas.getTotal_actual() + Float.parseFloat(total_prod));
+        }
+        viewVentas.jtf_totalactual.setText(Float.toString(modelVentas.getTotal_actual()));
+    }
+    
+    /**
+     * Método para finalizar el proceso de registro de Compra.
+     */
+    private void jb_fincompra_actionPerformed() {
+        modelVentas.terminarVenta();
+        viewVentas.jtf_nventa1.setText("");
+         // Vuelve NO editables a las áreas de datos para el detalle de venta. (3)
+        for (Component component : viewVentas.jPanel_detalleventa.getComponents()) {
+            component.setEnabled(true);
+        }
+        viewVentas.jb_primero.setEnabled(true); // Hablita botones de movimiento entre registros. (4)
+        viewVentas.jb_anterior1.setEnabled(true);
+        viewVentas.jb_siguiente.setEnabled(true);
+        viewVentas.jb_ultimo.setEnabled(true);
+        viewVentas.jtab_detalle_venta.setEnabled(true);
+        
+    //    Resetear componentes del panel de detalle de venta: ...
+        viewVentas.jcb_producto.setSelectedIndex(0);
+        viewVentas.jtf_totalactual.setText("");
+        viewVentas.jtf_cantidad.setText("");
+        int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de venta v. (5)
+        for (int i = (nrows-1); i >= 0; i--) {
+            modelVentas.getTabla_detalle().removeRow(i);
+        }
+        viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
+        jb_ultimo_actionPerformed(); // Finalizado el registro de Compra, se posiciona en él (último registro).
+        
+        // Código para inhabilitar el panel de 'detalle de venta'...
+        for (Component component : viewVentas.jPanel_detalleventa.getComponents()) {
+            component.setEnabled(false);
+        }
+        viewVentas.jtab_detalle_venta.setEnabled(true); // Habilita la tabla detalle de venta
+        viewVentas.jb_primero.setEnabled(true); viewVentas.jb_anterior1.setEnabled(true); viewVentas.jb_siguiente.setEnabled(true); viewVentas.jb_ultimo.setEnabled(true);
+    }
     
     
     
