@@ -849,6 +849,29 @@ public class ModelVentas {
             float calc_subtotal = acum_total - calc_iva;
             st.executeUpdate("UPDATE ventas SET subtotal_venta = "+ calc_subtotal +", iva_venta = "+ calc_iva +", total_venta = "+ acum_total +" WHERE id_venta = "+ id_venta_2 +"; ");
             
+            // Código para verificar si el monto total de compra tenrá o no un descuento adicional...
+              System.out.println("ID de venta (referencia): " + id_venta_2);
+            ResultSet cfecha_venta = st.executeQuery("SELECT fecha_venta FROM ventas WHERE id_venta = "+ id_venta_2 +"; ");
+            if (cfecha_venta.next()) {
+                Date fechav = cfecha_venta.getDate(1);
+                
+                ResultSet cons_desc = st.executeQuery("SELECT * FROM descuentos WHERE monto_minimo <= "+ acum_total +" AND monto_limite > "+ acum_total +" AND fecha_inicio <= '"+ fechav +"' AND fecha_limite >= '"+ fechav +"'; ");
+                
+                float impf = acum_total; // Variable para calcular el importe total menos el posible descuento.
+                  System.out.println("  Monto almacenado de Venta: " + impf);
+                if (cons_desc.next()) {
+                    int id_desc = cons_desc.getInt("id_descuento");
+                    int porcentaje = cons_desc.getInt("porcentaje_descuento");
+                      System.out.println("  Datos de descuento obtenidos: " + id_desc + ", " + porcentaje); // pruebas...
+                    impf = impf - (impf * porcentaje / 100);
+                      System.out.println("  Monto obtenido con descuento: " + impf);
+                    st.executeUpdate("UPDATE ventas SET id_descuento = "+ id_desc +", importe_final = "+ impf +" WHERE id_venta = "+ id_venta_2 +"; ");
+                }
+                else {
+                    st.executeUpdate("UPDATE ventas SET id_descuento = 0, importe_final = "+ impf +" WHERE id_venta = "+ id_venta_2 +"; ");
+                }
+            }
+            
             JOptionPane.showMessageDialog(null, "Venta realizada con éxito.");
             this.conectarDB();
 //            this.moverUltimoRegistro();

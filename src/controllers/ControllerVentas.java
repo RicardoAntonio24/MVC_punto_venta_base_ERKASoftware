@@ -398,7 +398,9 @@ public class ControllerVentas {
             modelVentas.getTabla_detalle().removeRow(i);
         }
         viewVentas.jtab_detalle_venta.setModel(modelVentas.getTabla_detalle());
-        jb_ultimo_actionPerformed(); // Finalizado el registro de Compra, se posiciona en él (último registro).
+        
+        // Actualiza cajas de texto según aplicación de descuentos
+        jb_ultimo_actionPerformed(); // Finalizado el registro de Venta, se posiciona en él (último registro).
         
         // Código para inhabilitar el panel de 'detalle de venta'...
         for (Component component : viewVentas.jPanel_detalleventa.getComponents()) {
