@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.awt.Component;
+import java.awt.PopupMenu;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumnModel;
 
@@ -62,6 +63,9 @@ public class ControllerVentas {
 //            else if (e.getSource() == viewVentas.jb_cotizacion) {
 //                jb_cotizacion_actionPerformed();
 //            }
+            else if (e.getSource() == viewVentas.jb_mostrarstock) {
+                jb_mostrarstock_actionPerformed();
+            }
         }
     };
     
@@ -156,6 +160,7 @@ public class ControllerVentas {
         viewVentas.jb_agregarproducto.addActionListener(actionListener);
         viewVentas.jb_eliminarproducto.addActionListener(actionListener);
         viewVentas.jb_finventa.addActionListener(actionListener);
+        viewVentas.jb_mostrarstock.addActionListener(actionListener); // Acción para llenar ComboBox con existencias del producto seleccionado.
     }
     
     /**
@@ -341,7 +346,7 @@ public class ControllerVentas {
     private void jb_agregarproducto_actionPerformed() {
         modelVentas.setTemp_idventa(viewVentas.jtf_nventa1.getText());
         modelVentas.setTemp_nomproducto((String)viewVentas.jcb_producto.getSelectedItem());
-        modelVentas.setTemp_cantidad(viewVentas.jtf_cantidad.getText());
+        modelVentas.setTemp_cantidad((String) viewVentas.jcb_cantidad.getSelectedItem());
         
         modelVentas.agregarProducto();
         // Código para actualizar la caja de texto de 'Total al momento'.
@@ -352,6 +357,21 @@ public class ControllerVentas {
         }
         viewVentas.jtf_totalactual.setText(Float.toString(modelVentas.getTotal_actual()));
     }
+    
+    /**
+     * Configura el ComboBox de existencias de cada producto, para impedir que se intente vender más de lo que está disponible.
+     */
+    private void jb_mostrarstock_actionPerformed() {
+        modelVentas.setTemp_nomproducto((String)viewVentas.jcb_producto.getSelectedItem());
+        modelVentas.llenarCajaExistencias();
+        
+        viewVentas.jcb_cantidad.removeAllItems();
+        int registros_stock = modelVentas.getNums_stock().size();
+        for (int i = 0; i < registros_stock; i++) {
+            viewVentas.jcb_cantidad.addItem(Integer.toString((int) modelVentas.getNums_stock().get(i)));
+        }
+    }
+    
     
     /**
      * Método para quitar un producto de la tabla del registro de 'detalle de venta'.
@@ -392,7 +412,7 @@ public class ControllerVentas {
     //    Resetear componentes del panel de detalle de venta: ...
         viewVentas.jcb_producto.setSelectedIndex(0);
         viewVentas.jtf_totalactual.setText("");
-        viewVentas.jtf_cantidad.setText("");
+        viewVentas.jcb_cantidad.removeAllItems();
         int nrows = modelVentas.getTabla_detalle().getRowCount(); // Limpia la tabla de detalle de venta v. (5)
         for (int i = (nrows-1); i >= 0; i--) {
             modelVentas.getTabla_detalle().removeRow(i);

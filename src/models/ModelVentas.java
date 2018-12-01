@@ -657,7 +657,6 @@ public class ModelVentas {
                        + "no_cuenta = '"+ no_cuenta +"' WHERE id_venta = "+ id_venta +"; ");
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
             this.conectarDB();
-            this.moverUltimoRegistro();
             
         }
         catch(SQLException err) { 
@@ -802,6 +801,40 @@ public class ModelVentas {
         }
     }
     
+    
+    private ArrayList nums_stock = new ArrayList();
+    public ArrayList getNums_stock() {
+        return nums_stock;
+    }
+    public void setNums_stock(ArrayList nums_stock) {
+        this.nums_stock = nums_stock;
+    }
+    
+    /**
+     * Método para obtener las existencias del producto seleccionado, según la sucursal que realiza la Venta
+     */
+    public void llenarCajaExistencias() {
+        try {
+            nums_stock.clear(); // Limpia la lista de opciones de stock antes de configurarla nuevamente
+            // Código para obtener el id del producto seleccionado...
+            ResultSet cons = st.executeQuery("SELECT * FROM productos WHERE nombre_producto = '" + temp_nomproducto + "'; ");
+            if (cons.next()) {
+                id_producto = cons.getInt("id_producto");
+            }
+            
+            ResultSet constock1 = st.executeQuery("SELECT * FROM productos_por_sucursal WHERE id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+            if (constock1.next()) {
+                int stock_prod = constock1.getInt("existencia");
+                for (int n = 1; n <= stock_prod; n++) {
+                    nums_stock.add(n);
+                }
+            }
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null,"Error al llenar Combo Stock. "+err.getMessage());
+        }
+    }
+    
+    
     private float total_actual; // Variable para el valor del jtf_totalactual.
     public float getTotal_actual() {
         return total_actual;
@@ -844,13 +877,19 @@ public class ModelVentas {
                 }
                 st.executeUpdate("INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_venta, total_producto, id_promocion, total_con_descuento)"
                     + " VALUES (" + id_venta_2 + ", " + id_producto + ", " + cantidad + ", " + precio_venta + ", " + total_producto + ", "+ id_promocion +", "+ total_final +"); ");
+                
+                // Segmento para actualizar las existencias (stock) de los productos vendidos.
+                ResultSet constock2 = st.executeQuery("SELECT existencia FROM productos_por_sucursal WHERE id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+                if (constock2.next()) {
+                    int nuevo_stock = constock2.getInt(1) - cantidad;
+                    st.executeUpdate("UPDATE productos_por_sucursal SET existencia = "+ nuevo_stock +" WHERE id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+                }
             }
             float calc_iva = acum_total * 16 / 100;
             float calc_subtotal = acum_total - calc_iva;
             st.executeUpdate("UPDATE ventas SET subtotal_venta = "+ calc_subtotal +", iva_venta = "+ calc_iva +", total_venta = "+ acum_total +" WHERE id_venta = "+ id_venta_2 +"; ");
             
             // Código para verificar si el monto total de compra tenrá o no un descuento adicional...
-              System.out.println("ID de venta (referencia): " + id_venta_2);
             ResultSet cfecha_venta = st.executeQuery("SELECT fecha_venta FROM ventas WHERE id_venta = "+ id_venta_2 +"; ");
             if (cfecha_venta.next()) {
                 Date fechav = cfecha_venta.getDate(1);
@@ -858,13 +897,10 @@ public class ModelVentas {
                 ResultSet cons_desc = st.executeQuery("SELECT * FROM descuentos WHERE monto_minimo <= "+ acum_total +" AND monto_limite > "+ acum_total +" AND fecha_inicio <= '"+ fechav +"' AND fecha_limite >= '"+ fechav +"'; ");
                 
                 float impf = acum_total; // Variable para calcular el importe total menos el posible descuento.
-                  System.out.println("  Monto almacenado de Venta: " + impf);
                 if (cons_desc.next()) {
                     int id_desc = cons_desc.getInt("id_descuento");
                     int porcentaje = cons_desc.getInt("porcentaje_descuento");
-                      System.out.println("  Datos de descuento obtenidos: " + id_desc + ", " + porcentaje); // pruebas...
                     impf = impf - (impf * porcentaje / 100);
-                      System.out.println("  Monto obtenido con descuento: " + impf);
                     st.executeUpdate("UPDATE ventas SET id_descuento = "+ id_desc +", importe_final = "+ impf +" WHERE id_venta = "+ id_venta_2 +"; ");
                 }
                 else {
@@ -879,7 +915,7 @@ public class ModelVentas {
             JOptionPane.showMessageDialog(null,"Error al finalizar Venta. "+err.getMessage());
         }
     }
-    
+
     
     
 } // Cierre de la clase ModelVentas
