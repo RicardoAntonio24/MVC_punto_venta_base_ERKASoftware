@@ -253,10 +253,13 @@ public class ModelCompras {
             rs = st.executeQuery("SELECT * FROM administradores;");
             ArrayList adm = new ArrayList(); // Lista para los valores a almacenar en el ComboBox
             while (rs.next()) {
-                String elemento_adm = rs.getString("nombre_admin");
-                adm.add(elemento_adm);
+                String nom = rs.getString("nombre_admin");
+                String ap1 = rs.getString("apellido_pat_admin");
+                String ap2 = rs.getString("apellido_mat_admin");
+                String elemento_empv = nom + " " + ap1 + " " + ap2;
+                adm.add(elemento_empv);
             }
-            this.setAdmins(adm); // Transfiere los datos al arreglo para ControllerCompras
+            this.setAdmins(adm); // Transfiere los datos al arreglo para ControllerVentas
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -308,10 +311,18 @@ public class ModelCompras {
             if (rs.next()) {
                 nom_sucursal = rs.getString(1);
             }
-            String cons_adm = "SELECT nombre_admin FROM administradores WHERE id_admin = " + id_admin + "; ";
+//            String cons_adm = "SELECT nombre_admin FROM administradores WHERE id_admin = " + id_admin + "; ";
+//            rs = st.executeQuery(cons_adm);
+//            if (rs.next()) {
+//                nom_admin = rs.getString(1);
+//            }
+            String cons_adm = "SELECT nombre_admin, apellido_pat_admin, apellido_mat_admin FROM administradores WHERE id_admin = " + id_admin + "; ";
             rs = st.executeQuery(cons_adm);
             if (rs.next()) {
-                nom_admin = rs.getString(1);
+                String nombre = rs.getString(1);
+                String ape1 = rs.getString(2);
+                String ape2 = rs.getString(3);
+                nom_admin = nombre + " " + ape1 + " " + ape2;
             }
             String cons_prv = "SELECT nombre_proveedor FROM proveedores WHERE id_proveedor = " + id_proveedor + "; ";
             rs = st.executeQuery(cons_prv);
@@ -509,11 +520,17 @@ public class ModelCompras {
             if (rs.next()) {
                 id_sucursal = rs.getInt("id_sucursal");
             }
-            cons = "SELECT * FROM administradores WHERE nombre_admin = '" + this.getNom_admin() + "'; ";
+            String concat_nomadm = nom_admin.replace(" ", "");
+            cons = "SELECT * FROM administradores WHERE CONCAT(nombre_admin, apellido_pat_admin, apellido_mat_admin) = '"+ concat_nomadm +"'; ";
             rs = st.executeQuery(cons);
             if (rs.next()) {
                 id_admin = rs.getInt("id_admin");
             }
+//            cons = "SELECT * FROM administradores WHERE nombre_admin = '" + this.getNom_admin() + "'; ";
+//            rs = st.executeQuery(cons);
+//            if (rs.next()) {
+//                id_admin = rs.getInt("id_admin");
+//            }
             cons = "SELECT * FROM proveedores WHERE nombre_proveedor = '" + this.getNom_proveedor() + "'; ";
             rs = st.executeQuery(cons);
             if (rs.next()) {
@@ -550,11 +567,17 @@ public class ModelCompras {
             if (rs.next()) {
                 id_sucursal = rs.getInt("id_sucursal");
             }
-            cons = "SELECT * FROM administradores WHERE nombre_admin = '" + this.getNom_admin() + "'; ";
+            String concat_nomadm = nom_admin.replace(" ", "");
+            cons = "SELECT * FROM administradores WHERE CONCAT(nombre_admin, apellido_pat_admin, apellido_mat_admin) = '"+ concat_nomadm +"'; ";
             rs = st.executeQuery(cons);
             if (rs.next()) {
                 id_admin = rs.getInt("id_admin");
             }
+//            cons = "SELECT * FROM administradores WHERE nombre_admin = '" + this.getNom_admin() + "'; ";
+//            rs = st.executeQuery(cons);
+//            if (rs.next()) {
+//                id_admin = rs.getInt("id_admin");
+//            }
             cons = "SELECT * FROM proveedores WHERE nombre_proveedor = '" + this.getNom_proveedor() + "'; ";
             rs = st.executeQuery(cons);
             if (rs.next()) {
@@ -571,7 +594,7 @@ public class ModelCompras {
                             + "importe_total_compra = "+ imp_total +" WHERE id_compra = "+ id_compra +"; ");
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro.");
             this.conectarDB();
-            this.moverUltimoRegistro();
+//            this.moverUltimoRegistro();
             
         }
         catch(SQLException err) { 
@@ -694,6 +717,14 @@ public class ModelCompras {
                 }
                 st.executeUpdate("INSERT INTO detalle_compra (id_compra, id_producto, cantidad, precio_compra, total_producto)"
                     + " VALUES (" + id_compra_2 + ", " + id_producto + ", " + cantidad + ", " + precio_compra + ", " + total_prod + "); ");
+                
+                // Segmento para actualizar las existencias (stock) de los productos comprados (aumentar).
+                ResultSet constock = st.executeQuery("SELECT existencia FROM productos_por_sucursal WHERE id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+                  System.out.println("  Id de sucursal de referencia: " + id_sucursal);
+                if (constock.next()) {
+                    int nuevo_stock = constock.getInt(1) + cantidad;
+                    st.executeUpdate("UPDATE productos_por_sucursal SET existencia = "+ nuevo_stock +" WHERE id_producto = "+ id_producto +" AND id_sucursal = "+ id_sucursal +"; ");
+                }
             }
             float calc_iva = acum_total * 16 / 100;
             float calc_subtotal = acum_total - calc_iva;

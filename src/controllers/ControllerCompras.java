@@ -346,7 +346,7 @@ public class ControllerCompras {
      * Método para quitar un producto de la tabla del registro de 'detalle de compra'.
      */
     private void jb_eliminarproducto_actionPerformed() {
-        int elem = viewCompras.jtab_detalle_compra.getSelectedRowCount();
+        int elem = viewCompras.jtab_detalle_compra.getSelectedRow();
         if (elem >= 0) {
             modelCompras.getTabla_detalle().removeRow(elem);
         }
