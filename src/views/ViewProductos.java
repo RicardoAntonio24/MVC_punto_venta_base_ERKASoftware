@@ -66,9 +66,9 @@ public class ViewProductos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jl_sucursal = new javax.swing.JLabel();
-        jl_stock = new javax.swing.JLabel();
         jtf_stock = new javax.swing.JTextField();
         jcb_sucursal = new javax.swing.JComboBox<>();
+        jb_mostrarstock = new javax.swing.JButton();
         jl_simbolo = new javax.swing.JLabel();
         jl_simbolo2 = new javax.swing.JLabel();
         jl_subtitulo = new javax.swing.JLabel();
@@ -88,7 +88,7 @@ public class ViewProductos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
 
         jPanel2.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -183,12 +183,12 @@ public class ViewProductos extends javax.swing.JFrame {
         jb_eliminar.setBackground(new java.awt.Color(153, 153, 153));
         jb_eliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_eliminar.setText("Eliminar");
-        jb_eliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0)));
+        jb_eliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0)));
 
         jb_insertar.setBackground(new java.awt.Color(153, 153, 153));
         jb_insertar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_insertar.setText("Insertar");
-        jb_insertar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_insertar.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
         jb_insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_insertarActionPerformed(evt);
@@ -198,18 +198,18 @@ public class ViewProductos extends javax.swing.JFrame {
         jb_modificar.setBackground(new java.awt.Color(153, 153, 153));
         jb_modificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_modificar.setText("Modificar");
-        jb_modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
 
         jb_nuevo.setBackground(new java.awt.Color(153, 153, 153));
         jb_nuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_nuevo.setText("Nuevo");
-        jb_nuevo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jb_nuevo.setBorder(new javax.swing.border.SoftBevelBorder(0, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         jb_primero.setBackground(new java.awt.Color(153, 153, 153));
         jb_primero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_primero.setForeground(new java.awt.Color(51, 51, 51));
         jb_primero.setText("|<");
-        jb_primero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
+        jb_primero.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
         jb_primero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_primeroActionPerformed(evt);
@@ -220,19 +220,19 @@ public class ViewProductos extends javax.swing.JFrame {
         jb_anterior.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_anterior.setForeground(new java.awt.Color(51, 51, 51));
         jb_anterior.setText("<<");
-        jb_anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
+        jb_anterior.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
 
         jb_siguiente.setBackground(new java.awt.Color(153, 153, 153));
         jb_siguiente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_siguiente.setForeground(new java.awt.Color(51, 51, 51));
         jb_siguiente.setText(">>");
-        jb_siguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
+        jb_siguiente.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
 
         jb_ultimo.setBackground(new java.awt.Color(153, 153, 153));
         jb_ultimo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_ultimo.setForeground(new java.awt.Color(51, 51, 51));
         jb_ultimo.setText(">|");
-        jb_ultimo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
+        jb_ultimo.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51), new java.awt.Color(51, 51, 51)));
 
         jl_iniciomay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_iniciomay.setForeground(new java.awt.Color(255, 255, 255));
@@ -247,15 +247,15 @@ public class ViewProductos extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1eliminar.png"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Almacen en sucursales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(153, 0, 0))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Almacen en sucursales", 0, 0, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(153, 0, 0))); // NOI18N
 
         jl_sucursal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_sucursal.setForeground(new java.awt.Color(0, 0, 0));
         jl_sucursal.setText("Sucursal: ");
 
-        jl_stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jl_stock.setForeground(new java.awt.Color(0, 0, 0));
-        jl_stock.setText("Existencias: ");
+        jb_mostrarstock.setBackground(new java.awt.Color(51, 51, 51));
+        jb_mostrarstock.setForeground(new java.awt.Color(204, 204, 204));
+        jb_mostrarstock.setText("Mostrar Stock");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -263,12 +263,14 @@ public class ViewProductos extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_stock)
-                    .addComponent(jl_sucursal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtf_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_sucursal)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jb_mostrarstock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtf_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
                     .addComponent(jcb_sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -281,8 +283,8 @@ public class ViewProductos extends javax.swing.JFrame {
                     .addComponent(jcb_sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_stock)
-                    .addComponent(jtf_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_mostrarstock))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -301,7 +303,7 @@ public class ViewProductos extends javax.swing.JFrame {
         jb_insertar_stock.setBackground(new java.awt.Color(153, 153, 153));
         jb_insertar_stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_insertar_stock.setText("Insertar");
-        jb_insertar_stock.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_insertar_stock.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
         jb_insertar_stock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_insertar_stockActionPerformed(evt);
@@ -311,7 +313,7 @@ public class ViewProductos extends javax.swing.JFrame {
         jb_modificar_stock.setBackground(new java.awt.Color(153, 153, 153));
         jb_modificar_stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_modificar_stock.setText("Modificar");
-        jb_modificar_stock.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
+        jb_modificar_stock.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0), new java.awt.Color(0, 153, 0)));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1inser.png"))); // NOI18N
 
@@ -615,6 +617,7 @@ public class ViewProductos extends javax.swing.JFrame {
     public javax.swing.JButton jb_insertar_stock;
     public javax.swing.JButton jb_modificar;
     public javax.swing.JButton jb_modificar_stock;
+    public javax.swing.JButton jb_mostrarstock;
     public javax.swing.JButton jb_nuevo;
     public javax.swing.JButton jb_primero;
     public javax.swing.JButton jb_siguiente;
@@ -630,7 +633,6 @@ public class ViewProductos extends javax.swing.JFrame {
     public javax.swing.JLabel jl_preciouni;
     public javax.swing.JLabel jl_simbolo;
     public javax.swing.JLabel jl_simbolo2;
-    public javax.swing.JLabel jl_stock;
     public javax.swing.JLabel jl_subtitulo;
     public javax.swing.JLabel jl_sucursal;
     public javax.swing.JLabel jl_tipoproducto;

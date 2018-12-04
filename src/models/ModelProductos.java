@@ -383,6 +383,9 @@ public class ModelProductos {
             if (cons2.next()) {
                 existencias = cons2.getInt("existencia");
             }
+            else {
+                existencias = 0;
+            }
         }
         catch (SQLException err) {
             JOptionPane.showMessageDialog(null,"Error al mostrar Stock " + err.getMessage());
