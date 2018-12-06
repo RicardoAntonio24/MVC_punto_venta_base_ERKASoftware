@@ -29,6 +29,7 @@ public class ControllerPromocionesDescuentos {
             
             if (e.getSource() == viewPromocionesDescuentos.jb_nuevo3) {
                 jb_nuevo3_actionPerformed();
+                
             }
             else if (e.getSource() == viewPromocionesDescuentos.jb_insertar1) {
                 try {
@@ -38,8 +39,12 @@ public class ControllerPromocionesDescuentos {
                 }
             
             }
-            else if (e.getSource() == viewPromocionesDescuentos.jb_modificar) {
-                //jb_modificar_actionPerformed();
+            else if (e.getSource() == viewPromocionesDescuentos.jb_modificar1) {
+                try {
+                    jb_modificar1_actionPerformed();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControllerPromocionesDescuentos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
         }
@@ -54,13 +59,14 @@ public class ControllerPromocionesDescuentos {
      * @param modelPromocionesDescuentos
      * @param viewPromocionesDescuentos 
      */
-    public ControllerPromocionesDescuentos(ModelPromocionesDescuentos modelPromocionesDescuentos, ViewPromocionesDescuentos viewPromocionesDescuentos) {
+    public ControllerPromocionesDescuentos(ModelPromocionesDescuentos modelPromocionesDescuentos, ViewPromocionesDescuentos viewPromocionesDescuentos) throws SQLException  {
         
         this.modelPromocionesDescuentos = modelPromocionesDescuentos;
         this.viewPromocionesDescuentos = viewPromocionesDescuentos;
         setActionListener();
         initDB();
-        modelPromocionesDescuentos.llenarComboBox();  
+        modelPromocionesDescuentos.llenarComboBox(); 
+       
         for (int pr = 0; pr < modelPromocionesDescuentos.getProductos().size(); pr++) {
             viewPromocionesDescuentos.jcb_producto.addItem((String) modelPromocionesDescuentos.getProductos().get(pr));
         }
@@ -68,18 +74,21 @@ public class ControllerPromocionesDescuentos {
             viewPromocionesDescuentos.jcb_sucursal.addItem((String) modelPromocionesDescuentos.getSucursales().get(s));
         }
         
+       
+         
         
         
-        
-        
+       
         modelPromocionesDescuentos.llenarTabla();
-        viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
-      
-        initComponents();
         
+        viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
+       
+        initComponents();
+          
     }
     
     private void initDB() {
+        
         modelPromocionesDescuentos.conectarDB();
         String id_prom = Integer.toString(modelPromocionesDescuentos.getId_promocion());
         viewPromocionesDescuentos.jtf_idpromocion.setText(id_prom);
@@ -96,6 +105,7 @@ public class ControllerPromocionesDescuentos {
         Date fecha_in = modelPromocionesDescuentos.getFecha_inicio_promo();
         String fecha_inicio= fecha.format(fecha_in); 
         String [] afecha1 = fecha_inicio.split("-"); 
+        
         String anio_ini = afecha1[0];
         String mes_ini = afecha1[1];
         String dia_ini = afecha1[2];
@@ -126,6 +136,7 @@ public class ControllerPromocionesDescuentos {
         viewPromocionesDescuentos.setLocationRelativeTo(null);
         viewPromocionesDescuentos.setTitle("Descuentos y Promociones ACME");
         viewPromocionesDescuentos.setVisible(true);
+        
     }
      
      private void setActionListener() {
@@ -139,6 +150,7 @@ public class ControllerPromocionesDescuentos {
 
      private void setValues() {
         modelPromocionesDescuentos.conectarDB();
+        
         String id_prom = Integer.toString(modelPromocionesDescuentos.getId_promocion());
         viewPromocionesDescuentos.jtf_idpromocion.setText(id_prom);
         
@@ -179,11 +191,13 @@ public class ControllerPromocionesDescuentos {
       
     }
     
-     private void setValuesPromocion() {
+     private void setValuesPromocion(){
         viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
+        
+      
     }
       private void jb_nuevo3_actionPerformed() {
-        viewPromocionesDescuentos.jtf_idpromocion.setText("0");
+         viewPromocionesDescuentos.jtf_idpromocion.setText("0"); 
         viewPromocionesDescuentos.jcb_producto.setSelectedIndex(0); 
         viewPromocionesDescuentos.jcb_tipo.setSelectedIndex(0);
         viewPromocionesDescuentos.jtf_descuento.setText("");
@@ -195,20 +209,15 @@ public class ControllerPromocionesDescuentos {
         viewPromocionesDescuentos.jcb_dia4.setSelectedIndex(0);
         viewPromocionesDescuentos.jcb_mes2.setSelectedIndex(0);
         viewPromocionesDescuentos.jtf_anio2.setText("");
-        
-        viewPromocionesDescuentos.jcb_sucursal.setSelectedIndex(0);
+         viewPromocionesDescuentos.jcb_sucursal.setSelectedIndex(0);
       
         
-        int nrows = modelPromocionesDescuentos.getTable_promo().getRowCount(); 
-        for (int i = (nrows-1); i >= 0; i--) {
-            modelPromocionesDescuentos.getTable_promo().removeRow(i);
-        }
+        
         viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
     }
 
        private void jb_insertar1_actionPerformed() throws SQLException {
-//        modelPromocionesDescuentos.setTemp_idpromo(viewPromocionesDescuentos.jtf_idpromocion.getText());
-
+       modelPromocionesDescuentos.setTemp_idpromo(viewPromocionesDescuentos.jtf_idpromocion.getText());
         modelPromocionesDescuentos.setTemp_nomproducto((String)viewPromocionesDescuentos.jcb_producto.getSelectedItem());
         modelPromocionesDescuentos.setTemp_tipopromo((String)viewPromocionesDescuentos.jcb_tipo.getSelectedItem());
          modelPromocionesDescuentos.setTemp_descpromo(viewPromocionesDescuentos.jtf_descuento.getText());
@@ -226,24 +235,48 @@ public class ControllerPromocionesDescuentos {
         
   
         modelPromocionesDescuentos.setTem_idsucursal((String)viewPromocionesDescuentos.jcb_sucursal.getSelectedItem());
+   
         modelPromocionesDescuentos.agregarPromocion();
+      
+         viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
     
     }
-
-   private void jb_modificar1_actionPerformed(){
-      
-       int filaSeleccionada = 1;
-       if (filaSeleccionada != -1){
-          
-           
-       }
+       
+       
+       
+       private void jb_modificar1_actionPerformed() throws SQLException{
+            modelPromocionesDescuentos.setTemp_idpromo(viewPromocionesDescuentos.jtf_idpromocion.getText());
+        modelPromocionesDescuentos.setTemp_nomproducto((String)viewPromocionesDescuentos.jcb_producto.getSelectedItem());
+        modelPromocionesDescuentos.setTemp_tipopromo((String)viewPromocionesDescuentos.jcb_tipo.getSelectedItem());
+         modelPromocionesDescuentos.setTemp_descpromo(viewPromocionesDescuentos.jtf_descuento.getText());
         
+         
+         //fecha inicio 
+        modelPromocionesDescuentos.setDia((String)viewPromocionesDescuentos.jcb_dia3.getSelectedItem());
+        modelPromocionesDescuentos.setMes((String)viewPromocionesDescuentos.jcb_mes3.getSelectedItem());
+        modelPromocionesDescuentos.setAnio(viewPromocionesDescuentos.jtf_anio1.getText());
+        
+        //y fecha limite
+        modelPromocionesDescuentos.setDia2((String)viewPromocionesDescuentos.jcb_dia4.getSelectedItem());
+        modelPromocionesDescuentos.setMes2((String)viewPromocionesDescuentos.jcb_mes2.getSelectedItem());
+        modelPromocionesDescuentos.setAnio2(viewPromocionesDescuentos.jtf_anio2.getText());
+        
+  
+        modelPromocionesDescuentos.setTem_idsucursal((String)viewPromocionesDescuentos.jcb_sucursal.getSelectedItem());
+        modelPromocionesDescuentos.modificarPromocion();
+      
+         viewPromocionesDescuentos.table_promo.setModel(modelPromocionesDescuentos.getTable_promo());
+        
+        for (int i =0; i < viewPromocionesDescuentos.table_promo.getRowCount(); i++) {
+            modelPromocionesDescuentos.getTable_promo().removeRow(i);
+            i -= 1;
+        }
+    
        
-       
-
-       modelPromocionesDescuentos.editarPromocion();
-       
-   }
+         
+       }
        
 }
+
+   
 
