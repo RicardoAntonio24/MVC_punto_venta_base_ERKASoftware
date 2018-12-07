@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumnModel;
+import models.ModelMain;
+import views.ViewMain;
 
 /**
  *
@@ -48,6 +50,9 @@ public class ControllerCompras {
             }
             else if (e.getSource() == viewCompras.jb_modificar) {
                 jb_modificar_actionPerformed();
+            }
+            else if (e.getSource() == viewCompras.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
             // Botones para panel de detalle de Compra.
             else if (e.getSource() == viewCompras.jb_agregarproducto) {
@@ -148,6 +153,7 @@ public class ControllerCompras {
         viewCompras.jb_nuevo.addActionListener(actionListener);
         viewCompras.jb_insertar.addActionListener(actionListener);
         viewCompras.jb_modificar.addActionListener(actionListener);
+        viewCompras.jb_menuprincipal.addActionListener(actionListener);
         
         viewCompras.jb_agregarproducto.addActionListener(actionListener);
         viewCompras.jb_eliminarproducto.addActionListener(actionListener);
@@ -378,6 +384,17 @@ public class ControllerCompras {
         }
         viewCompras.jtab_detalle_compra.setModel(modelCompras.getTabla_detalle());
         jb_ultimo_actionPerformed(); // Finalizado el registro de Compra, se posiciona en él (último registro).
+    }
+    
+    
+    /**
+     * Método para regresar a la menú (frame) principal...
+     */
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewCompras.setVisible(false);
     }
     
     

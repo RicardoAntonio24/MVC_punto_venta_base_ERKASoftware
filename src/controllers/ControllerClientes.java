@@ -5,6 +5,8 @@ import models.ModelClientes;
 import views.ViewClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.ModelMain;
+import views.ViewMain;
 
 /**
  *
@@ -43,8 +45,8 @@ public class ControllerClientes {
             else if (e.getSource() == viewClientes.jb_modificar) {
                 jb_modificar_actionPerformed();
             }
-            else if (e.getSource() == viewClientes.jb_eliminar) {
-//                jb_eliminar_actionPerformed();
+            else if (e.getSource() == viewClientes.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
         }
     };
@@ -111,7 +113,7 @@ public class ControllerClientes {
         viewClientes.jb_nuevo.addActionListener(actionListener);
         viewClientes.jb_insertar.addActionListener(actionListener);
         viewClientes.jb_modificar.addActionListener(actionListener);
-        viewClientes.jb_eliminar.addActionListener(actionListener);
+        viewClientes.jb_menuprincipal.addActionListener(actionListener);
     }
     
     
@@ -245,12 +247,15 @@ public class ControllerClientes {
         modelClientes.modificarRegistro(); // Invoca al método para Modificar (actualizar) un registro.
     }
     
-//    /**
-//     * Método para eliminar un registro de la tabla contactos.
-//     */
-//    private void jbtn_eliminar_actionPerformed() {
-//        modelAgenda.eliminarRegistro(); // Invoca al método para Eliminar un registro.
-//    }
+    /**
+     * Método para regresar a la menú (frame) principal...
+     */
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewClientes.setVisible(false);
+    }
     
     
 } // Cierre de la clase ControllerClientes.

@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.ModelMain;
+import views.ViewMain;
 
 public class ControllerEmpleadosVentas {
     ModelEmpleadosVentas modelEmpleadosVentas;
@@ -45,8 +47,8 @@ public class ControllerEmpleadosVentas {
             else if (e.getSource() == viewEmpleadosVentas.jb_modificar1) {
                 jb_modificar1_actionPerformed();
             }
-            else if (e.getSource() == viewEmpleadosVentas.jb_eliminar) {
-//                jb_eliminar_actionPerformed();
+            else if (e.getSource() == viewEmpleadosVentas.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
         }
     };
@@ -123,7 +125,7 @@ public class ControllerEmpleadosVentas {
         viewEmpleadosVentas.jb_nuevo1.addActionListener(actionListener);
         viewEmpleadosVentas.jb_insertar1.addActionListener(actionListener);
         viewEmpleadosVentas.jb_modificar1.addActionListener(actionListener);
-        viewEmpleadosVentas.jb_eliminar1.addActionListener(actionListener);
+        viewEmpleadosVentas.jb_menuprincipal.addActionListener(actionListener);
     }
 
      private void setValues() {
@@ -272,6 +274,14 @@ public class ControllerEmpleadosVentas {
         modelEmpleadosVentas.setContrasena_empleado(viewEmpleadosVentas.jpf_passwd1.getText());
         
         modelEmpleadosVentas.modificarRegistro(); 
+    }
+    
+    
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewEmpleadosVentas.setVisible(false);
     }
      
      

@@ -12,6 +12,8 @@ import java.awt.Component;
 import java.awt.PopupMenu;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumnModel;
+import models.ModelMain;
+import views.ViewMain;
 
 /**
  *
@@ -49,6 +51,9 @@ public class ControllerVentas {
             }
             else if (e.getSource() == viewVentas.jb_modificar) {
                 jb_modificar_actionPerformed();
+            }
+            else if (e.getSource() == viewVentas.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
             // Botones para panel de detalle de Compra.
             else if (e.getSource() == viewVentas.jb_agregarproducto) {
@@ -156,6 +161,7 @@ public class ControllerVentas {
         viewVentas.jb_insertar.addActionListener(actionListener);
         viewVentas.jb_modificar.addActionListener(actionListener);
         viewVentas.jb_cotizacion.addActionListener(actionListener);
+        viewVentas.jb_menuprincipal.addActionListener(actionListener);
         
         viewVentas.jb_agregarproducto.addActionListener(actionListener);
         viewVentas.jb_eliminarproducto.addActionListener(actionListener);
@@ -428,6 +434,17 @@ public class ControllerVentas {
         }
         viewVentas.jtab_detalle_venta.setEnabled(true); // Habilita la tabla detalle de venta
         viewVentas.jb_primero.setEnabled(true); viewVentas.jb_anterior1.setEnabled(true); viewVentas.jb_siguiente.setEnabled(true); viewVentas.jb_ultimo.setEnabled(true);
+    }
+    
+    
+    /**
+     * Método para regresar a la menú (frame) principal...
+     */
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewVentas.setVisible(false);
     }
     
     

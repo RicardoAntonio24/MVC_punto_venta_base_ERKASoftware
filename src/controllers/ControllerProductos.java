@@ -5,6 +5,8 @@ import models.ModelProductos;
 import views.ViewProductos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.ModelMain;
+import views.ViewMain;
 
 /**
  *
@@ -41,8 +43,8 @@ public class ControllerProductos {
             else if (e.getSource() == viewProductos.jb_modificar) {
                 jb_modificar_actionPerformed();
             }
-            else if (e.getSource() == viewProductos.jb_eliminar) {
-//                jb_eliminar_actionPerformed();
+            else if (e.getSource() == viewProductos.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
             else if (e.getSource() == viewProductos.jb_mostrarstock) {
                 jb_mostrarstock_actionPerformed();
@@ -111,7 +113,7 @@ public class ControllerProductos {
         viewProductos.jb_nuevo.addActionListener(actionListener);
         viewProductos.jb_insertar.addActionListener(actionListener);
         viewProductos.jb_modificar.addActionListener(actionListener);
-        viewProductos.jb_eliminar.addActionListener(actionListener);
+        viewProductos.jb_menuprincipal.addActionListener(actionListener);
         
         viewProductos.jb_mostrarstock.addActionListener(actionListener);
         viewProductos.jb_insertar_stock.addActionListener(actionListener);
@@ -254,6 +256,17 @@ public class ControllerProductos {
         modelProductos.setExistencias(Integer.parseInt(viewProductos.jtf_stock.getText()));
         
         modelProductos.modificarStock();
+    }
+    
+    
+    /**
+     * Método para regresar a la menú (frame) principal...
+     */
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewProductos.setVisible(false);
     }
     
     

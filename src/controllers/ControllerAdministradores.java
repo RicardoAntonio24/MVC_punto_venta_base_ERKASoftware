@@ -13,7 +13,9 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.ModelEmpleadosVentas;
+import models.ModelMain;
 import views.ViewEmpleadosVentas;
+import views.ViewMain;
 
 /**
  *
@@ -48,8 +50,8 @@ public class ControllerAdministradores {
             else if (e.getSource() == viewAdministradores.jb_modificar) {
                 jb_modificar_actionPerformed();
             }
-            else if (e.getSource() == viewAdministradores.jb_eliminar) {
-//                jb_eliminar_actionPerformed();
+            else if (e.getSource() == viewAdministradores.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
         }
     };
@@ -129,7 +131,7 @@ public class ControllerAdministradores {
         viewAdministradores.jb_nuevo.addActionListener(actionListener);
         viewAdministradores.jb_insertar.addActionListener(actionListener);
         viewAdministradores.jb_modificar.addActionListener(actionListener);
-        viewAdministradores.jb_eliminar.addActionListener(actionListener);
+        viewAdministradores.jb_menuprincipal.addActionListener(actionListener);
     }
     
      private void setValues() {
@@ -291,5 +293,12 @@ public class ControllerAdministradores {
         modelAdministradores.modificarRegistro(); 
     }
     
+    
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewAdministradores.setVisible(false);
+    }
     
 }

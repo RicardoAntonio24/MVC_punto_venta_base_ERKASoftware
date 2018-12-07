@@ -3,7 +3,9 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.ModelMain;
 import models.ModelProveedores;
+import views.ViewMain;
 import views.ViewProveedores;
 
 /**
@@ -43,8 +45,8 @@ public class ControllerProveedores {
             else if (e.getSource() == viewProveedores.jb_modificar) {
                 jb_modificar_actionPerformed();
             }
-            else if (e.getSource() == viewProveedores.jb_eliminar) {
-//                jb_eliminar_actionPerformed();
+            else if (e.getSource() == viewProveedores.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
         }
     };
@@ -108,7 +110,7 @@ public class ControllerProveedores {
         viewProveedores.jb_nuevo.addActionListener(actionListener);
         viewProveedores.jb_insertar.addActionListener(actionListener);
         viewProveedores.jb_modificar.addActionListener(actionListener);
-        viewProveedores.jb_eliminar.addActionListener(actionListener);
+        viewProveedores.jb_menuprincipal.addActionListener(actionListener);
     }
     
     
@@ -230,13 +232,13 @@ public class ControllerProveedores {
         modelProveedores.modificarRegistro(); // Invoca al método para Modificar (actualizar) un registro.
     }
     
-//    /**
-//     * Método para eliminar un registro de la tabla contactos.
-//     */
-//    private void jbtn_eliminar_actionPerformed() {
-//        modelAgenda.eliminarRegistro(); // Invoca al método para Eliminar un registro.
-//    }
     
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewProveedores.setVisible(false);
+    }
     
     
 } // Cierre de la clase ControllerProveedores

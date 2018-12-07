@@ -3,7 +3,9 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.ModelMain;
 import models.ModelSucursales;
+import views.ViewMain;
 import views.ViewSucursales;
 
 
@@ -42,8 +44,8 @@ public class ControllerSucursales {
             else if (e.getSource() == viewSucursales.jb_modificar) {
                 jb_modificar_actionPerformed();
             }
-            else if (e.getSource() == viewSucursales.jb_eliminar) {
-//                jb_eliminar_actionPerformed();
+            else if (e.getSource() == viewSucursales.jb_menuprincipal) {
+                jb_menuprincipal_actionPerformed();
             }
         }
     };
@@ -95,7 +97,7 @@ public class ControllerSucursales {
         viewSucursales.jb_nuevo.addActionListener(actionListener);
         viewSucursales.jb_insertar.addActionListener(actionListener);
         viewSucursales.jb_modificar.addActionListener(actionListener);
-        viewSucursales.jb_eliminar.addActionListener(actionListener);
+        viewSucursales.jb_menuprincipal.addActionListener(actionListener);
             }
 
             private void jb_primero_actionPerformed() {
@@ -168,6 +170,15 @@ public class ControllerSucursales {
         viewSucursales.jtf_codigopostal.setText(modelSucursales.getCod_postal());
         viewSucursales.jcb_estado.setSelectedItem(modelSucursales.getEstado());
         viewSucursales.jtf_ciudad.setText(modelSucursales.getCiudad()); 
+    }
+    
+    
+    
+    private void jb_menuprincipal_actionPerformed() {
+        ModelMain modelMain = new ModelMain();
+        ViewMain viewMain = new ViewMain();
+        ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+        viewSucursales.setVisible(false);
     }
         
 
