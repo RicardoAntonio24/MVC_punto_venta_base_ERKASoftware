@@ -81,16 +81,15 @@ public class ModelInicioSesion {
             nom_usuario = this.getNom_usuario();
             contrasena = this.getContrasena();
             rol = this.getRol();
-              System.out.println("    Valores: " + nom_usuario + ", " + contrasena + ", " + rol);
             
             if ("Administrador".equals(rol)) {
                 String validacion = "SELECT * FROM administradores WHERE nom_usuario = '"+ nom_usuario +"' AND contrasena_admin = '"+ contrasena +"'; ";
                 rs = st.executeQuery(validacion);
                 if (rs.next()) {
                     ingreso = true;
-                      System.out.println("  Ingreso exitoso !! " + rol);
                 }
                 else {
+                    ingreso = false;
                     JOptionPane.showMessageDialog(null, "Nombre de usuario, Contraseña o Rol inválidos", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -99,9 +98,9 @@ public class ModelInicioSesion {
                 rs = st.executeQuery(validacion);
                 if (rs.next()) {
                     ingreso = true;
-                      System.out.println("  Ingreso exitoso !! " + rol);
                 }
                 else {
+                    ingreso = false;
                     JOptionPane.showMessageDialog(null, "Nombre de usuario, Contraseña o Rol inválidos", "", JOptionPane.ERROR_MESSAGE);
                 }
             }

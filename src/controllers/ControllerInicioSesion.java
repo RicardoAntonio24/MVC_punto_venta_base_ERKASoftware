@@ -4,7 +4,9 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.ModelInicioSesion;
+import models.ModelMain;
 import views.ViewInicioSesion;
+import views.ViewMain;
 
 /**
  *
@@ -47,7 +49,7 @@ public class ControllerInicioSesion {
      */
     public void initComponents() {
         viewInicioSesion.setLocationRelativeTo(null);
-        viewInicioSesion.setTitle("Login - Sistema Ferretería ACME");
+        viewInicioSesion.setTitle("Login - Sistema de Venta Ferretería");
         viewInicioSesion.setVisible(true);
     }
     
@@ -73,11 +75,23 @@ public class ControllerInicioSesion {
      */
     private void jb_iniciar_actionPerformed() {
         valoresIngreso();
-//          System.out.println("  Valores asignados !!");
         modelInicioSesion.iniciarSesion();
-//          System.out.println("  Método llamado !!");
         // Código para acceder al menú principal (en caso de ingreso permitido)...
-        
+        if (modelInicioSesion.isIngreso() == true) {
+            ModelMain modelMain = new ModelMain();
+            ViewMain viewMain = new ViewMain();
+            ControllerMain controllerMain = new ControllerMain(modelMain, viewMain);
+            viewInicioSesion.setVisible(false); // Oculta la ventana de Inicio de Sesión si el ingreso es exitoso (cambio de frame).
+            
+            if ("Ventas".equals(modelInicioSesion.getRol())) {
+                viewMain.jb_admin.setEnabled(false);
+                viewMain.jb_productos.setEnabled(false);
+                viewMain.jb_promo.setEnabled(false);
+                viewMain.jb_proveedores.setEnabled(false);
+                viewMain.jb_reportes.setEnabled(false);
+                viewMain.jb_respaldo.setEnabled(false);
+            }
+        }
     }
     
     

@@ -6,6 +6,7 @@ import models.ModelAdministradores;
 import models.ModelClientes;
 import models.ModelCompras;
 import models.ModelEmpleadosVentas;
+import models.ModelInicioSesion;
 import models.ModelMain;
 import models.ModelProductos;
 import models.ModelProductosDefectuosos;
@@ -16,6 +17,7 @@ import views.ViewAdministradores;
 import views.ViewClientes;
 import views.ViewCompras;
 import views.ViewEmpleadosVentas;
+import views.ViewInicioSesion;
 import views.ViewMain;
 import views.ViewProductos;
 import views.ViewProductosDefectuosos;
@@ -217,11 +219,12 @@ public class ControllerMain {
      * Método para salir de la interfaz principal (sesión actual), dirigiendose a la interfaz de Inicio de Sesión.
      */
     private void jb_cerrar_actionPerformed() {
-        
-        
+        ModelInicioSesion modelInicioSesion = new ModelInicioSesion();
+        ViewInicioSesion viewInicioSesion = new ViewInicioSesion();
+        ControllerInicioSesion controllerInicioSesion = new ControllerInicioSesion(modelInicioSesion, viewInicioSesion);
+        viewMain.setVisible(false); // Vuelve "invisible" la interfaz principal para el cambio de interfaz.
     }
     
     
     
-
 } // Cierre de la clase ControllerMain
