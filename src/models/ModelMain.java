@@ -48,53 +48,44 @@ public class ModelMain {
     
 
     private static final String USERNAME = "pi";
-    private static final String HOST = "proxy6.remot3.it";
-    private static final int PORT = 37481;
+    private static final String HOST = "proxy19.rt3.io";
+    private static final int PORT = 31499;
     private static final String PASSWORD = "raspberry";
-
-    /**
+     /**
      *
      */
     public void generarRespaldo() {
         try {
             SSHConnector sshConnector = new SSHConnector();
-
-            sshConnector.connect(USERNAME, PASSWORD, HOST, PORT);
+             sshConnector.connect(USERNAME, PASSWORD, HOST, PORT);
             String result = sshConnector.executeCommand("mysqldump -u tic41 -ptic41 ferreteria_acme > /home/pi/Documents/ERKASoftwareBD/bd-backup_fe-acme.sql");
             sshConnector.disconnect();
-
-            System.out.println(result);
+             System.out.println(result);
             JOptionPane.showMessageDialog(null, "Respaldo generado correctamente.");
-
-        } catch (JSchException ex) {
+         } catch (JSchException ex) {
             ex.printStackTrace();
-
-            System.out.println(ex.getMessage());
+             System.out.println(ex.getMessage());
         } catch (IllegalAccessException ex) {
             ex.printStackTrace();
-
-            System.out.println(ex.getMessage());
+             System.out.println(ex.getMessage());
         } catch (IOException ex) {
             ex.printStackTrace();
-
-            System.out.println(ex.getMessage());
+             System.out.println(ex.getMessage());
         }
-
-//            JOptionPane.showMessageDialog(null, "Archivo de respaldo generado.");
+ //            JOptionPane.showMessageDialog(null, "Archivo de respaldo generado.");
 //        } catch (Exception ex) {
 //            JOptionPane.showMessageDialog(null, "Error al generar respaldo de la BD: " + ex.getMessage());
 //        }
     }
+     
+    
+    
 
-    
-    
-    
     /**
      * Clase encargada de establecer conexión y ejecutar comandos SSH.
      */
     public class SSHConnector {
-
-        /**
+         /**
          * Constante que representa un enter.
          */
         private static final String ENTER_KEY = "n";
@@ -102,8 +93,7 @@ public class ModelMain {
          * Sesión SSH establecida.
          */
         private Session session;
-
-        /**
+         /**
          * Establece una conexión SSH.
          *
          * @param username Nombre de usuario.
@@ -119,20 +109,16 @@ public class ModelMain {
                 throws JSchException, IllegalAccessException {
             if (this.session == null || !this.session.isConnected()) {
                 JSch jsch = new JSch();
-
-                this.session = jsch.getSession(username, host, port);
+                 this.session = jsch.getSession(username, host, port);
                 this.session.setPassword(password);
-
-                // Parametro para no validar key de conexion.
+                 // Parametro para no validar key de conexion.
                 this.session.setConfig("StrictHostKeyChecking", "no");
-
-                this.session.connect();
+                 this.session.connect();
             } else {
                 throw new IllegalAccessException("Sesion SSH ya iniciada.");
             }
         }
-
-        /**
+         /**
          * Ejecuta un comando SSH.
          *
          * @param command Comando SSH a ejecutar.
@@ -149,38 +135,30 @@ public class ModelMain {
         public final String executeCommand(String command)
                 throws IllegalAccessException, JSchException, IOException {
             if (this.session != null && this.session.isConnected()) {
-
-                // Abrimos un canal SSH. Es como abrir una consola.
+                 // Abrimos un canal SSH. Es como abrir una consola.
                 ChannelExec channelExec = (ChannelExec) this.session.
                         openChannel("exec");
-
-                InputStream in = channelExec.getInputStream();
-
-                // Ejecutamos el comando.
+                 InputStream in = channelExec.getInputStream();
+                 // Ejecutamos el comando.
                 channelExec.setCommand(command);
                 channelExec.connect();
-
-                // Obtenemos el texto impreso en la consola.
+                 // Obtenemos el texto impreso en la consola.
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 StringBuilder builder = new StringBuilder();
                 String linea;
-
-                while ((linea = reader.readLine()) != null) {
+                 while ((linea = reader.readLine()) != null) {
                     builder.append(linea);
                     builder.append(ENTER_KEY);
                 }
-
-                // Cerramos el canal SSH.
+                 // Cerramos el canal SSH.
                 channelExec.disconnect();
-
-                // Retornamos el texto impreso en la consola.
+                 // Retornamos el texto impreso en la consola.
                 return builder.toString();
             } else {
                 throw new IllegalAccessException("No existe sesion SSH iniciada.");
             }
         }
-
-        /**
+         /**
          * Cierra la sesión SSH.
          */
         public final void disconnect() {
