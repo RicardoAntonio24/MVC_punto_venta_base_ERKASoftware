@@ -266,6 +266,7 @@ public class ModelPromocionesDescuentos {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/ferreteria_acme", "root", "");
             st = conexion.createStatement();
             String sql = "SELECT * FROM promociones";
+            
             rs = st.executeQuery(sql);
             
             rs.first();
@@ -364,7 +365,15 @@ public class ModelPromocionesDescuentos {
             if (rs.next()) {
                nom_sucursal = rs.getString(1);
             }
-           
+            
+            //descuentos
+          /**id_descuento = rs.getInt("id_descuento");
+            monto_minimo = rs.getFloat("monto_minimo");
+            monto_limite = rs.getFloat("monto_limite");
+            
+            porcentaje_descuento = rs.getInt("porcentaje_descuento");
+            fecha_inicio2 = rs.getDate("fecha_inicio2");
+            fecha_limite2 = rs.getDate("fecha_limite2");**/
 
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Error model 102: " + err.getMessage());
@@ -381,7 +390,7 @@ public class ModelPromocionesDescuentos {
             descuento_promocion = promo.getInt("descuento_promocion");
           
             id_producto = promo.getInt("id_producto");
-            // Obtiene los nombres de productos existentes en la BD, para asginarlos al ComboBox...
+           
             String cons_prod = "SELECT nombre_producto FROM productos WHERE id_producto = " + id_producto + "; ";
             rs = st.executeQuery(cons_prod);
             if (rs.next()) {
@@ -516,7 +525,7 @@ public class ModelPromocionesDescuentos {
             table_promo.addColumn("Fecha Inicio");
             table_promo.addColumn("Fecha Limite");
             table_promo.addColumn("Sucursal");
-            mostrar();
+           mostrar();
         } catch (Exception err) {
             JOptionPane.showMessageDialog(null,"Error "+err.getMessage());
         }
@@ -577,7 +586,7 @@ public class ModelPromocionesDescuentos {
              this.conectarDB();       
              
              //si quito mostrar me pone el id de producto 35 y si no lo quito me repite los mismos registros pero con el id correspondiente
-           // mostrar();
+            mostrar();
         }catch(Exception err){
             JOptionPane.showMessageDialog(null,"No se puede guardar");
         }
@@ -638,16 +647,384 @@ public class ModelPromocionesDescuentos {
         
         
         
-        //variables
-        
-        
-        
+        //variables DESCUENTOS
         
     
+        private int id_descuento;
+        private float monto_minimo;
+        private float monto_limite;
+        private int porcentaje_descuento;
+        private Date  fecha_inicio2;
+        private Date fecha_limite2;
+        
+        private String fecha_ini; 
+        private String fecha_lim;
+        
+        
+        private String diaDesc1;
+        private String mesDesc1;
+        private String anioDesc1;
+        
+        
+         private String diaDesc2;
+        private String mesDesc2;
+        private String anioDesc2;
+        
+    public int getId_descuento() {
+        return id_descuento;
+    }
 
+    public void setId_descuento(int id_descuento) {
+        this.id_descuento = id_descuento;
+    }
 
+    public float getMonto_minimo() {
+        return monto_minimo;
+    }
 
+    public void setMonto_minimo(float monto_minimo) {
+        this.monto_minimo = monto_minimo;
+    }
+
+    public float getMonto_limite() {
+        return monto_limite;
+    }
+
+    public void setMonto_limite(float monto_limite) {
+        this.monto_limite = monto_limite;
+    }
+
+    public int getPorcentaje_descuento() {
+        return porcentaje_descuento;
+    }
+
+    public void setPorcentaje_descuento(int porcentaje_descuento) {
+        this.porcentaje_descuento = porcentaje_descuento;
+    }
+
+    public Date getFecha_inicio2() {
+        return fecha_inicio2;
+    }
+
+    public void setFecha_inicio2(Date fecha_inicio2) {
+        this.fecha_inicio2 = fecha_inicio2;
+    }
+
+    public Date getFecha_limite2() {
+        return fecha_limite2;
+    }
+
+    public void setFecha_limite2(Date fecha_limite2) {
+        this.fecha_limite2 = fecha_limite2;
+    }
+    
+    
+
+    public String getFecha_ini() {
+        return fecha_ini;
+    }
+
+    public void setFecha_ini(String fecha_ini) {
+        this.fecha_ini = fecha_ini;
+    }
+
+    public String getFecha_lim() {
+        return fecha_lim;
+    }
+
+    public void setFecha_lim(String fecha_lim) {
+        this.fecha_lim = fecha_lim;
+    }
+
+    public String getDiaDesc1() {
+        return diaDesc1;
+    }
+
+    public void setDiaDesc1(String diaDesc1) {
+        this.diaDesc1 = diaDesc1;
+    }
+
+    public String getMesDesc1() {
+        return mesDesc1;
+    }
+
+    public void setMesDesc1(String mesDesc1) {
+        this.mesDesc1 = mesDesc1;
+    }
+
+    public String getAnioDesc1() {
+        return anioDesc1;
+    }
+
+    public void setAnioDesc1(String anioDesc1) {
+        this.anioDesc1 = anioDesc1;
+    }
+
+    public String getDiaDesc2() {
+        return diaDesc2;
+    }
+
+    public void setDiaDesc2(String diaDesc2) {
+        this.diaDesc2 = diaDesc2;
+    }
+
+    public String getMesDesc2() {
+        return mesDesc2;
+    }
+
+    public void setMesDesc2(String mesDesc2) {
+        this.mesDesc2 = mesDesc2;
+    }
+
+    public String getAnioDesc2() {
+        return anioDesc2;
+    }
+
+    public void setAnioDesc2(String anioDesc2) {
+        this.anioDesc2 = anioDesc2;
+    }
+    
+    
+        
+        
+         
+        
+
+     public void llenarTabla2() {
+        try {
+            table_descuento.addColumn("Id Descuento");
+            table_descuento.addColumn("Monto Minimo");
+            table_descuento.addColumn("Monto maximo");
+            table_descuento.addColumn("Descuento");
+            table_descuento.addColumn("Fecha Inicio");
+            table_descuento.addColumn("Fecha Limite");
+           
+           mostrar2();
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(null,"Error "+err.getMessage());
+        }
+    }    
+    
+     
+
+            public DefaultTableModel table_descuento = new DefaultTableModel();
+     
+                  private String[] registro_descuento = new String[6];
+                  private String temp_iddescuento;
+                  private String temp_montomini;
+                  private String temp_montolimi;
+                  private String temp_porcentaje;
+                  private String temp_fechaini;
+                  private String temp_fechalimi;
+
+    public DefaultTableModel getTable_descuento() {
+        return table_descuento;
+    }
+
+    public void setTable_descuento(DefaultTableModel table_descuento) {
+        this.table_descuento = table_descuento;
+    }
+
+    public String[] getRegistro_descuento() {
+        return registro_descuento;
+    }
+
+    public void setRegistro_descuento(String[] registro_descuento) {
+        this.registro_descuento = registro_descuento;
+    }
+
+    public String getTemp_iddescuento() {
+        return temp_iddescuento;
+    }
+
+    public void setTemp_iddescuento(String temp_iddescuento) {
+        this.temp_iddescuento = temp_iddescuento;
+    }
+
+    public String getTemp_montomini() {
+        return temp_montomini;
+    }
+
+    public void setTemp_montomini(String temp_montomini) {
+        this.temp_montomini = temp_montomini;
+    }
+
+    public String getTemp_montolimi() {
+        return temp_montolimi;
+    }
+
+    public void setTemp_montolimi(String temp_montolimi) {
+        this.temp_montolimi = temp_montolimi;
+    }
+
+    public String getTemp_porcentaje() {
+        return temp_porcentaje;
+    }
+
+    public void setTemp_porcentaje(String temp_porcentaje) {
+        this.temp_porcentaje = temp_porcentaje;
+    }
+
+    public String getTemp_fechaini() {
+        return temp_fechaini;
+    }
+
+    public void setTemp_fechaini(String temp_fechaini) {
+        this.temp_fechaini = temp_fechaini;
+    }
+
+    public String getTemp_fechalimi() {
+        return temp_fechalimi;
+    }
+
+    public void setTemp_fechalimi(String temp_fechalimi) {
+        this.temp_fechalimi = temp_fechalimi;
+    }
+    
+    public void conectarDB2() {
+        try {
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/ferreteria_acme", "root", "");
+            st = conexion.createStatement();
+            String sql2 = "SELECT * FROM descuentos";
+            
+            rs = st.executeQuery(sql2);
+            
+            rs.first();
+            setValues2();
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error ModelPromocionesDescuentos 001: " + err.getMessage());
+        }
+    }
+     public void setValues2() {
+        try {
+            
+            
+            //descuentos
+            id_descuento = rs.getInt("id_descuento");
+            monto_minimo = rs.getFloat("monto_minimo");
+            monto_limite = rs.getFloat("monto_limite");
+            
+            porcentaje_descuento = rs.getInt("porcentaje_descuento");
+            fecha_inicio2 = rs.getDate("fecha_inicio");
+            fecha_limite2 = rs.getDate("fecha_limite");
+
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error model 105: " + err.getMessage());
+        }
+    }
+    
+    
+    
+    
+     private ResultSet descuen;
+    public void setValuesDescuento() {
+        try {
+            id_descuento = descuen.getInt("id_descuento");
+            monto_minimo = descuen.getFloat("monto_minimo");
+            monto_limite = descuen.getFloat("monto_limite");
+            
+            porcentaje_descuento = descuen.getInt("porcentaje_descuento");
+         
+            
+            registro_descuento[0] = Integer.toString(id_descuento);
+            registro_descuento[1] = Float.toString(monto_minimo);
+            registro_descuento[2] = Float.toString(monto_limite);
+            registro_descuento[3] = Integer.toString(porcentaje_descuento);
+            
+//            // fechas
+//            fecha_inicio = anio + "-" + mes + "-" + dia;
+//              System.out.println("  Fecha 1: " + fecha_inicio);
+//            fecha_limite = anio + "-" + mes + "-" + dia;
+//              System.out.println("  Fecha 2: " + fecha_limite);
+            
+            registro_descuento[4] = fecha_ini;
+            registro_descuento[5] = fecha_lim;
+            
+            
+            
+            table_descuento.addRow(registro_descuento);
+
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error model 103: " + err.getMessage());
+        }} 
+    
+    
+    public void mostrar2() throws SQLException{
+        st = conexion.createStatement();  
+        
+        String sql2 = "select id_descuento, monto_minimo, monto_limite, porcentaje_descuento, fecha_inicio, fecha_limite from descuentos";
+        rs = st.executeQuery(sql2);
+        
+       
+             try{
+                 while(rs.next()){
+                     
+                     
+                     table_promo.addRow(new Object[]{
+                         rs.getString("id_descuento"),
+                         rs.getString("monto_minimo"),
+                         rs.getString("monto_limite"),
+                         rs.getString("porcentaje_descuento"),
+                         rs.getString("fecha_inicio"),
+                        
+                          rs.getString("fecha_limite")});
+                    
+                     }
+                             
+                 } catch(Exception e){
+                     
+                     System.out.println(e);
+                 
+             } 
+     }
+    
+    
+   public void agregarDescuento() {
+        try {
+            registro_descuento[0] = temp_iddescuento;
+            registro_descuento[1] = temp_montomini;
+           
+            registro_descuento[2] = temp_montolimi;
+            registro_descuento[3] = temp_porcentaje;
+            
+            
+            // fechas
+            temp_fechaini = anioDesc1 + "-" + mesDesc1 + "-" + diaDesc1;
+              System.out.println("  Fecha 1: " + temp_fechaini);
+            temp_fechalimi = anioDesc2 + "-" + mesDesc2 + "-" + diaDesc2;
+              System.out.println("  Fecha 2: " + temp_fechalimi);
+              
+            registro_descuento[4] = temp_fechaini;
+            registro_descuento[5] = temp_fechalimi;
+ 
+            table_descuento.addRow(registro_descuento);
+            
+            
+          id_descuento= this.getId_descuento();
+            monto_minimo = this.getMonto_minimo();
+            monto_limite = this.getMonto_limite();
+            porcentaje_descuento = this.getPorcentaje_descuento();
+            fecha_inicio2 = this.getFecha_inicio2();
+            fecha_limite2 = this.getFecha_limite2();
+        
+            
+            
+                    st.executeUpdate("INSERT INTO descuentos ( monto_minimo, monto_limite, porcentaje_descuento, fecha_inicio, fecha_limite)"
+                    + " VALUES ( " + temp_montomini+ ", " + temp_montolimi + ","+ temp_porcentaje+ ",'" + temp_fechaini + "','" + temp_fechalimi + "'); ");
+                    JOptionPane.showMessageDialog(null,"Guardado con Exito");
+             
+             this.conectarDB2();
+             
+           mostrar2();
+        }catch(Exception err){
+            JOptionPane.showMessageDialog(null,"No se puede guardar");
+        }
+ 
+      }
 }
 
+     
+
+
              
-        
+ 

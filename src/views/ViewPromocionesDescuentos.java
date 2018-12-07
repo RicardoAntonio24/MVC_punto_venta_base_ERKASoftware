@@ -37,11 +37,11 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jl_idpromo = new javax.swing.JLabel();
+        jl_iddescuento = new javax.swing.JLabel();
         jl_montominimo = new javax.swing.JLabel();
         jl_montolimite = new javax.swing.JLabel();
         jl_desc = new javax.swing.JLabel();
-        jtf_idpromo = new javax.swing.JTextField();
+        jtf_iddescuento = new javax.swing.JTextField();
         jtf_des = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jl_fechaini = new javax.swing.JLabel();
@@ -53,7 +53,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
         jtf_anio4 = new javax.swing.JTextField();
         jtf_anio3 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_descuento = new javax.swing.JTable();
         jb_nuevo2 = new javax.swing.JButton();
         jb_insertar = new javax.swing.JButton();
         jb_modificar = new javax.swing.JButton();
@@ -149,8 +149,8 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
-        jl_idpromo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jl_idpromo.setText("ID Promocion:");
+        jl_iddescuento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_iddescuento.setText("ID Descuento: ");
 
         jl_montominimo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_montominimo.setText("Monto Minimo:");
@@ -183,7 +183,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_descuento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -194,7 +194,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                 "ID", "Monto Minimo", "Monto Maximo", "Descuento", "Fecha Inicio", "Fecha Limite "
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table_descuento);
 
         jb_nuevo2.setBackground(new java.awt.Color(153, 153, 153));
         jb_nuevo2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -238,7 +238,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_idpromo)
+                            .addComponent(jl_iddescuento)
                             .addComponent(jl_montominimo)
                             .addComponent(jl_montolimite)
                             .addComponent(jl_desc))
@@ -249,7 +249,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtf_montominimo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtf_idpromo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtf_iddescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(68, 68, 68)
                                 .addComponent(jl_fechaini)
                                 .addGap(18, 18, 18)
@@ -315,13 +315,18 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jl_idpromo)
-                            .addComponent(jtf_idpromo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jl_iddescuento)
+                            .addComponent(jtf_iddescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jl_montominimo)
-                                .addGap(11, 11, 11)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jl_montominimo)
+                                        .addGap(11, 11, 11))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jtf_montominimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jl_montolimite)
                                     .addComponent(jtf_montolimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,8 +342,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                                             .addComponent(jcb_mes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel25)
                                             .addComponent(jcb_dia1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jl_fechaini)
-                                            .addComponent(jtf_montominimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jl_fechaini))
                                         .addGap(14, 14, 14))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel30)
@@ -599,7 +603,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel21)
@@ -706,7 +710,6 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
-    public javax.swing.JTable jTable1;
     public javax.swing.JButton jb_insertar;
     public javax.swing.JButton jb_insertar1;
     public javax.swing.JButton jb_modificar;
@@ -732,7 +735,7 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
     public javax.swing.JLabel jl_fechainicio;
     public javax.swing.JLabel jl_fechalim;
     public javax.swing.JLabel jl_fechalimite;
-    public javax.swing.JLabel jl_idpromo;
+    public javax.swing.JLabel jl_iddescuento;
     public javax.swing.JLabel jl_idpromocion;
     public javax.swing.JLabel jl_montolimite;
     public javax.swing.JLabel jl_montominimo;
@@ -745,10 +748,11 @@ public class ViewPromocionesDescuentos extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_anio4;
     public javax.swing.JTextField jtf_des;
     public javax.swing.JTextField jtf_descuento;
-    public javax.swing.JTextField jtf_idpromo;
+    public javax.swing.JTextField jtf_iddescuento;
     public javax.swing.JTextField jtf_idpromocion;
     public javax.swing.JTextField jtf_montolimite;
     public javax.swing.JTextField jtf_montominimo;
+    public javax.swing.JTable table_descuento;
     public javax.swing.JTable table_promo;
     // End of variables declaration//GEN-END:variables
 }
