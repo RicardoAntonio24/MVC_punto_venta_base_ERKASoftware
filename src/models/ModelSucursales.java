@@ -92,7 +92,7 @@ public class ModelSucursales {
 
     public void conectarDB() {
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/ferreteria_acme", "root", "");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/ferreteria_acme", "root", "");
             st = conexion.createStatement();
             String sql = "SELECT * FROM sucursales;";
             rs = st.executeQuery(sql);
